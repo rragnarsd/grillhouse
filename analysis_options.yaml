@@ -1,0 +1,18 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    prefer_single_quotes: true
+    prefer_const_constructors: true
+    prefer_final_locals: true
+    require_trailing_commas: false
+    always_declare_return_types: true
+    avoid_empty_else: true
+    avoid_print: false
+    avoid_relative_lib_imports: true
+    avoid_unnecessary_containers: false
+    always_specify_types: true
+    sized_box_for_whitespace: true
+    sort_child_properties_last: true
+
+
