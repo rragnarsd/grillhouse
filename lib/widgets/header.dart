@@ -1,7 +1,6 @@
 import 'package:dashboard/responsive.dart';
+import 'package:dashboard/utils/constants.dart';
 import 'package:flutter/material.dart';
-
-const double _kHeaderHeight = 80.0;
 
 class AppHeader extends StatelessWidget implements PreferredSizeWidget {
   const AppHeader({super.key, this.scaffoldKey});
@@ -11,30 +10,55 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      leadingWidth: Constants.kLeadingWidth,
       backgroundColor: Colors.white,
       elevation: 0,
       surfaceTintColor: Colors.transparent,
       shape: Border(bottom: BorderSide(color: Colors.grey.shade200, width: 1)),
-      leading: !Responsive.isDesktop(context)
-          ? IconButton(
-              onPressed: () => scaffoldKey?.currentState?.openDrawer(),
-              icon: const Icon(Icons.menu),
-            )
-          : const SizedBox.shrink(),
+      leading: HeaderLeading(scaffoldKey: scaffoldKey),
       title: const HeaderTitle(),
-      toolbarHeight: _kHeaderHeight,
-      actionsPadding: const EdgeInsets.only(right: 24),
-      actions: <Widget>[
-        const HeaderSearchButton(),
-        const HeaderNotificationButton(),
-        const SizedBox(width: 10),
-        const HeaderUserProfile(),
+      toolbarHeight: Constants.kHeaderHeight,
+      actionsPadding: _getActionsPadding(context),
+      actions: const <Widget>[
+        HeaderSearchButton(),
+        HeaderNotificationButton(),
+        SizedBox(width: 10),
+        HeaderUserProfile(),
       ],
     );
   }
 
+  EdgeInsets _getActionsPadding(BuildContext context) {
+    if (Responsive.isDesktop(context)) {
+      return const EdgeInsets.only(right: Constants.kDesktopActionsPadding);
+    } else if (Responsive.isTablet(context)) {
+      return const EdgeInsets.only(right: Constants.kTabletActionsPadding);
+    } else {
+      return const EdgeInsets.only(right: Constants.kMobileActionsPadding);
+    }
+  }
+
   @override
-  Size get preferredSize => const Size.fromHeight(_kHeaderHeight);
+  Size get preferredSize => const Size.fromHeight(Constants.kHeaderHeight);
+}
+
+class HeaderLeading extends StatelessWidget {
+  const HeaderLeading({super.key, this.scaffoldKey});
+
+  final GlobalKey<ScaffoldState>? scaffoldKey;
+
+  @override
+  Widget build(BuildContext context) {
+    if (Responsive.isDesktop(context)) {
+      return const SizedBox.shrink();
+    }
+
+    return IconButton(
+      padding: const EdgeInsets.all(Constants.kMenuButtonPadding),
+      onPressed: () => scaffoldKey?.currentState?.openDrawer(),
+      icon: const Icon(Icons.menu),
+    );
+  }
 }
 
 class HeaderTitle extends StatelessWidget {
