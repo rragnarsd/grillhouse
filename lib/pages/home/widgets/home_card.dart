@@ -1,20 +1,11 @@
+import 'package:dashboard/pages/home/data/card_data.dart';
 import 'package:flutter/material.dart';
 
 class HomeCard extends StatelessWidget {
-  const HomeCard({super.key, this.isMobile = false});
+  const HomeCard({super.key, this.isMobile = false, required this.data});
 
   final bool isMobile;
-
-  @override
-  Widget build(BuildContext context) {
-    return !isMobile
-        ? const Expanded(child: HomeCardItem())
-        : const HomeCardItem();
-  }
-}
-
-class HomeCardItem extends StatelessWidget {
-  const HomeCardItem({super.key});
+  final HomeScreenCards data;
 
   @override
   Widget build(BuildContext context) {
@@ -22,34 +13,57 @@ class HomeCardItem extends StatelessWidget {
       margin: EdgeInsets.zero,
       color: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: const Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: HomeCardItem(
+          value: data.value,
+          title: data.title,
+          iconData: data.icon,
+        ),
+      ),
+    );
+  }
+}
+
+class HomeCardItem extends StatelessWidget {
+  const HomeCardItem({
+    super.key,
+    required this.value,
+    required this.title,
+    required this.iconData,
+  });
+
+  final String value;
+  final String title;
+  final IconData iconData;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('Sales Total'),
-            SizedBox(height: 32),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text('Price: \$100'),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Icon(Icons.add),
-                        Text('Total: \$1000'),
-                      ],
-                    ),
-                    SizedBox(width: 135, child: Text('Quantity: 10')),
-                  ],
-                ),
-              ],
+            Text(
+              value,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            ),
+            Text(
+              title,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
             ),
           ],
         ),
-      ),
+        Container(
+          decoration: BoxDecoration(
+            border: Border.all(),
+            borderRadius: BorderRadius.circular(6),
+          ),
+          padding: const EdgeInsets.all(8),
+          child: Icon(iconData, size: 32),
+        ),
+      ],
     );
   }
 }

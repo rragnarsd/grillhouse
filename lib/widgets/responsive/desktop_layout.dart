@@ -29,7 +29,10 @@ class DesktopLayout extends StatelessWidget {
           Expanded(
             flex: 5,
             child: Column(
-              children: <Widget>[const AppHeader(), widget ?? const SizedBox()],
+              children: <Widget>[
+                const AppHeader(),
+                Expanded(child: widget ?? const SizedBox()),
+              ],
             ),
           ),
         ],

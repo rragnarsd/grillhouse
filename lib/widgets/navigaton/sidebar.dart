@@ -19,68 +19,78 @@ class SideBar extends StatelessWidget {
             right: BorderSide(color: Colors.grey.shade200, width: 1),
           ),
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              const SizedBox(height: 16),
-              CircleAvatar(
-                radius: 30,
-                backgroundColor: Colors.grey.shade200,
-                child: const Icon(Icons.person),
+        child: ListView(
+          children: <Widget>[
+            const SizedBox(height: 16),
+            CircleAvatar(
+              radius: 30,
+              backgroundColor: Colors.grey.shade200,
+              child: const Icon(Icons.person),
+            ),
+            const SizedBox(height: 32),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                children: <Widget>[
+                  ...List<Widget>.generate(sidebarItems.length, (int index) {
+                    final SidebarItem item = sidebarItems[index];
+                    final bool isSelected = currentRoute == item.route;
+
+                    return NavItem(
+                      isSelected: isSelected,
+                      item: item,
+                      onRouteChanged: onRouteChanged,
+                    );
+                  }),
+                ],
               ),
-              const SizedBox(height: 32),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Column(
-                  children: <Widget>[
-                    ...List<Widget>.generate(sidebarItems.length, (int index) {
-                      final SidebarItem item = sidebarItems[index];
-                      final bool isSelected = currentRoute == item.route;
-                      //TODO - Extract this to a separate widget
-                      return Padding(
-                        padding: const EdgeInsets.only(top: 8),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: isSelected
-                                ? Colors.deepPurple.shade100
-                                : Colors.grey.shade200,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: ListTile(
-                            leading: Icon(
-                              isSelected
-                                  ? item.activeIcon ?? item.icon
-                                  : item.icon,
-                              color: isSelected
-                                  ? Colors.deepPurple
-                                  : Colors.black,
-                            ),
-                            title: Text(
-                              item.title,
-                              style: TextStyle(
-                                color: isSelected
-                                    ? Colors.deepPurple
-                                    : Colors.black,
-                                fontWeight: isSelected
-                                    ? FontWeight.bold
-                                    : FontWeight.normal,
-                              ),
-                            ),
-                            onTap: () {
-                              onRouteChanged(item.route);
-                              if (Navigator.of(context).canPop()) {
-                                Navigator.of(context).pop();
-                              }
-                            },
-                          ),
-                        ),
-                      );
-                    }),
-                  ],
-                ),
-              ),
-            ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class NavItem extends StatelessWidget {
+  const NavItem({
+    super.key,
+    required this.isSelected,
+    required this.item,
+    required this.onRouteChanged,
+  });
+
+  final bool isSelected;
+  final SidebarItem item;
+  final Function(AppRoute p1) onRouteChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 8),
+      child: Container(
+        decoration: BoxDecoration(
+          color: isSelected ? Colors.deepPurple.shade100 : Colors.grey.shade200,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: ListTile(
+          leading: Icon(
+            isSelected ? item.activeIcon ?? item.icon : item.icon,
+            color: isSelected ? Colors.deepPurple : Colors.black,
           ),
+          title: Text(
+            item.title,
+            style: TextStyle(
+              color: isSelected ? Colors.deepPurple : Colors.black,
+              fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+            ),
+          ),
+          onTap: () {
+            onRouteChanged(item.route);
+            if (Navigator.of(context).canPop()) {
+              Navigator.of(context).pop();
+            }
+          },
         ),
       ),
     );

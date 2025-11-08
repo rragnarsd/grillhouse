@@ -1,4 +1,8 @@
+import 'package:dashboard/pages/home/data/card_data.dart';
+import 'package:dashboard/pages/home/widgets/best_seller_section.dart';
+import 'package:dashboard/pages/home/widgets/dashboard_order_table.dart';
 import 'package:dashboard/pages/home/widgets/home_card.dart';
+import 'package:dashboard/pages/home/widgets/revenue_chart_section.dart';
 import 'package:flutter/material.dart';
 
 class HomeDesktopScreen extends StatelessWidget {
@@ -6,74 +10,48 @@ class HomeDesktopScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        const Row(
-          children: <Widget>[
-            HomeCard(),
-            SizedBox(width: 16),
-            HomeCard(),
-            SizedBox(width: 16),
-            HomeCard(),
-            SizedBox(width: 16),
-            HomeCard(),
-          ],
-        ),
-        const SizedBox(height: 32),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Expanded(
-              child: Card(
-                margin: EdgeInsets.zero,
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: const SizedBox(height: 400, child: Text('hæ')),
-              ),
+    return const SingleChildScrollView(
+      child: Column(
+        spacing: 32,
+        children: <Widget>[
+          _HomeCardRow(),
+          DashboardOrderTable(),
+          SizedBox(
+            height: 360,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Expanded(child: BestSellerSection()),
+                SizedBox(width: 32),
+                Expanded(child: RevenueChartSection()),
+              ],
             ),
-            const SizedBox(width: 32),
-            Expanded(
-              child: Card(
-                margin: EdgeInsets.zero,
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: const SizedBox(height: 400, child: Text('hæ')),
-              ),
+          ),
+          SizedBox(height: 24),
+        ],
+      ),
+    );
+  }
+}
+
+class _HomeCardRow extends StatelessWidget {
+  const _HomeCardRow();
+
+  @override
+  Widget build(BuildContext context) {
+    const double spacing = 16.0;
+    return Row(
+      children: List<Widget>.generate(homeScreenCards.length, (int index) {
+        final HomeScreenCards data = homeScreenCards[index];
+        return Expanded(
+          child: Padding(
+            padding: EdgeInsets.only(
+              right: index < homeScreenCards.length - 1 ? spacing : 0,
             ),
-          ],
-        ),
-        const SizedBox(height: 32),
-        Row(
-          children: <Widget>[
-            Expanded(
-              child: Card(
-                margin: EdgeInsets.zero,
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: const SizedBox(height: 400, child: Text('hæ')),
-              ),
-            ),
-            const SizedBox(width: 32),
-            Expanded(
-              flex: 2,
-              child: Card(
-                margin: EdgeInsets.zero,
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: const SizedBox(height: 400, child: Text('hæ')),
-              ),
-            ),
-          ],
-        ),
-      ],
+            child: HomeCard(data: data),
+          ),
+        );
+      }),
     );
   }
 }

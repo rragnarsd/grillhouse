@@ -33,6 +33,12 @@ class ResponsiveBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(padding: padding, child: _getScreenForRoute(currentRoute));
+    return Padding(
+      padding: padding,
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 1366),
+        child: _getScreenForRoute(currentRoute),
+      ),
+    );
   }
 }
