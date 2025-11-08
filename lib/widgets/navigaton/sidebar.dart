@@ -1,8 +1,12 @@
-import 'package:dashboard/data.dart';
+import 'package:dashboard/utils/routes.dart';
+import 'package:dashboard/widgets/navigaton/data/sidebar_data.dart';
 import 'package:flutter/material.dart';
 
 class SideBar extends StatelessWidget {
-  const SideBar({super.key});
+  const SideBar({super.key, required this.onRouteChanged, this.currentRoute});
+
+  final Function(AppRoute) onRouteChanged;
+  final AppRoute? currentRoute;
 
   @override
   Widget build(BuildContext context) {
@@ -31,18 +35,43 @@ class SideBar extends StatelessWidget {
                   children: <Widget>[
                     ...List<Widget>.generate(sidebarItems.length, (int index) {
                       final SidebarItem item = sidebarItems[index];
+                      final bool isSelected = currentRoute == item.route;
                       //TODO - Extract this to a separate widget
                       return Padding(
                         padding: const EdgeInsets.only(top: 8),
                         child: Container(
                           decoration: BoxDecoration(
-                            color: Colors.grey.shade200,
+                            color: isSelected
+                                ? Colors.deepPurple.shade100
+                                : Colors.grey.shade200,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: ListTile(
-                            leading: Icon(item.icon),
-                            title: Text(item.title),
-                            onTap: item.onTap,
+                            leading: Icon(
+                              isSelected
+                                  ? item.activeIcon ?? item.icon
+                                  : item.icon,
+                              color: isSelected
+                                  ? Colors.deepPurple
+                                  : Colors.black,
+                            ),
+                            title: Text(
+                              item.title,
+                              style: TextStyle(
+                                color: isSelected
+                                    ? Colors.deepPurple
+                                    : Colors.black,
+                                fontWeight: isSelected
+                                    ? FontWeight.bold
+                                    : FontWeight.normal,
+                              ),
+                            ),
+                            onTap: () {
+                              onRouteChanged(item.route);
+                              if (Navigator.of(context).canPop()) {
+                                Navigator.of(context).pop();
+                              }
+                            },
                           ),
                         ),
                       );

@@ -1,5 +1,5 @@
-import 'package:dashboard/responsive.dart';
 import 'package:dashboard/utils/constants.dart';
+import 'package:dashboard/utils/responsive.dart';
 import 'package:flutter/material.dart';
 
 class AppHeader extends StatelessWidget implements PreferredSizeWidget {
@@ -10,21 +10,24 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leadingWidth: Constants.kLeadingWidth,
+      leadingWidth: Responsive.isDesktop(context)
+          ? Constants.kLeadingWidth
+          : null,
       backgroundColor: Colors.white,
       elevation: 0,
       surfaceTintColor: Colors.transparent,
       shape: Border(bottom: BorderSide(color: Colors.grey.shade200, width: 1)),
-      leading: HeaderLeading(scaffoldKey: scaffoldKey),
-      title: const HeaderTitle(),
+      leading: _HeaderLeading(scaffoldKey: scaffoldKey),
+      title: const _HeaderTitle(),
       toolbarHeight: Constants.kHeaderHeight,
       actionsPadding: _getActionsPadding(context),
       actions: const <Widget>[
-        HeaderSearchButton(),
-        HeaderNotificationButton(),
+        _HeaderSearchButton(),
+        _HeaderNotificationButton(),
         SizedBox(width: 10),
-        HeaderUserProfile(),
+        _HeaderUserProfile(),
       ],
+      automaticallyImplyLeading: !Responsive.isMobile(context),
     );
   }
 
@@ -42,27 +45,29 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(Constants.kHeaderHeight);
 }
 
-class HeaderLeading extends StatelessWidget {
-  const HeaderLeading({super.key, this.scaffoldKey});
+class _HeaderLeading extends StatelessWidget {
+  const _HeaderLeading({this.scaffoldKey});
 
   final GlobalKey<ScaffoldState>? scaffoldKey;
 
   @override
   Widget build(BuildContext context) {
-    if (Responsive.isDesktop(context)) {
+    if (Responsive.isDesktop(context) || Responsive.isMobile(context)) {
       return const SizedBox.shrink();
     }
 
     return IconButton(
       padding: const EdgeInsets.all(Constants.kMenuButtonPadding),
+      highlightColor: Colors.transparent,
+      hoverColor: Colors.transparent,
       onPressed: () => scaffoldKey?.currentState?.openDrawer(),
       icon: const Icon(Icons.menu),
     );
   }
 }
 
-class HeaderTitle extends StatelessWidget {
-  const HeaderTitle({super.key});
+class _HeaderTitle extends StatelessWidget {
+  const _HeaderTitle();
 
   @override
   Widget build(BuildContext context) {
@@ -89,8 +94,8 @@ class HeaderTitle extends StatelessWidget {
   }
 }
 
-class HeaderSearchButton extends StatelessWidget {
-  const HeaderSearchButton({super.key});
+class _HeaderSearchButton extends StatelessWidget {
+  const _HeaderSearchButton();
 
   @override
   Widget build(BuildContext context) {
@@ -100,8 +105,8 @@ class HeaderSearchButton extends StatelessWidget {
   }
 }
 
-class HeaderNotificationButton extends StatelessWidget {
-  const HeaderNotificationButton({super.key});
+class _HeaderNotificationButton extends StatelessWidget {
+  const _HeaderNotificationButton();
 
   @override
   Widget build(BuildContext context) {
@@ -109,8 +114,8 @@ class HeaderNotificationButton extends StatelessWidget {
   }
 }
 
-class HeaderUserProfile extends StatelessWidget {
-  const HeaderUserProfile({super.key});
+class _HeaderUserProfile extends StatelessWidget {
+  const _HeaderUserProfile();
 
   @override
   Widget build(BuildContext context) {
@@ -118,14 +123,14 @@ class HeaderUserProfile extends StatelessWidget {
       children: <Widget>[
         const CircleAvatar(),
         const SizedBox(width: 10),
-        if (!Responsive.isMobile(context)) const HeaderUserInfo(),
+        if (!Responsive.isMobile(context)) const _HeaderUserInfo(),
       ],
     );
   }
 }
 
-class HeaderUserInfo extends StatelessWidget {
-  const HeaderUserInfo({super.key});
+class _HeaderUserInfo extends StatelessWidget {
+  const _HeaderUserInfo();
 
   @override
   Widget build(BuildContext context) {
