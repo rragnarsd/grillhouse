@@ -123,7 +123,13 @@ class _HeaderUserProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        const CircleAvatar(),
+        SizedBox(
+          height: 48,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(99),
+            child: Image.asset(Constants.profileImg),
+          ),
+        ),
         const SizedBox(width: 10),
         if (!Responsive.isMobile(context)) const _HeaderUserInfo(),
       ],

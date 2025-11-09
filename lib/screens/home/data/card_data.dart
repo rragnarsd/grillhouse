@@ -1,3 +1,4 @@
+import 'package:dashboard/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreenCards {
@@ -13,12 +14,24 @@ class HomeScreenCards {
 }
 
 final List<HomeScreenCards> homeScreenCards = <HomeScreenCards>[
-  HomeScreenCards(value: '120', title: 'Today\'s Orders', icon: Icons.folder),
-  HomeScreenCards(value: '120', title: 'Today\'s Income', icon: Icons.folder),
   HomeScreenCards(
-    value: '240',
-    title: 'Today\'s Customers',
+    value: '120',
+    title: Constants.todaysOrders,
     icon: Icons.folder,
   ),
-  HomeScreenCards(value: '140', title: 'Cancelled Orders', icon: Icons.folder),
+  HomeScreenCards(
+    value: '120',
+    title: Constants.todaysIncome,
+    icon: Icons.folder,
+  ),
+  HomeScreenCards(
+    value: '240',
+    title: Constants.todaysCustomers,
+    icon: Icons.folder,
+  ),
+  HomeScreenCards(
+    value: '140',
+    title: Constants.cancelledOrders,
+    icon: Icons.folder,
+  ),
 ];

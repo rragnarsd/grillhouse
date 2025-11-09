@@ -1,3 +1,4 @@
+import 'package:dashboard/utils/constants.dart';
 import 'package:dashboard/utils/routes.dart';
 import 'package:dashboard/widgets/navigaton/data/sidebar_data.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class SideBar extends StatelessWidget {
     return Drawer(
       shape: const BeveledRectangleBorder(),
       child: Container(
+        width: double.infinity,
         decoration: BoxDecoration(
           color: Colors.white,
           border: Border(
@@ -23,12 +25,18 @@ class SideBar extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
           children: <Widget>[
-            CircleAvatar(
-              radius: 30,
-              backgroundColor: Colors.grey.shade200,
-              child: const Icon(Icons.person),
+            const SizedBox(height: 24),
+            Center(
+              child: SizedBox(
+                height: 100,
+                width: 100,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(160),
+                  child: Image.asset(Constants.profileImg, fit: BoxFit.cover),
+                ),
+              ),
             ),
-            const SizedBox(height: 32),
+            const SizedBox(height: 24),
             ...sidebarItems.map((SidebarItem item) {
               final bool isSelected = currentRoute == item.route;
               return _NavItem(

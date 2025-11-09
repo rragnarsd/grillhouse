@@ -60,6 +60,7 @@ class PaginatedTable extends StatelessWidget {
           isHorizontalScrollBarVisible: true,
           columnSpacing: 12,
           horizontalMargin: 12,
+
           columns: <DataColumn>[
             const DataColumn2(
               size: ColumnSize.S,

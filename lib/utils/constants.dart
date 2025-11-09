@@ -21,6 +21,11 @@ class Constants {
   static const String cancelled = 'Cancelled';
   static const String processing = 'Processing';
 
+  static const String todaysOrders = 'Today\'s Orders';
+  static const String todaysIncome = 'Today\'s Income';
+  static const String todaysCustomers = 'Today\'s Customers';
+  static const String cancelledOrders = 'Cancelled Orders';
+
   static const String jan = 'Jan';
   static const String feb = 'Feb';
   static const String mar = 'Mar';
@@ -52,6 +57,7 @@ class Constants {
   //Assets
   static const String bestSellerImg =
       'https://images.pexels.com/photos/3864682/pexels-photo-3864682.jpeg';
+  static const String profileImg = 'assets/profile_img.png';
 
   //AppHeader
   static const String search = 'Search';
