@@ -1,4 +1,4 @@
-import 'package:dashboard/pages/home/widgets/monthly_revenue_chart.dart';
+import 'package:dashboard/screens/home/widgets/monthly_revenue_chart.dart';
 import 'package:dashboard/utils/constants.dart';
 import 'package:flutter/material.dart';
 

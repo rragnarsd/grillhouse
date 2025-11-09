@@ -1,9 +1,10 @@
 import 'package:dashboard/utils/routes.dart';
+import 'package:dashboard/widgets/navigaton/bottom_nav_bar.dart';
+import 'package:dashboard/widgets/navigaton/header.dart';
 import 'package:dashboard/widgets/responsive/desktop_layout.dart';
-import 'package:dashboard/widgets/responsive/mobile_layout.dart';
 import 'package:dashboard/widgets/responsive/tablet_layout.dart';
-import 'package:dashboard/widgets/responsive_body.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 enum ScreenType { mobile, tablet, desktop }
 
@@ -14,7 +15,7 @@ class Responsive {
   static const int desktopScreenSize = 1366;
 
   static ScreenType getScreenType(BuildContext context) {
-    final double width = MediaQuery.of(context).size.width;
+    final double width = MediaQuery.sizeOf(context).width;
 
     if (width >= desktopScreenSize) {
       return ScreenType.desktop;
@@ -39,53 +40,66 @@ class Responsive {
   }
 }
 
-class ResponsiveDesignScreen extends StatefulWidget {
-  const ResponsiveDesignScreen({super.key});
+class ResponsiveLayoutWrapper extends StatelessWidget {
+  const ResponsiveLayoutWrapper({
+    super.key,
+    required this.child,
+    required this.currentRoute,
+    required this.onRouteChanged,
+    this.bottomNav = false,
+  });
 
-  @override
-  State<ResponsiveDesignScreen> createState() => _ResponsiveDesignScreenState();
-}
-
-class _ResponsiveDesignScreenState extends State<ResponsiveDesignScreen> {
-  AppRoute _currentRoute = AppRoute.home;
-
-  void _onRouteChanged(AppRoute route) {
-    setState(() => _currentRoute = route);
-  }
+  final Widget child;
+  final AppRoute currentRoute;
+  final void Function(AppRoute) onRouteChanged;
+  final bool bottomNav;
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (_, BoxConstraints constraints) {
-        if (constraints.maxWidth >= Responsive.desktopScreenSize) {
-          return DesktopLayout(
-            widget: ResponsiveBody(
-              currentRoute: _currentRoute,
-              padding: const EdgeInsets.all(24),
-            ),
-            currentRoute: _currentRoute,
-            onRouteChanged: _onRouteChanged,
-          );
-        } else if (constraints.maxWidth >= Responsive.tabletScreenSize) {
-          return TabletLayout(
-            widget: ResponsiveBody(
-              currentRoute: _currentRoute,
-              padding: const EdgeInsets.all(16),
-            ),
-            currentRoute: _currentRoute,
-            onRouteChanged: _onRouteChanged,
-          );
-        } else {
-          return MobileLayout(
-            widget: ResponsiveBody(
-              currentRoute: _currentRoute,
-              padding: const EdgeInsets.all(16),
-            ),
-            currentRoute: _currentRoute,
-            onRouteChanged: _onRouteChanged,
-          );
-        }
-      },
+    final ScreenType screenType = Responsive.getScreenType(context);
+
+    switch (screenType) {
+      case ScreenType.desktop:
+        return DesktopLayout(
+          currentRoute: currentRoute,
+          onRouteChanged: onRouteChanged,
+          child: Padding(padding: const EdgeInsets.all(24.0), child: child),
+        );
+
+      case ScreenType.tablet:
+        return TabletLayout(
+          widget: Padding(padding: const EdgeInsets.all(16.0), child: child),
+          currentRoute: currentRoute,
+          onRouteChanged: onRouteChanged,
+        );
+
+      case ScreenType.mobile:
+        return Scaffold(
+          appBar: const AppHeader(),
+          body: Padding(padding: const EdgeInsets.all(16.0), child: child),
+          bottomNavigationBar: bottomNav
+              ? BottomNavBar(
+                  currentRoute: currentRoute,
+                  onRouteChanged: onRouteChanged,
+                )
+              : null,
+        );
+    }
+  }
+}
+
+class ResponsiveDesignScreen extends StatelessWidget {
+  const ResponsiveDesignScreen({super.key, required this.currentRoute});
+
+  final AppRoute currentRoute;
+
+  @override
+  Widget build(BuildContext context) {
+    return ResponsiveLayoutWrapper(
+      currentRoute: currentRoute,
+      onRouteChanged: (AppRoute route) => context.go(route.path),
+      bottomNav: true,
+      child: currentRoute.screen,
     );
   }
 }

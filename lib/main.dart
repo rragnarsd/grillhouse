@@ -1,4 +1,4 @@
-import 'package:dashboard/utils/responsive.dart';
+import 'package:dashboard/utils/routes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,14 +10,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Dashboard',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const ResponsiveDesignScreen(),
-      initialRoute: '/',
+      routerConfig: router,
     );
   }
 }

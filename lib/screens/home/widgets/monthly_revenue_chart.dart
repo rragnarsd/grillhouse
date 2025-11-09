@@ -1,23 +1,9 @@
+import 'package:dashboard/utils/constants.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class MonthlyRevenueChart extends StatelessWidget {
   const MonthlyRevenueChart({super.key});
-
-  static const List<String> _months = <String>[
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
 
   static const List<double> _revenues = <double>[
     3200.0,
@@ -37,11 +23,6 @@ class MonthlyRevenueChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final Color color = Colors.blue.shade400;
-    const double barWidth = 16.0;
-    const BorderRadius borderRadius = BorderRadius.vertical(
-      top: Radius.circular(4),
-    );
 
     return SizedBox(
       height: 280,
@@ -63,13 +44,13 @@ class MonthlyRevenueChart extends StatelessWidget {
                 reservedSize: 30,
                 getTitlesWidget: (double value, TitleMeta meta) {
                   final int index = value.toInt();
-                  if (index < 0 || index >= _months.length) {
+                  if (index < 0 || index >= Constants.months.length) {
                     return const SizedBox.shrink();
                   }
                   return Padding(
                     padding: const EdgeInsets.only(top: 8.0),
                     child: Text(
-                      _months[index],
+                      Constants.months[index],
                       style: theme.textTheme.bodySmall?.copyWith(
                         color: Colors.grey,
                         fontSize: 10,
@@ -121,9 +102,11 @@ class MonthlyRevenueChart extends StatelessWidget {
                 barRods: <BarChartRodData>[
                   BarChartRodData(
                     toY: _revenues[i],
-                    color: color,
-                    width: barWidth,
-                    borderRadius: borderRadius,
+                    color: Colors.blue.shade400,
+                    width: 16.0,
+                    borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(4),
+                    ),
                   ),
                 ],
               ),

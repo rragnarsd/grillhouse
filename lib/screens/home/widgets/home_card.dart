@@ -1,4 +1,4 @@
-import 'package:dashboard/pages/home/data/card_data.dart';
+import 'package:dashboard/screens/home/data/card_data.dart';
 import 'package:flutter/material.dart';
 
 class HomeCard extends StatelessWidget {

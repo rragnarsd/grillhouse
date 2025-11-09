@@ -1,6 +1,6 @@
-import 'package:dashboard/pages/home/responsive/home_desktop_screen.dart';
-import 'package:dashboard/pages/home/responsive/home_mobile_screen.dart';
-import 'package:dashboard/pages/home/responsive/home_tablet_screen.dart';
+import 'package:dashboard/screens/home/responsive/home_desktop_screen.dart';
+import 'package:dashboard/screens/home/responsive/home_mobile_screen.dart';
+import 'package:dashboard/screens/home/responsive/home_tablet_screen.dart';
 import 'package:dashboard/utils/responsive.dart';
 import 'package:flutter/material.dart';
 

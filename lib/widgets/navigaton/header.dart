@@ -9,17 +9,18 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDesktop = Responsive.isDesktop(context);
+    final bool isTablet = Responsive.isTablet(context);
+
     return AppBar(
-      leadingWidth: Responsive.isDesktop(context)
-          ? Constants.kLeadingWidth
-          : null,
+      leadingWidth: isDesktop ? 8.0 : null,
       backgroundColor: Colors.white,
       elevation: 0,
       surfaceTintColor: Colors.transparent,
       shape: Border(bottom: BorderSide(color: Colors.grey.shade200, width: 1)),
-      leading: _HeaderLeading(scaffoldKey: scaffoldKey),
+      leading: isTablet ? _HeaderLeading(scaffoldKey: scaffoldKey) : null,
       title: const _HeaderTitle(),
-      toolbarHeight: Constants.kHeaderHeight,
+      toolbarHeight: 80.0,
       actionsPadding: _getActionsPadding(context),
       actions: const <Widget>[
         _HeaderSearchButton(),
@@ -27,22 +28,23 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
         SizedBox(width: 10),
         _HeaderUserProfile(),
       ],
-      automaticallyImplyLeading: !Responsive.isMobile(context),
+
+      automaticallyImplyLeading: false,
     );
   }
 
   EdgeInsets _getActionsPadding(BuildContext context) {
     if (Responsive.isDesktop(context)) {
-      return const EdgeInsets.only(right: Constants.kDesktopActionsPadding);
+      return const EdgeInsets.only(right: 24.0);
     } else if (Responsive.isTablet(context)) {
-      return const EdgeInsets.only(right: Constants.kTabletActionsPadding);
+      return const EdgeInsets.only(right: 16.0);
     } else {
-      return const EdgeInsets.only(right: Constants.kMobileActionsPadding);
+      return const EdgeInsets.only(right: 8.0);
     }
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(Constants.kHeaderHeight);
+  Size get preferredSize => const Size.fromHeight(80.0);
 }
 
 class _HeaderLeading extends StatelessWidget {
@@ -57,7 +59,7 @@ class _HeaderLeading extends StatelessWidget {
     }
 
     return IconButton(
-      padding: const EdgeInsets.all(Constants.kMenuButtonPadding),
+      padding: const EdgeInsets.all(16.0),
       highlightColor: Colors.transparent,
       hoverColor: Colors.transparent,
       onPressed: () => scaffoldKey?.currentState?.openDrawer(),
@@ -83,7 +85,7 @@ class _HeaderTitle extends StatelessWidget {
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.grey.shade400),
           ),
-          hintText: 'Search',
+          hintText: Constants.search,
           prefixIcon: const Icon(Icons.search),
           border: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.grey.shade200),

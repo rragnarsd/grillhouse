@@ -1,6 +1,39 @@
+import 'package:dashboard/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 enum Status { pending, delivered, cancelled, processing }
+
+class Order {
+  final int id;
+  final String productName;
+  final String customerName;
+  final Status status;
+  final String deliveryTime;
+  final double price;
+
+  Order({
+    required this.id,
+    required this.productName,
+    required this.customerName,
+    required this.status,
+    required this.deliveryTime,
+    required this.price,
+  });
+
+  String get statusLabel => switch (status) {
+    Status.pending => Constants.pending,
+    Status.delivered => Constants.delivered,
+    Status.cancelled => Constants.cancelled,
+    Status.processing => Constants.processing,
+  };
+
+  Color get statusColor => switch (status) {
+    Status.pending => Colors.orange,
+    Status.delivered => Colors.green,
+    Status.cancelled => Colors.red,
+    Status.processing => Colors.blue,
+  };
+}
 
 final List<Order> orders = <Order>[
   Order(
@@ -68,35 +101,3 @@ final List<Order> orders = <Order>[
     price: 16,
   ),
 ];
-
-class Order {
-  final int id;
-  final String productName;
-  final String customerName;
-  final Status status;
-  final String deliveryTime;
-  final double price;
-
-  Order({
-    required this.id,
-    required this.productName,
-    required this.customerName,
-    required this.status,
-    required this.deliveryTime,
-    required this.price,
-  });
-
-  String get statusLabel => switch (status) {
-    Status.pending => 'Pending',
-    Status.delivered => 'Delivered',
-    Status.cancelled => 'Cancelled',
-    Status.processing => 'Processing',
-  };
-
-  Color get statusColor => switch (status) {
-    Status.pending => Colors.orange,
-    Status.delivered => Colors.green,
-    Status.cancelled => Colors.red,
-    Status.processing => Colors.blue,
-  };
-}

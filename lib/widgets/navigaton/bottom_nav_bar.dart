@@ -1,6 +1,7 @@
 import 'package:dashboard/utils/routes.dart';
 import 'package:dashboard/widgets/navigaton/data/sidebar_data.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({
@@ -26,10 +27,12 @@ class BottomNavBar extends StatelessWidget {
       currentIndex: selectedIndex >= 0 ? selectedIndex : 0,
       onTap: (int index) {
         if (index < sidebarItems.length) {
-          onRouteChanged(sidebarItems[index].route);
+          final SidebarItem item = sidebarItems[index];
+          onRouteChanged(item.route);
+          context.go(item.route.path);
         }
       },
-      type: BottomNavigationBarType.shifting,
+      type: BottomNavigationBarType.fixed,
       selectedItemColor: Colors.deepPurple,
       unselectedItemColor: Colors.grey,
       items: sidebarItems.map((SidebarItem item) {

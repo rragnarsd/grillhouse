@@ -6,32 +6,27 @@ import 'package:flutter/material.dart';
 class DesktopLayout extends StatelessWidget {
   const DesktopLayout({
     super.key,
-    this.widget,
+    required this.child,
     required this.currentRoute,
     required this.onRouteChanged,
   });
 
-  final Widget? widget;
+  final Widget child;
   final AppRoute currentRoute;
-  final Function(AppRoute) onRouteChanged;
+  final void Function(AppRoute) onRouteChanged;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Row(
         children: <Widget>[
+          SideBar(currentRoute: currentRoute, onRouteChanged: onRouteChanged),
           Expanded(
-            child: SideBar(
-              currentRoute: currentRoute,
-              onRouteChanged: onRouteChanged,
-            ),
-          ),
-          Expanded(
-            flex: 5,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 const AppHeader(),
-                Expanded(child: widget ?? const SizedBox()),
+                Expanded(child: child),
               ],
             ),
           ),

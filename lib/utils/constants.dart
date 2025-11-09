@@ -1,17 +1,58 @@
 class Constants {
-  //Header
-  static const double kHeaderHeight = 80.0;
-  static const double kLeadingWidth = 8.0;
-  static const double kDesktopActionsPadding = 24.0;
-  static const double kTabletActionsPadding = 16.0;
-  static const double kMobileActionsPadding = 8.0;
-  static const double kMenuButtonPadding = 16.0;
-
   //Home
   static const String monthlyRevenu = 'Montly Revenue';
   static const String bestSellers = 'Weekly best seller';
+  static const String latestOrders = 'Latest Orders';
+
+  static const String orderId = 'Order ID';
+  static const String productName = 'Product Name';
+  static const String customerName = 'Customer Name';
+  static const String status = 'Status';
+  static const String deliveryTime = 'Delivery Time';
+  static const String price = 'Price';
+  static const String actions = 'Actions';
+
+  static const String view = 'View';
+  static const String edit = 'Edit';
+  static const String delete = 'Delete';
+
+  static const String pending = 'Pending';
+  static const String delivered = 'Delivered';
+  static const String cancelled = 'Cancelled';
+  static const String processing = 'Processing';
+
+  static const String jan = 'Jan';
+  static const String feb = 'Feb';
+  static const String mar = 'Mar';
+  static const String apr = 'Apr';
+  static const String may = 'May';
+  static const String jun = 'Jun';
+  static const String jul = 'Jul';
+  static const String aug = 'Aug';
+  static const String sep = 'Sep';
+  static const String oct = 'Oct';
+  static const String nov = 'Nov';
+  static const String dec = 'Dec';
+
+  static const List<String> months = <String>[
+    jan,
+    feb,
+    mar,
+    apr,
+    may,
+    jun,
+    jul,
+    aug,
+    sep,
+    oct,
+    nov,
+    dec,
+  ];
 
   //Assets
   static const String bestSellerImg =
       'https://images.pexels.com/photos/3864682/pexels-photo-3864682.jpeg';
+
+  //AppHeader
+  static const String search = 'Search';
 }
