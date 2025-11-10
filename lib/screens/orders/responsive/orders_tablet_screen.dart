@@ -1,3 +1,9 @@
+import 'package:dashboard/screens/home/data/card_data.dart';
+import 'package:dashboard/screens/orders/widgets/daily_orders_section.dart';
+import 'package:dashboard/screens/orders/widgets/orders_table.dart';
+import 'package:dashboard/screens/orders/widgets/trending_orders.dart';
+import 'package:dashboard/utils/extensions.dart';
+import 'package:dashboard/widgets/status_card.dart';
 import 'package:flutter/material.dart';
 
 class OrdersTabletScreen extends StatelessWidget {
@@ -5,6 +11,35 @@ class OrdersTabletScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('OrdersTabletScreen'));
+    final List<List<StatusCards>> cardRows = orderScreenCards.chunked(2);
+    return ListView(
+      children: <Widget>[
+        for (final List<StatusCards> row in cardRows) ...<Widget>[
+          Row(
+            children: <Widget>[
+              Expanded(child: StatusCard(data: row[0])),
+              if (row.length > 1) ...<Widget>[
+                const SizedBox(width: 16.0),
+                Expanded(child: StatusCard(data: row[1])),
+              ],
+            ],
+          ),
+          const SizedBox(height: 16.0),
+        ],
+        const SizedBox(height: 16),
+        const IntrinsicHeight(
+          child: Row(
+            children: <Widget>[
+              Expanded(child: DailyOrdersSection()),
+              SizedBox(width: 16),
+              Expanded(child: TrendingOrdersSection()),
+            ],
+          ),
+        ),
+        const SizedBox(height: 32),
+        const OrdersTable(),
+        const SizedBox(height: 24),
+      ],
+    );
   }
 }

@@ -20,7 +20,10 @@ class OrdersDesktopScreen extends StatelessWidget {
             child: Row(
               spacing: 32,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[DailyOrdersSection(), TrendingOrdersSection()],
+              children: <Widget>[
+                Expanded(child: DailyOrdersSection()),
+                Expanded(child: TrendingOrdersSection()),
+              ],
             ),
           ),
           const SizedBox(height: 32),
