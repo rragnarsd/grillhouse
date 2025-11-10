@@ -28,5 +28,6 @@ final List<StatusCards> monthlyCards = <StatusCards>[
   StatusCards(value: '120', title: 'Monthly Orders', icon: Icons.folder),
   StatusCards(value: '120', title: 'Monthly Income', icon: Icons.folder),
   StatusCards(value: '240', title: 'Monthly Customers', icon: Icons.folder),
-  StatusCards(value: '140', title: 'Monthly Products', icon: Icons.folder),
+  //TODO - Monthly Income ÷ Monthly Customers
+  StatusCards(value: '140', title: 'Monthly Avg. Spend', icon: Icons.folder),
 ];

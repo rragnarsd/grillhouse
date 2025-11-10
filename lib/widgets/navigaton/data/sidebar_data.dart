@@ -23,10 +23,10 @@ final List<SidebarItem> sidebarItems = <SidebarItem>[
     route: AppRoute.home,
   ),
   SidebarItem(
-    title: 'Products',
+    title: 'Menu',
     icon: Icons.shopping_bag_outlined,
     activeIcon: Icons.shopping_bag,
-    route: AppRoute.product,
+    route: AppRoute.menu,
   ),
   SidebarItem(
     title: 'Orders',

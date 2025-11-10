@@ -1,5 +1,5 @@
-import 'package:dashboard/screens/scroll_configuration.dart';
 import 'package:dashboard/utils/routes.dart';
+import 'package:dashboard/utils/scroll_configuration.dart';
 import 'package:flutter/material.dart';
 
 void main() {

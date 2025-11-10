@@ -1,6 +1,6 @@
 import 'package:dashboard/screens/home/home_screen.dart';
+import 'package:dashboard/screens/menu/menu_screen.dart';
 import 'package:dashboard/screens/orders/orders_page.dart';
-import 'package:dashboard/screens/products/product_page.dart';
 import 'package:dashboard/screens/profile/profile_page.dart';
 import 'package:dashboard/screens/settings/settings_page.dart';
 import 'package:dashboard/utils/responsive.dart';
@@ -10,7 +10,7 @@ import 'package:go_router/go_router.dart';
 
 enum AppRoute {
   home(path: '/', screen: HomeScreen()),
-  product(path: '/product', screen: ProductScreen()),
+  menu(path: '/menu', screen: MenuScreen()),
   orders(path: '/orders', screen: OrdersScreen()),
   settings(path: '/settings', screen: SettingsScreen()),
   profile(path: '/profile', screen: ProfileScreen());

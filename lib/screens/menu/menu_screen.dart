@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ProductScreen extends StatelessWidget {
-  const ProductScreen({super.key});
+class MenuScreen extends StatelessWidget {
+  const MenuScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class ProductScreen extends StatelessWidget {
           Icon(Icons.shopping_bag, size: 64, color: Colors.deepPurple),
           SizedBox(height: 16),
           Text(
-            'Products Screen',
+            'Menu Screen',
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
         ],
