@@ -1,11 +1,33 @@
-import 'package:dashboard/screens/home/data/card_data.dart';
 import 'package:flutter/material.dart';
 
-class HomeCard extends StatelessWidget {
-  const HomeCard({super.key, this.isMobile = false, required this.data});
+class StatusRow extends StatelessWidget {
+  const StatusRow({super.key, required this.statusCard});
+
+  final List<dynamic> statusCard;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: List<Widget>.generate(statusCard.length, (int index) {
+        final dynamic statusCardData = statusCard[index];
+        return Expanded(
+          child: Padding(
+            padding: EdgeInsets.only(
+              right: index < statusCard.length - 1 ? 16.0 : 0,
+            ),
+            child: StatusCard(data: statusCardData),
+          ),
+        );
+      }),
+    );
+  }
+}
+
+class StatusCard extends StatelessWidget {
+  const StatusCard({super.key, this.isMobile = false, required this.data});
 
   final bool isMobile;
-  final HomeScreenCards data;
+  final dynamic data;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +37,7 @@ class HomeCard extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: HomeCardItem(
+        child: StatusCardItem(
           value: data.value,
           title: data.title,
           iconData: data.icon,
@@ -25,8 +47,8 @@ class HomeCard extends StatelessWidget {
   }
 }
 
-class HomeCardItem extends StatelessWidget {
-  const HomeCardItem({
+class StatusCardItem extends StatelessWidget {
+  const StatusCardItem({
     super.key,
     required this.value,
     required this.title,

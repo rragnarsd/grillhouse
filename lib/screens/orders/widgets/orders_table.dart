@@ -3,8 +3,8 @@ import 'package:dashboard/utils/constants.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 
-class DashboardOrderTable extends StatelessWidget {
-  const DashboardOrderTable({super.key});
+class OrdersTable extends StatelessWidget {
+  const OrdersTable({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +20,11 @@ class DashboardOrderTable extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(16.0),
               child: Text(
-                Constants.latestOrders,
+                'Orders',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
-            PaginatedTable(),
+            OrdersPaginatedTablet(),
           ],
         ),
       ),
@@ -32,8 +32,8 @@ class DashboardOrderTable extends StatelessWidget {
   }
 }
 
-class PaginatedTable extends StatelessWidget {
-  const PaginatedTable({super.key});
+class OrdersPaginatedTablet extends StatelessWidget {
+  const OrdersPaginatedTablet({super.key});
 
   @override
   Widget build(BuildContext context) {

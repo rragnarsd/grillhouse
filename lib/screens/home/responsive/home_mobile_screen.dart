@@ -1,8 +1,8 @@
 import 'package:dashboard/screens/home/data/card_data.dart';
 import 'package:dashboard/screens/home/widgets/best_seller_section.dart';
-import 'package:dashboard/screens/home/widgets/dashboard_order_table.dart';
-import 'package:dashboard/screens/home/widgets/home_card.dart';
+import 'package:dashboard/screens/home/widgets/home_order_table.dart';
 import 'package:dashboard/screens/home/widgets/revenue_chart_section.dart';
+import 'package:dashboard/widgets/status_card.dart';
 import 'package:flutter/material.dart';
 
 class HomeMobileScreen extends StatelessWidget {
@@ -12,13 +12,12 @@ class HomeMobileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
-        for (final HomeScreenCards cardData in homeScreenCards) ...<Widget>[
-          HomeCard(data: cardData),
+        for (final StatusCards cardData in monthlyCards) ...<Widget>[
+          StatusCard(data: cardData),
           const SizedBox(height: 12.0),
         ],
-
         const SizedBox(height: 8),
-        const DashboardOrderTable(),
+        const HomeOrderTable(),
         const SizedBox(height: 16),
         const SizedBox(height: 360, child: BestSellerSection()),
         const SizedBox(height: 16),

@@ -1,3 +1,4 @@
+import 'package:dashboard/screens/scroll_configuration.dart';
 import 'package:dashboard/utils/routes.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Dashboard',
+      scrollBehavior: NoScrollBehavior(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

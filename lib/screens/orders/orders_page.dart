@@ -1,3 +1,7 @@
+import 'package:dashboard/screens/orders/responsive/orders_desktop_screen.dart';
+import 'package:dashboard/screens/orders/responsive/orders_mobile_screen.dart';
+import 'package:dashboard/screens/orders/responsive/orders_tablet_screen.dart';
+import 'package:dashboard/utils/responsive.dart';
 import 'package:flutter/material.dart';
 
 class OrdersScreen extends StatelessWidget {
@@ -5,18 +9,10 @@ class OrdersScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Icon(Icons.folder, size: 64, color: Colors.deepPurple),
-          SizedBox(height: 16),
-          Text(
-            'Orders Screen',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-        ],
-      ),
-    );
+    return Responsive.isDesktop(context)
+        ? const OrdersDesktopScreen()
+        : Responsive.isTablet(context)
+        ? const OrdersTabletScreen()
+        : const OrdersMobileScreen();
   }
 }

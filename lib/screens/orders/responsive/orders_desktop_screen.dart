@@ -1,12 +1,12 @@
 import 'package:dashboard/screens/home/data/card_data.dart';
-import 'package:dashboard/screens/home/widgets/best_seller_section.dart';
-import 'package:dashboard/screens/home/widgets/home_order_table.dart';
-import 'package:dashboard/screens/home/widgets/revenue_chart_section.dart';
+import 'package:dashboard/screens/orders/widgets/daily_orders_section.dart';
+import 'package:dashboard/screens/orders/widgets/orders_table.dart';
+import 'package:dashboard/screens/orders/widgets/trending_orders.dart';
 import 'package:dashboard/widgets/status_card.dart';
 import 'package:flutter/material.dart';
 
-class HomeDesktopScreen extends StatelessWidget {
-  const HomeDesktopScreen({super.key});
+class OrdersDesktopScreen extends StatelessWidget {
+  const OrdersDesktopScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,20 +14,17 @@ class HomeDesktopScreen extends StatelessWidget {
       constraints: const BoxConstraints(maxWidth: 1366),
       child: ListView(
         children: <Widget>[
-          StatusRow(statusCard: monthlyCards),
-          const SizedBox(height: 32),
-          const HomeOrderTable(),
+          StatusRow(statusCard: orderScreenCards),
           const SizedBox(height: 32),
           const IntrinsicHeight(
             child: Row(
               spacing: 32,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Expanded(child: BestSellerSection()),
-                Expanded(child: RevenueChartSection()),
-              ],
+              children: <Widget>[DailyOrdersSection(), TrendingOrdersSection()],
             ),
           ),
+          const SizedBox(height: 32),
+          const OrdersTable(),
           const SizedBox(height: 24),
         ],
       ),
