@@ -1,3 +1,5 @@
+import 'package:dashboard/screens/menu/menu_desktop_screen.dart';
+import 'package:dashboard/utils/responsive.dart';
 import 'package:flutter/material.dart';
 
 class MenuScreen extends StatelessWidget {
@@ -5,18 +7,10 @@ class MenuScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Icon(Icons.shopping_bag, size: 64, color: Colors.deepPurple),
-          SizedBox(height: 16),
-          Text(
-            'Menu Screen',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-        ],
-      ),
-    );
+    return Responsive.isDesktop(context)
+        ? const MenuDesktopScreen()
+        : Responsive.isTablet(context)
+        ? const Text('Menu Tablet')
+        : const Text('Menu Mobile');
   }
 }

@@ -60,13 +60,13 @@ class OrdersPaginatedTablet extends StatelessWidget {
           isHorizontalScrollBarVisible: true,
           columnSpacing: 12,
           horizontalMargin: 12,
-
           columns: <DataColumn>[
             const DataColumn2(
               size: ColumnSize.S,
               label: Text(Constants.orderId),
             ),
-            const DataColumn(label: Text(Constants.productName)),
+
+            const DataColumn(label: Text(Constants.menuItem)),
             const DataColumn(label: Text(Constants.customerName)),
             const DataColumn(label: Text(Constants.status)),
             const DataColumn(label: Text(Constants.deliveryTime)),

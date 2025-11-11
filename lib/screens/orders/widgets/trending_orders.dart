@@ -82,7 +82,7 @@ class _TrendingOrdersSectionState extends State<TrendingOrdersSection> {
             ),
             const SizedBox(height: 16),
             SizedBox(
-              height: 320,
+              height: 280,
               child: ScrollConfiguration(
                 behavior: ScrollConfiguration.of(context).copyWith(
                   scrollbars: true,
@@ -100,6 +100,71 @@ class _TrendingOrdersSectionState extends State<TrendingOrdersSection> {
                   separatorBuilder: (_, __) => const SizedBox(width: 16),
                   itemBuilder: (_, __) => const TrendingOrderItemCard(),
                 ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class TrendingOrderItemCard extends StatelessWidget {
+  const TrendingOrderItemCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 240,
+      child: Card(
+        margin: const EdgeInsets.only(bottom: 24),
+        color: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            ClipRRect(
+              borderRadius: BorderRadius.circular(6),
+              child: CachedNetworkImage(
+                imageUrl: Constants.bestSellerImg,
+                fit: BoxFit.cover,
+                height: 180,
+              ),
+            ),
+            const SizedBox(height: 12),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text('Veg Taco'),
+                      SizedBox(height: 4),
+                      Text(
+                        'Price: 100',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Icon(Icons.star, color: Colors.yellow),
+                      SizedBox(width: 4),
+                      Text(
+                        '4.5',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ],
@@ -148,78 +213,6 @@ class ScrollArrow extends StatelessWidget {
           onPressed: canScroll ? onPressed : null,
         ),
       ),
-    );
-  }
-}
-
-class TrendingOrderItemCard extends StatelessWidget {
-  const TrendingOrderItemCard({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Container(
-          width: 240,
-          decoration: BoxDecoration(
-            color: Colors.grey[100],
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              children: <Widget>[
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(6),
-                  child: CachedNetworkImage(
-                    imageUrl: Constants.bestSellerImg,
-                    fit: BoxFit.cover,
-                    height: 220,
-                  ),
-                ),
-                const SizedBox(height: 12),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text('Veg Taco'),
-                        SizedBox(height: 4),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Text(
-                              'Price: 100',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    Row(
-                      spacing: 4,
-                      children: <Widget>[
-                        Icon(Icons.star, color: Colors.yellow),
-                        Text(
-                          '4.5',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

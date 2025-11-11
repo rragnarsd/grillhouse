@@ -25,7 +25,7 @@ class _OrdersChartSectionState extends State<OrdersChartSection> {
           AnimatedSwitcher(
             duration: const Duration(milliseconds: 300),
             child: SizedBox(
-              key: ValueKey<int?>(_touchedIndex),
+              //key: ValueKey<int?>(_touchedIndex),
               height: 200,
               child: PieChart(
                 PieChartData(

@@ -1,11 +1,11 @@
 class Constants {
   //Home
   static const String monthlyRevenu = 'Montly Revenue';
-  static const String bestSellers = 'Weekly best seller';
+  static const String bestSellers = 'Monthly best seller';
   static const String latestOrders = 'Latest Orders';
 
   static const String orderId = 'Order ID';
-  static const String productName = 'Product Name';
+  static const String menuItem = 'Menu Item';
   static const String customerName = 'Customer Name';
   static const String status = 'Status';
   static const String deliveryTime = 'Delivery Time';
@@ -61,4 +61,12 @@ class Constants {
 
   //AppHeader
   static const String search = 'Search';
+
+  //Menu
+  static const String trendingMenu = 'Trending Menu';
+  static const String mostOrderedMenu = 'Most Ordered Menu';
+  static const String description = 'Description';
+  static const String editProduct = 'Edit Product';
+
+  //Orders
 }

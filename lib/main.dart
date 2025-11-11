@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Dashboard',
       scrollBehavior: NoScrollBehavior(),
       debugShowCheckedModeBanner: false,
+
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
