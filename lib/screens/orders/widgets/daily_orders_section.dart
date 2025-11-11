@@ -1,4 +1,5 @@
 import 'package:dashboard/screens/orders/widgets/orders_chart_section.dart';
+import 'package:dashboard/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class DailyOrdersSection extends StatelessWidget {
@@ -16,7 +17,7 @@ class DailyOrdersSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              'Monthly Orders',
+              Constants.monthlyOrders,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 16),

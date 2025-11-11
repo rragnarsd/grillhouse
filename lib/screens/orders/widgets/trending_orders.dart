@@ -54,7 +54,7 @@ class _TrendingOrdersSectionState extends State<TrendingOrdersSection> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 const Text(
-                  'Trending Orders',
+                  Constants.trendingOrders,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 Row(

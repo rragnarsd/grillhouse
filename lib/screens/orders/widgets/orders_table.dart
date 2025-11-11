@@ -20,7 +20,7 @@ class OrdersTable extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(16.0),
               child: Text(
-                'Orders',
+                Constants.orders,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
@@ -65,7 +65,6 @@ class OrdersPaginatedTablet extends StatelessWidget {
               size: ColumnSize.S,
               label: Text(Constants.orderId),
             ),
-
             const DataColumn(label: Text(Constants.menuItem)),
             const DataColumn(label: Text(Constants.customerName)),
             const DataColumn(label: Text(Constants.status)),

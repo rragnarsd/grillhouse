@@ -76,7 +76,7 @@ class MenuData {
     ),
 
     MenuItem(
-      name: 'Beef Burger with Fries',
+      name: 'Beef Burger',
       price: '\$11.99 / combo',
       category: Category.lunch,
       image: Constants.bestSellerImg,
@@ -101,13 +101,13 @@ class MenuData {
       image: Constants.bestSellerImg,
     ),
     MenuItem(
-      name: 'Garlic Fried Butter Shrimp',
+      name: 'Beef Steak',
       price: '\$8.99 / serving',
       category: Category.dinner,
       image: Constants.bestSellerImg,
     ),
     MenuItem(
-      name: 'Garlic Fried Butter Shrimp',
+      name: 'Garlic Chicken',
       price: '\$8.99 / serving',
       category: Category.dinner,
       image: Constants.bestSellerImg,
@@ -120,13 +120,13 @@ class MenuData {
       image: Constants.bestSellerImg,
     ),
     MenuItem(
-      name: 'Vanilla Ice Cream Sundae',
+      name: 'Vanilla Ice Cream',
       price: '\$4.75 / cup',
       category: Category.dessert,
       image: Constants.bestSellerImg,
     ),
     MenuItem(
-      name: 'Vanilla Ice Cream Sundae',
+      name: 'Vanilla Ice Cream',
       price: '\$4.75 / cup',
       category: Category.dessert,
       image: Constants.bestSellerImg,
