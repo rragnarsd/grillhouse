@@ -1,5 +1,6 @@
-import 'package:dashboard/screens/home/widgets/table_source.dart';
+import 'package:dashboard/screens/home/data/order_data.dart';
 import 'package:dashboard/utils/constants.dart';
+import 'package:dashboard/widgets/order_table_source.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 
@@ -54,30 +55,27 @@ class HomePaginatedTable extends StatelessWidget {
         ),
         child: PaginatedDataTable2(
           dataRowHeight: 32 * 1.2,
-          minWidth: 900,
+          minWidth: 700,
+          border: TableBorder.all(color: Colors.grey.shade300),
           wrapInCard: false,
           isVerticalScrollBarVisible: true,
           isHorizontalScrollBarVisible: true,
           columnSpacing: 12,
           horizontalMargin: 12,
-
           columns: <DataColumn>[
-            const DataColumn2(
-              size: ColumnSize.S,
-              label: Text(Constants.orderId),
-            ),
-            const DataColumn(label: Text(Constants.menuItem)),
-            const DataColumn(label: Text(Constants.customerName)),
-            const DataColumn(label: Text(Constants.status)),
-            const DataColumn(label: Text(Constants.deliveryTime)),
+            const DataColumn(label: Text('Product Name')),
+            const DataColumn(label: Text('Product ID')),
             const DataColumn2(size: ColumnSize.S, label: Text(Constants.price)),
+            //TODO - Date and Time
+            const DataColumn(label: Text('Date')),
+            const DataColumn(label: Text(Constants.status)),
             const DataColumn2(
               size: ColumnSize.S,
-              label: Text(Constants.actions),
+              label: Text(Constants.action),
             ),
           ],
-          rowsPerPage: 8,
-          source: TableSource(),
+          rowsPerPage: orders.length.toInt(),
+          source: OrderTableSource(),
         ),
       ),
     );

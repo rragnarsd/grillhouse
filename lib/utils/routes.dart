@@ -2,7 +2,7 @@ import 'package:dashboard/screens/home/home_screen.dart';
 import 'package:dashboard/screens/menu/menu_screen.dart';
 import 'package:dashboard/screens/orders/orders_page.dart';
 import 'package:dashboard/screens/profile/profile_page.dart';
-import 'package:dashboard/screens/settings/settings_page.dart';
+import 'package:dashboard/screens/reservations/reservation_screen.dart';
 import 'package:dashboard/utils/responsive.dart';
 import 'package:dashboard/widgets/dashboard_shell.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +12,7 @@ enum AppRoute {
   home(path: '/', screen: HomeScreen()),
   menu(path: '/menu', screen: MenuScreen()),
   orders(path: '/orders', screen: OrdersScreen()),
-  settings(path: '/settings', screen: SettingsScreen()),
+  reservations(path: '/reservations', screen: ReservationsScreen()),
   profile(path: '/profile', screen: ProfileScreen());
 
   final String path;

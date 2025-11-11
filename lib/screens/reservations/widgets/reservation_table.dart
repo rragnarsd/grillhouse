@@ -1,16 +1,15 @@
-import 'package:dashboard/screens/home/data/order_data.dart';
-import 'package:dashboard/utils/constants.dart';
-import 'package:dashboard/widgets/order_table_source.dart';
+import 'package:dashboard/screens/reservations/data/reservation_data.dart';
+import 'package:dashboard/screens/reservations/widgets/reservation_table_source.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 
-class OrdersTable extends StatelessWidget {
-  const OrdersTable({super.key});
+class ReservationTable extends StatelessWidget {
+  const ReservationTable({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 500,
+      height: 600,
       child: Card(
         margin: EdgeInsets.zero,
         color: Colors.white,
@@ -18,14 +17,15 @@ class OrdersTable extends StatelessWidget {
         child: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            //TODO - Add Todays and Older Reservations
             Padding(
               padding: EdgeInsets.all(16.0),
               child: Text(
-                Constants.orders,
+                'Reservations',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
-            OrdersPaginatedTablet(),
+            ReservationPaginatedTablet(),
           ],
         ),
       ),
@@ -33,8 +33,8 @@ class OrdersTable extends StatelessWidget {
   }
 }
 
-class OrdersPaginatedTablet extends StatelessWidget {
-  const OrdersPaginatedTablet({super.key});
+class ReservationPaginatedTablet extends StatelessWidget {
+  const ReservationPaginatedTablet({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -63,19 +63,15 @@ class OrdersPaginatedTablet extends StatelessWidget {
           columnSpacing: 12,
           horizontalMargin: 12,
           columns: <DataColumn>[
-            const DataColumn(label: Text('Product Name')),
-            const DataColumn(label: Text('Product ID')),
-            const DataColumn2(size: ColumnSize.S, label: Text(Constants.price)),
-            //TODO - Date and Time
-            const DataColumn(label: Text('Date')),
-            const DataColumn(label: Text(Constants.status)),
-            const DataColumn2(
-              size: ColumnSize.S,
-              label: Text(Constants.action),
-            ),
+            const DataColumn(label: Text('Name')),
+            const DataColumn(label: Text('Email')),
+            const DataColumn2(size: ColumnSize.S, label: Text('Persons')),
+            const DataColumn2(size: ColumnSize.S, label: Text('Date')),
+            const DataColumn(label: Text('Contact Number')),
+            const DataColumn(label: Text('Status')),
           ],
-          rowsPerPage: orders.length.toInt(),
-          source: OrderTableSource(),
+          rowsPerPage: reservations.length.toInt(),
+          source: ReservationTableSource(),
         ),
       ),
     );

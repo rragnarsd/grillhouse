@@ -35,10 +35,10 @@ final List<SidebarItem> sidebarItems = <SidebarItem>[
     route: AppRoute.orders,
   ),
   SidebarItem(
-    title: 'Settings',
-    icon: Icons.settings_outlined,
-    activeIcon: Icons.settings,
-    route: AppRoute.settings,
+    title: 'Reservations',
+    icon: Icons.calendar_month_outlined,
+    activeIcon: Icons.calendar_month,
+    route: AppRoute.reservations,
   ),
   SidebarItem(
     title: 'Profile',

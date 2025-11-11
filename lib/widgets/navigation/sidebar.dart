@@ -1,6 +1,6 @@
 import 'package:dashboard/utils/constants.dart';
 import 'package:dashboard/utils/routes.dart';
-import 'package:dashboard/widgets/navigaton/data/sidebar_data.dart';
+import 'package:dashboard/widgets/navigation/data/sidebar_data.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

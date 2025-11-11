@@ -1,6 +1,6 @@
 import 'package:dashboard/utils/routes.dart';
-import 'package:dashboard/widgets/navigaton/header.dart';
-import 'package:dashboard/widgets/navigaton/sidebar.dart';
+import 'package:dashboard/widgets/navigation/header.dart';
+import 'package:dashboard/widgets/navigation/sidebar.dart';
 import 'package:flutter/material.dart';
 
 class DesktopLayout extends StatelessWidget {

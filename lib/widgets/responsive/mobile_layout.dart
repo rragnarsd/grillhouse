@@ -1,6 +1,6 @@
 import 'package:dashboard/utils/routes.dart';
-import 'package:dashboard/widgets/navigaton/bottom_nav_bar.dart';
-import 'package:dashboard/widgets/navigaton/header.dart';
+import 'package:dashboard/widgets/navigation/bottom_nav_bar.dart';
+import 'package:dashboard/widgets/navigation/header.dart';
 import 'package:flutter/material.dart';
 
 class MobileLayout extends StatelessWidget {

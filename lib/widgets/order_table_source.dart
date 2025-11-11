@@ -3,7 +3,7 @@ import 'package:dashboard/utils/constants.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 
-class TableSource extends DataTableSource {
+class OrderTableSource extends DataTableSource {
   @override
   DataRow? getRow(int index) {
     final Order order = orders[index];
@@ -13,22 +13,21 @@ class TableSource extends DataTableSource {
       }),
       decoration: const BoxDecoration(color: Colors.transparent),
       cells: <DataCell>[
-        DataCell(Text(order.id.toString())),
         DataCell(Text(order.productName)),
-        DataCell(Text(order.customerName)),
+        const DataCell(Text('Product ID')),
+        DataCell(Text('\$${order.price.toStringAsFixed(0)}')),
+        const DataCell(Text('Date')),
         DataCell(
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
             decoration: BoxDecoration(
               color: order.statusColor.withValues(alpha: 0.4),
-              borderRadius: BorderRadius.circular(6),
+              borderRadius: BorderRadius.circular(16),
             ),
 
             child: Text(order.statusLabel),
           ),
         ),
-        DataCell(Text(order.deliveryTime)),
-        DataCell(Text('\$${order.price.toStringAsFixed(0)}')),
         DataCell(
           PopupMenuButton<String>(
             color: Colors.white,

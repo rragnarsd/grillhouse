@@ -10,7 +10,7 @@ class Constants {
   static const String status = 'Status';
   static const String deliveryTime = 'Delivery Time';
   static const String price = 'Price';
-  static const String actions = 'Actions';
+  static const String action = 'Action';
 
   static const String view = 'View';
   static const String edit = 'Edit';
