@@ -63,11 +63,10 @@ class HomePaginatedTable extends StatelessWidget {
           columnSpacing: 12,
           horizontalMargin: 12,
           columns: <DataColumn>[
-            const DataColumn(label: Text('Product Name')),
-            const DataColumn(label: Text('Product ID')),
+            const DataColumn(label: Text(Constants.productName)),
+            const DataColumn(label: Text(Constants.productId)),
             const DataColumn2(size: ColumnSize.S, label: Text(Constants.price)),
-            //TODO - Date and Time
-            const DataColumn(label: Text('Date')),
+            const DataColumn(label: Text(Constants.date)),
             const DataColumn(label: Text(Constants.status)),
             const DataColumn2(
               size: ColumnSize.S,

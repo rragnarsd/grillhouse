@@ -1,5 +1,6 @@
 import 'package:dashboard/screens/reservations/data/reservation_data.dart';
 import 'package:dashboard/screens/reservations/widgets/reservation_table_source.dart';
+import 'package:dashboard/widgets/header_tabs.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 
@@ -16,19 +17,23 @@ class ReservationTable extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         child: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            //TODO - Add Todays and Older Reservations
-            Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text(
-                'Reservations',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-            ReservationPaginatedTablet(),
-          ],
+          children: <Widget>[ReservationHeader(), ReservationPaginatedTablet()],
         ),
       ),
+    );
+  }
+}
+
+class ReservationHeader extends StatelessWidget {
+  const ReservationHeader({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return HeaderTabs(
+      tabs: <String>['All', 'Accepted', 'Cancelled', 'Completed'],
+      buttonLabel: '23 January',
+      buttonIcon: Icons.calendar_today_outlined,
+      onButtonPressed: () {},
     );
   }
 }
@@ -67,8 +72,11 @@ class ReservationPaginatedTablet extends StatelessWidget {
             const DataColumn(label: Text('Email')),
             const DataColumn2(size: ColumnSize.S, label: Text('Persons')),
             const DataColumn2(size: ColumnSize.S, label: Text('Date')),
-            const DataColumn(label: Text('Contact Number')),
-            const DataColumn(label: Text('Status')),
+            const DataColumn2(
+              size: ColumnSize.S,
+              label: Text('Contact Number'),
+            ),
+            const DataColumn2(size: ColumnSize.S, label: Text('Status')),
           ],
           rowsPerPage: reservations.length.toInt(),
           source: ReservationTableSource(),

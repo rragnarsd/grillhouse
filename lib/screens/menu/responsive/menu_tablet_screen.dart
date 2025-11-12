@@ -1,5 +1,4 @@
 import 'package:dashboard/screens/menu/widgets/menu_section.dart';
-import 'package:dashboard/screens/menu/widgets/mobile_tablet_list_item.dart';
 import 'package:dashboard/screens/menu/widgets/trending_menu_section.dart';
 import 'package:flutter/material.dart';
 
@@ -17,8 +16,6 @@ class MenuTabletScreen extends StatelessWidget {
         return ListView(
           children: <Widget>[
             MenuSection(crossAxisCount: isMediumTablet ? 2 : null),
-            const SizedBox(height: 32),
-            const MobileTabletListItem(),
             const SizedBox(height: 32),
             const TrendingMenuSection(),
             const SizedBox(height: 24),

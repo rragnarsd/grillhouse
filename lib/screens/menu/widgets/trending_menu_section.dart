@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:dashboard/screens/orders/widgets/trending_orders.dart';
 import 'package:dashboard/utils/constants.dart';
+import 'package:dashboard/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 
 class TrendingMenuSection extends StatelessWidget {
@@ -77,7 +78,11 @@ class TrendingMenuHeader extends StatelessWidget {
             ),
           ],
         ),
-        ElevatedButton(onPressed: () {}, child: const Text('Today')),
+        PrimaryElevatedIconBtn(
+          onPressed: () {},
+          icon: Icons.calendar_today_outlined,
+          btnLabel: '23 January',
+        ),
       ],
     );
   }

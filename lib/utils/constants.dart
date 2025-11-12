@@ -72,4 +72,7 @@ class Constants {
   static const String trendingOrders = 'Trending Orders';
   static const String monthlyOrders = 'Monthly Orders';
   static const String orders = 'Orders';
+  static const String productName = 'Product Name';
+  static const String productId = 'Product ID';
+  static const String date = 'Date';
 }

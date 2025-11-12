@@ -62,8 +62,16 @@ class StatusCardItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
+        Container(
+          decoration: BoxDecoration(
+            border: Border.all(),
+            borderRadius: BorderRadius.circular(6),
+          ),
+          padding: const EdgeInsets.all(8),
+          child: Icon(iconData, size: 32),
+        ),
+        const SizedBox(width: 16),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -76,14 +84,6 @@ class StatusCardItem extends StatelessWidget {
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
             ),
           ],
-        ),
-        Container(
-          decoration: BoxDecoration(
-            border: Border.all(),
-            borderRadius: BorderRadius.circular(6),
-          ),
-          padding: const EdgeInsets.all(8),
-          child: Icon(iconData, size: 32),
         ),
       ],
     );

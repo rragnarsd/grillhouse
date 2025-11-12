@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dashboard/screens/menu/widgets/menu_header.dart';
 import 'package:dashboard/screens/menu/widgets/menu_list.dart';
 import 'package:dashboard/utils/constants.dart';
 import 'package:dashboard/widgets/buttons.dart';
@@ -11,16 +12,26 @@ class MenuSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 700,
-      child: Row(
-        spacing: 32,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Expanded(flex: 2, child: MenuList(crossAxisCount: crossAxisCount)),
-          const MenuDetailCard(),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        const MenuHeader(),
+        const SizedBox(height: 24),
+        SizedBox(
+          height: 700,
+          child: Row(
+            spacing: 32,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Expanded(
+                flex: 2,
+                child: MenuList(crossAxisCount: crossAxisCount),
+              ),
+              const MenuDetailCard(),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
@@ -66,11 +77,10 @@ class MenuDetailCard extends StatelessWidget {
               const Spacer(),
               SizedBox(
                 width: double.infinity,
-                child: PrimaryBtn(
-                  onClick: () {},
-                  label: Constants.editProduct,
-                  bgColor: Colors.grey.shade600,
-                  textColor: Colors.white,
+                child: PrimaryElevatedIconBtn(
+                  onPressed: () {},
+                  icon: Icons.edit,
+                  btnLabel: 'Edit Product',
                 ),
               ),
             ],

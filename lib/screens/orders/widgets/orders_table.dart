@@ -1,5 +1,6 @@
 import 'package:dashboard/screens/home/data/order_data.dart';
 import 'package:dashboard/utils/constants.dart';
+import 'package:dashboard/widgets/header_tabs.dart';
 import 'package:dashboard/widgets/order_table_source.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
@@ -17,18 +18,24 @@ class OrdersTable extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         child: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text(
-                Constants.orders,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-            ),
-            OrdersPaginatedTablet(),
-          ],
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[OrdersHeader(), OrdersPaginatedTablet()],
         ),
       ),
+    );
+  }
+}
+
+class OrdersHeader extends StatelessWidget {
+  const OrdersHeader({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return HeaderTabs(
+      tabs: <String>['All Orders', 'Pending', 'Completed'],
+      buttonLabel: '23 January',
+      buttonIcon: Icons.calendar_today_outlined,
+      onButtonPressed: () {},
     );
   }
 }
@@ -63,11 +70,10 @@ class OrdersPaginatedTablet extends StatelessWidget {
           columnSpacing: 12,
           horizontalMargin: 12,
           columns: <DataColumn>[
-            const DataColumn(label: Text('Product Name')),
-            const DataColumn(label: Text('Product ID')),
+            const DataColumn(label: Text(Constants.productName)),
+            const DataColumn(label: Text(Constants.productId)),
             const DataColumn2(size: ColumnSize.S, label: Text(Constants.price)),
-            //TODO - Date and Time
-            const DataColumn(label: Text('Date')),
+            const DataColumn(label: Text(Constants.date)),
             const DataColumn(label: Text(Constants.status)),
             const DataColumn2(
               size: ColumnSize.S,

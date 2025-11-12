@@ -7,7 +7,6 @@ class PrimaryBtn extends StatelessWidget {
     required this.label,
     required this.bgColor,
     this.textColor = Colors.black,
-    this.height = 54,
     this.enabled = true,
   });
 
@@ -15,7 +14,6 @@ class PrimaryBtn extends StatelessWidget {
   final String label;
   final Color bgColor;
   final Color textColor;
-  final double height;
   final bool enabled;
 
   @override
@@ -23,19 +21,50 @@ class PrimaryBtn extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        fixedSize: Size(double.infinity, height),
+        fixedSize: const Size(double.infinity, 48),
         backgroundColor: bgColor,
         disabledBackgroundColor: theme.disabledColor,
         disabledForegroundColor: theme.colorScheme.onSurface.withValues(
           alpha: 0.38,
         ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       ),
       onPressed: enabled ? onClick : null,
       child: Text(
         label,
         style: theme.textTheme.bodyMedium?.copyWith(color: textColor),
+      ),
+    );
+  }
+}
+
+class PrimaryElevatedIconBtn extends StatelessWidget {
+  const PrimaryElevatedIconBtn({
+    super.key,
+    required this.onPressed,
+    required this.icon,
+    required this.btnLabel,
+  });
+
+  final VoidCallback onPressed;
+  final IconData icon;
+  final String btnLabel;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton.icon(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.grey[200],
+        foregroundColor: Colors.black,
+        elevation: 0,
+        fixedSize: const Size(double.infinity, 48),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      ),
+      icon: Icon(icon, size: 18),
+      label: Text(
+        btnLabel,
+        style: const TextStyle(fontWeight: FontWeight.w500),
       ),
     );
   }
@@ -60,11 +89,10 @@ class PrimaryOutlinedBtn extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     return OutlinedButton(
       style: OutlinedButton.styleFrom(
-        fixedSize: Size(double.infinity, height),
+        fixedSize: const Size(double.infinity, 48),
         side: BorderSide(color: theme.colorScheme.onSurface),
         backgroundColor: Colors.transparent,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       ),
       onPressed: enabled ? onClick : null,
       child: Text(
