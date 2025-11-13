@@ -60,7 +60,7 @@ class ReservationPaginatedTablet extends StatelessWidget {
         ),
         child: PaginatedDataTable2(
           dataRowHeight: 32 * 1.2,
-          minWidth: 700,
+          minWidth: 1000,
           border: TableBorder.all(color: Colors.grey.shade300),
           wrapInCard: false,
           isVerticalScrollBarVisible: true,

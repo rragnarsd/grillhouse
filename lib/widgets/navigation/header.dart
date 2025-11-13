@@ -123,16 +123,85 @@ class _HeaderUserProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        SizedBox(
-          height: 48,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(99),
-            child: Image.asset(Constants.profileImg),
+        Theme(
+          data: Theme.of(context).copyWith(
+            splashFactory: NoSplash.splashFactory,
+            highlightColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            focusColor: Colors.transparent,
+          ),
+          child: PopupMenuButton<String>(
+            offset: const Offset(0, 55),
+            color: Colors.white,
+            elevation: 8,
+            surfaceTintColor: Colors.transparent,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+            style: const ButtonStyle(
+              padding: WidgetStatePropertyAll<EdgeInsets>(EdgeInsets.zero),
+              visualDensity: VisualDensity.compact,
+              elevation: WidgetStatePropertyAll<double>(0),
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              overlayColor: WidgetStatePropertyAll<Color>(Colors.transparent),
+            ),
+            onSelected: (String result) => debugPrint('Selected: $result'),
+            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+              _menuItem('Profile', Icons.person_outline),
+              _menuItem('Edit Profile', Icons.edit_outlined),
+              const PopupMenuDivider(),
+              _menuItem('Analytics', Icons.bar_chart_outlined),
+              const PopupMenuDivider(),
+              _menuItem('Account settings', Icons.settings_outlined),
+              _menuItem('Logout', Icons.logout_outlined),
+            ],
+            child: SizedBox(
+              height: 48,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(99),
+                child: Image.asset(Constants.profileImg),
+              ),
+            ),
           ),
         ),
         const SizedBox(width: 10),
         if (!Responsive.isMobile(context)) const _HeaderUserInfo(),
       ],
+    );
+  }
+
+  static PopupMenuItem<String> _menuItem(
+    String text,
+    IconData icon, {
+    Color? color,
+  }) {
+    return PopupMenuItem<String>(
+      value: text,
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: InkWell(
+        onTap: () {},
+        borderRadius: BorderRadius.circular(8),
+        splashColor: Colors.grey.withValues(alpha: .1),
+        hoverColor: Colors.grey.withValues(alpha: .06),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          child: Row(
+            children: <Widget>[
+              Icon(icon, size: 20, color: color ?? Colors.black87),
+              const SizedBox(width: 12),
+              Text(
+                text,
+                style: TextStyle(
+                  color: color ?? Colors.black87,
+                  fontWeight: color != null
+                      ? FontWeight.w600
+                      : FontWeight.normal,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

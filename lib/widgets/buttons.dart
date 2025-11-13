@@ -123,7 +123,7 @@ class PrimaryFilledIconButton extends StatelessWidget {
     return IconButton.filled(
       style: IconButton.styleFrom(
         padding: EdgeInsets.zero,
-        backgroundColor: theme.colorScheme.secondary.withValues(alpha: .3),
+        backgroundColor: Colors.grey[200],
         shape: shape,
       ),
       icon: Icon(

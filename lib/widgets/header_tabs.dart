@@ -1,3 +1,4 @@
+import 'package:dashboard/utils/responsive.dart';
 import 'package:dashboard/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 
@@ -85,11 +86,19 @@ class _HeaderTabsState extends State<HeaderTabs> {
             ),
           ),
           const Spacer(),
-          PrimaryElevatedIconBtn(
-            onPressed: () {},
-            icon: widget.buttonIcon,
-            btnLabel: widget.buttonLabel,
-          ),
+          Responsive.isMobile(context)
+              ? PrimaryFilledIconButton(
+                  onPressed: () {},
+                  icon: Icons.calendar_today_outlined,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                )
+              : PrimaryElevatedIconBtn(
+                  onPressed: () {},
+                  icon: widget.buttonIcon,
+                  btnLabel: widget.buttonLabel,
+                ),
         ],
       ),
     );
