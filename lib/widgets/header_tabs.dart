@@ -6,13 +6,13 @@ class HeaderTabs extends StatefulWidget {
   const HeaderTabs({
     super.key,
     required this.tabs,
-    this.onButtonPressed,
+    required this.onButtonPressed,
     this.buttonLabel = '',
     this.buttonIcon = Icons.calendar_today_outlined,
   });
 
   final List<String> tabs;
-  final VoidCallback? onButtonPressed;
+  final VoidCallback onButtonPressed;
   final String buttonLabel;
   final IconData buttonIcon;
 
@@ -88,14 +88,14 @@ class _HeaderTabsState extends State<HeaderTabs> {
           const Spacer(),
           Responsive.isMobile(context)
               ? PrimaryFilledIconButton(
-                  onPressed: () {},
+                  onPressed: widget.onButtonPressed,
                   icon: Icons.calendar_today_outlined,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(6),
                   ),
                 )
               : PrimaryElevatedIconBtn(
-                  onPressed: () {},
+                  onPressed: widget.onButtonPressed,
                   icon: widget.buttonIcon,
                   btnLabel: widget.buttonLabel,
                 ),

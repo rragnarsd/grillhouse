@@ -107,6 +107,7 @@ class _HeaderSearchButton extends StatelessWidget {
   }
 }
 
+//TODO - Add notification dropdown
 class _HeaderNotificationButton extends StatelessWidget {
   const _HeaderNotificationButton();
 

@@ -1,6 +1,6 @@
 import 'package:dashboard/screens/home/data/order_data.dart';
 import 'package:dashboard/utils/constants.dart';
-import 'package:dashboard/widgets/header_tabs.dart';
+import 'package:dashboard/widgets/date_header_tabs.dart';
 import 'package:dashboard/widgets/order_table_source.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
@@ -26,16 +26,27 @@ class OrdersTable extends StatelessWidget {
   }
 }
 
-class OrdersHeader extends StatelessWidget {
+class OrdersHeader extends StatefulWidget {
   const OrdersHeader({super.key});
 
   @override
+  State<OrdersHeader> createState() => _OrdersHeaderState();
+}
+
+class _OrdersHeaderState extends State<OrdersHeader> {
+  DateTime? selectedDate;
+
+  @override
   Widget build(BuildContext context) {
-    return HeaderTabs(
+    return DateHeaderTabs(
       tabs: <String>['All Orders', 'Pending', 'Completed'],
-      buttonLabel: '23 January',
-      buttonIcon: Icons.calendar_today_outlined,
-      onButtonPressed: () {},
+      selectedDate: selectedDate,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2024),
+      lastDate: DateTime(2026),
+      onDateSelected: (DateTime? date) {
+        setState(() => selectedDate = date);
+      },
     );
   }
 }

@@ -10,9 +10,11 @@ class MenuHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         const Text(
+          //TODO - Add quantity
           'Total Items (QTY)',
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
+        //TODO - Add WoltModalSheet
         PrimaryElevatedIconBtn(
           onPressed: () {},
           icon: Icons.add,

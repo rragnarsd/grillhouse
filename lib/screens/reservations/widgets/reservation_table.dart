@@ -1,6 +1,6 @@
 import 'package:dashboard/screens/reservations/data/reservation_data.dart';
 import 'package:dashboard/screens/reservations/widgets/reservation_table_source.dart';
-import 'package:dashboard/widgets/header_tabs.dart';
+import 'package:dashboard/widgets/date_header_tabs.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 
@@ -24,16 +24,27 @@ class ReservationTable extends StatelessWidget {
   }
 }
 
-class ReservationHeader extends StatelessWidget {
+class ReservationHeader extends StatefulWidget {
   const ReservationHeader({super.key});
 
   @override
+  State<ReservationHeader> createState() => _ReservationHeaderState();
+}
+
+class _ReservationHeaderState extends State<ReservationHeader> {
+  DateTime? selectedDate;
+
+  @override
   Widget build(BuildContext context) {
-    return HeaderTabs(
+    return DateHeaderTabs(
       tabs: <String>['All', 'Accepted', 'Cancelled', 'Completed'],
-      buttonLabel: '23 January',
-      buttonIcon: Icons.calendar_today_outlined,
-      onButtonPressed: () {},
+      selectedDate: selectedDate,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2024),
+      lastDate: DateTime(2026),
+      onDateSelected: (DateTime? date) {
+        setState(() => selectedDate = date);
+      },
     );
   }
 }

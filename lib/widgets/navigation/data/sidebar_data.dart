@@ -40,10 +40,4 @@ final List<SidebarItem> sidebarItems = <SidebarItem>[
     activeIcon: Icons.calendar_month,
     route: AppRoute.reservations,
   ),
-  SidebarItem(
-    title: 'Profile',
-    icon: Icons.person_outline,
-    activeIcon: Icons.person,
-    route: AppRoute.profile,
-  ),
 ];
