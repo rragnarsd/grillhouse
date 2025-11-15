@@ -1,66 +1,18 @@
-import 'package:dashboard/screens/menu/data/menu_data.dart';
 import 'package:dashboard/utils/constants.dart';
 import 'package:dashboard/utils/enums.dart';
 import 'package:dashboard/utils/extensions.dart';
 import 'package:dashboard/widgets/app_textform_field.dart';
 import 'package:dashboard/widgets/buttons.dart';
 import 'package:flutter/material.dart';
-import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
-class MenuHeader extends StatelessWidget {
-  const MenuHeader({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        Text(
-          '${Constants.totalItems}${MenuData.items.length}',
-          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        ),
-        PrimaryElevatedIconBtn(
-          onPressed: () => _addNewProduct(context),
-          icon: Icons.add,
-          btnLabel: Constants.addNewProduct,
-        ),
-      ],
-    );
-  }
-
-  void _addNewProduct(BuildContext context) {
-    WoltModalSheet.show(
-      context: context,
-      modalTypeBuilder: (BuildContext context) => context.modalType,
-      barrierDismissible: true,
-      pageListBuilder: (BuildContext modalContext) =>
-          <SliverWoltModalSheetPage>[
-            SliverWoltModalSheetPage(
-              navBarHeight: 20,
-              pageTitle: const Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Text(
-                  Constants.addNewProduct,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              ),
-              mainContentSliversBuilder: (BuildContext context) => <Widget>[
-                const AddProductForm(),
-              ],
-            ),
-          ],
-    );
-  }
-}
-
-class AddProductForm extends StatefulWidget {
-  const AddProductForm({super.key});
+class UpdateProductForm extends StatefulWidget {
+  const UpdateProductForm({super.key});
 
   @override
-  State<AddProductForm> createState() => _AddProductFormState();
+  State<UpdateProductForm> createState() => _UpdateProductFormState();
 }
 
-class _AddProductFormState extends State<AddProductForm> {
+class _UpdateProductFormState extends State<UpdateProductForm> {
   final TextEditingController productNameController = TextEditingController();
   final TextEditingController priceController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
@@ -125,7 +77,7 @@ class _AddProductFormState extends State<AddProductForm> {
                 width: double.infinity,
                 child: PrimaryBtn(
                   onClick: () {},
-                  label: Constants.addProduct,
+                  label: Constants.updateProduct,
                   bgColor: Colors.green,
                   textColor: Colors.white,
                 ),

@@ -68,6 +68,18 @@ class Constants {
   static const String description = 'Description';
   static const String editProduct = 'Edit Product';
 
+  static const String productHint = 'Garlic Bread';
+  static const String productPrice = '16';
+  static const String servingUnit = 'Serving Unit';
+  static const String unitHint = 'Plate';
+  static const String descriptionHint = 'About the product';
+
+  static const String updateProduct = 'Update Product';
+  static const String addProduct = 'Add Product';
+  static const String addNewProduct = 'Add new product';
+
+  static const String totalItems = 'Total Items: ';
+
   //Orders
   static const String trendingOrders = 'Trending Orders';
   static const String monthlyOrders = 'Monthly Orders';

@@ -1,9 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dashboard/screens/menu/widgets/menu_header.dart';
 import 'package:dashboard/screens/menu/widgets/menu_list.dart';
+import 'package:dashboard/screens/menu/widgets/update_product_form.dart';
 import 'package:dashboard/utils/constants.dart';
+import 'package:dashboard/utils/extensions.dart';
 import 'package:dashboard/widgets/buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
 class MenuSection extends StatelessWidget {
   const MenuSection({super.key, this.crossAxisCount});
@@ -75,19 +78,43 @@ class MenuDetailCard extends StatelessWidget {
                 'Lightly battered and perfectly fried golden calamari rings, served with a side of tangy marinara and zesty garlic aioli. Crunchy on the outside, tender on the inside — a classic appetizer that’s impossible to resist.',
               ),
               const Spacer(),
-              //TODO - Add WoltModalSheet
               SizedBox(
                 width: double.infinity,
                 child: PrimaryElevatedIconBtn(
-                  onPressed: () {},
+                  onPressed: () => _editProduct(context),
                   icon: Icons.edit,
-                  btnLabel: 'Edit Product',
+                  btnLabel: Constants.editProduct,
                 ),
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  void _editProduct(BuildContext context) {
+    WoltModalSheet.show(
+      context: context,
+      modalTypeBuilder: (BuildContext context) => context.modalType,
+      barrierDismissible: true,
+      pageListBuilder: (BuildContext modalContext) =>
+          <SliverWoltModalSheetPage>[
+            SliverWoltModalSheetPage(
+              navBarHeight: 20,
+              pageTitle: const Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Text(
+                  //TODO - Add the name of the product
+                  'Edit Product',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ),
+              mainContentSliversBuilder: (BuildContext context) => <Widget>[
+                const UpdateProductForm(),
+              ],
+            ),
+          ],
     );
   }
 }
