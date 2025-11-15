@@ -61,6 +61,7 @@ class StatusCardItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return Row(
       children: <Widget>[
         Container(
@@ -75,14 +76,8 @@ class StatusCardItem extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(
-              value,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-            ),
-            Text(
-              title,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-            ),
+            Text(value, style: theme.textTheme.headlineSmall),
+            Text(title, style: theme.textTheme.titleLarge),
           ],
         ),
       ],

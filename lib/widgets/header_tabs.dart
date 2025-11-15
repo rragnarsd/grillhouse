@@ -25,6 +25,8 @@ class _HeaderTabsState extends State<HeaderTabs> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       child: Row(
@@ -42,8 +44,7 @@ class _HeaderTabsState extends State<HeaderTabs> {
                     children: <Widget>[
                       Text(
                         widget.tabs[index],
-                        style: TextStyle(
-                          fontSize: 16,
+                        style: theme.textTheme.bodyLarge?.copyWith(
                           fontWeight: FontWeight.w600,
                           color: selectedIndex == index
                               ? Colors.black
@@ -57,8 +58,7 @@ class _HeaderTabsState extends State<HeaderTabs> {
                               final TextPainter textPainter = TextPainter(
                                 text: TextSpan(
                                   text: widget.tabs[index],
-                                  style: const TextStyle(
-                                    fontSize: 16,
+                                  style: theme.textTheme.bodyLarge?.copyWith(
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),

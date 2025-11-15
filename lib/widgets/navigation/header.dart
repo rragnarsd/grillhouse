@@ -28,7 +28,6 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
         SizedBox(width: 10),
         _HeaderUserProfile(),
       ],
-
       automaticallyImplyLeading: false,
     );
   }
@@ -212,11 +211,22 @@ class _HeaderUserInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    final ThemeData theme = Theme.of(context);
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[Text('John Doe'), Text('john.doe@example.com')],
+      children: <Widget>[
+        Text(
+          'John Smith',
+          style: theme.textTheme.bodyMedium?.copyWith(
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        Text(
+          'john@example.com',
+          style: theme.textTheme.bodyMedium?.copyWith(color: Colors.grey),
+        ),
+      ],
     );
   }
 }

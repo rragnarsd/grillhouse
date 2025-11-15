@@ -7,6 +7,7 @@ class BestSellerSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return Card(
       margin: EdgeInsets.zero,
       color: Colors.white,
@@ -16,9 +17,9 @@ class BestSellerSection extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            const Text(
+            Text(
               Constants.bestSellers,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: theme.textTheme.headlineSmall?.copyWith(fontSize: 16),
             ),
             const SizedBox(height: 16),
             ClipRRect(

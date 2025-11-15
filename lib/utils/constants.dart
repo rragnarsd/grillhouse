@@ -26,6 +26,11 @@ class Constants {
   static const String todaysCustomers = 'Today\'s Customers';
   static const String cancelledOrders = 'Cancelled Orders';
 
+  static const String monthlyOrders = 'Monthly Orders';
+  static const String monthlyIncome = 'Monthly Income';
+  static const String monthlyCustomers = 'Monthly Customers';
+  static const String monthlyAvgSpend = 'Monthly Avg. Spend';
+
   static const String jan = 'Jan';
   static const String feb = 'Feb';
   static const String mar = 'Mar';
@@ -80,9 +85,15 @@ class Constants {
 
   static const String totalItems = 'Total Items: ';
 
+  static const String appetizers = 'Appetizers';
+  static const String breakfast = 'Breakfast';
+  static const String lunch = 'Lunch';
+  static const String dinner = 'Dinner';
+  static const String dessert = 'Dessert';
+  static const String drinks = 'Drinks';
+
   //Orders
   static const String trendingOrders = 'Trending Orders';
-  static const String monthlyOrders = 'Monthly Orders';
   static const String orders = 'Orders';
   static const String productName = 'Product Name';
   static const String productId = 'Product ID';

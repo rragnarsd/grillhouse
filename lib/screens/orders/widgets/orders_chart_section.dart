@@ -59,6 +59,7 @@ class _OrdersChartSectionState extends State<OrdersChartSection> {
   }
 
   Widget _buildProductLabels(List<PieChartSectionData> sections) {
+    final ThemeData theme = Theme.of(context);
     return Wrap(
       alignment: WrapAlignment.center,
       spacing: 24,
@@ -88,7 +89,7 @@ class _OrdersChartSectionState extends State<OrdersChartSection> {
               const SizedBox(width: 8),
               Text(
                 _topProducts[i],
-                style: TextStyle(
+                style: theme.textTheme.bodyMedium?.copyWith(
                   fontSize: _touchedIndex == i ? 15 : 14,
                   color: Colors.black87,
                   fontWeight: _touchedIndex == i

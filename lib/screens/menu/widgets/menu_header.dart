@@ -12,12 +12,13 @@ class MenuHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Text(
           '${Constants.totalItems}${MenuData.items.length}',
-          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          style: theme.textTheme.headlineSmall?.copyWith(fontSize: 16),
         ),
         PrimaryElevatedIconBtn(
           onPressed: () => _addNewProduct(context),
@@ -29,6 +30,7 @@ class MenuHeader extends StatelessWidget {
   }
 
   void _addNewProduct(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     WoltModalSheet.show(
       context: context,
       modalTypeBuilder: (BuildContext context) => context.modalType,
@@ -36,12 +38,13 @@ class MenuHeader extends StatelessWidget {
       pageListBuilder: (BuildContext modalContext) =>
           <SliverWoltModalSheetPage>[
             SliverWoltModalSheetPage(
+              backgroundColor: Colors.white,
               navBarHeight: 20,
-              pageTitle: const Padding(
-                padding: EdgeInsets.all(16.0),
+              pageTitle: Padding(
+                padding: const EdgeInsets.all(16.0),
                 child: Text(
                   Constants.addNewProduct,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: theme.textTheme.headlineSmall,
                 ),
               ),
               mainContentSliversBuilder: (BuildContext context) => <Widget>[
@@ -92,7 +95,7 @@ class _AddProductFormState extends State<AddProductForm> {
                   Expanded(
                     child: LabeledTextFormField(
                       label: Constants.price,
-                      hintText: Constants.productPrice,
+                      hintText: '\$${Constants.productPrice}',
                       controller: priceController,
                     ),
                   ),

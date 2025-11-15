@@ -44,6 +44,7 @@ class MenuDetailCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return Expanded(
       child: Card(
         margin: EdgeInsets.zero,
@@ -69,13 +70,16 @@ class MenuDetailCard extends StatelessWidget {
               const SizedBox(height: 4),
               const MenuStarRating(),
               const SizedBox(height: 16),
-              const Text(
+              Text(
                 Constants.description,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                style: theme.textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               const SizedBox(height: 4),
-              const Text(
+              Text(
                 'Lightly battered and perfectly fried golden calamari rings, served with a side of tangy marinara and zesty garlic aioli. Crunchy on the outside, tender on the inside — a classic appetizer that’s impossible to resist.',
+                style: theme.textTheme.bodyMedium,
               ),
               const Spacer(),
               SizedBox(
@@ -94,6 +98,7 @@ class MenuDetailCard extends StatelessWidget {
   }
 
   void _editProduct(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     WoltModalSheet.show(
       context: context,
       modalTypeBuilder: (BuildContext context) => context.modalType,
@@ -101,13 +106,14 @@ class MenuDetailCard extends StatelessWidget {
       pageListBuilder: (BuildContext modalContext) =>
           <SliverWoltModalSheetPage>[
             SliverWoltModalSheetPage(
+              backgroundColor: Colors.white,
               navBarHeight: 20,
-              pageTitle: const Padding(
-                padding: EdgeInsets.all(16.0),
+              pageTitle: Padding(
+                padding: const EdgeInsets.all(16.0),
                 child: Text(
                   //TODO - Add the name of the product
                   'Edit Product',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: theme.textTheme.headlineSmall,
                 ),
               ),
               mainContentSliversBuilder: (BuildContext context) => <Widget>[
@@ -127,6 +133,7 @@ class NamePriceRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         final double width = MediaQuery.sizeOf(context).width;
@@ -136,21 +143,9 @@ class NamePriceRow extends StatelessWidget {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(
-                name,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              Text(name, style: theme.textTheme.headlineSmall),
               const SizedBox(height: 4),
-              Text(
-                price,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              Text(price, style: theme.textTheme.headlineSmall),
             ],
           );
         }
@@ -158,14 +153,8 @@ class NamePriceRow extends StatelessWidget {
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Text(
-              name,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            Text(
-              price,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
+            Text(name, style: theme.textTheme.headlineSmall),
+            Text(price, style: theme.textTheme.headlineSmall),
           ],
         );
       },
@@ -178,17 +167,18 @@ class MenuStarRating extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    final ThemeData theme = Theme.of(context);
+    return Row(
       children: <Widget>[
-        Icon(Icons.star, color: Colors.amber, size: 20),
-        Icon(Icons.star, color: Colors.amber, size: 20),
-        Icon(Icons.star, color: Colors.amber, size: 20),
-        Icon(Icons.star_half, color: Colors.amber, size: 20),
-        Icon(Icons.star_border, color: Colors.amber, size: 20),
-        SizedBox(width: 8),
+        const Icon(Icons.star, color: Colors.amber, size: 20),
+        const Icon(Icons.star, color: Colors.amber, size: 20),
+        const Icon(Icons.star, color: Colors.amber, size: 20),
+        const Icon(Icons.star_half, color: Colors.amber, size: 20),
+        const Icon(Icons.star_border, color: Colors.amber, size: 20),
+        const SizedBox(width: 8),
         Text(
           '(12 Reviews)',
-          style: TextStyle(color: Colors.grey, fontSize: 14),
+          style: theme.textTheme.titleMedium?.copyWith(color: Colors.grey),
         ),
       ],
     );

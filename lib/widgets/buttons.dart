@@ -32,7 +32,11 @@ class PrimaryBtn extends StatelessWidget {
       onPressed: enabled ? onClick : null,
       child: Text(
         label,
-        style: theme.textTheme.bodyMedium?.copyWith(color: textColor),
+        style: theme.textTheme.headlineSmall?.copyWith(
+          color: textColor,
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+        ),
       ),
     );
   }
@@ -52,6 +56,7 @@ class PrimaryElevatedIconBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return ElevatedButton.icon(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
@@ -64,7 +69,10 @@ class PrimaryElevatedIconBtn extends StatelessWidget {
       icon: Icon(icon, size: 18),
       label: Text(
         btnLabel,
-        style: const TextStyle(fontWeight: FontWeight.w500),
+        style: theme.textTheme.headlineSmall?.copyWith(
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+        ),
       ),
     );
   }
@@ -97,7 +105,8 @@ class PrimaryOutlinedBtn extends StatelessWidget {
       onPressed: enabled ? onClick : null,
       child: Text(
         label,
-        style: theme.textTheme.bodyMedium?.copyWith(
+        style: theme.textTheme.headlineSmall?.copyWith(
+          fontWeight: FontWeight.w600,
           color: theme.colorScheme.onSurface,
         ),
       ),

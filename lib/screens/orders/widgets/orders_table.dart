@@ -56,6 +56,7 @@ class OrdersPaginatedTablet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return Expanded(
       child: Theme(
         data: Theme.of(context).copyWith(
@@ -73,13 +74,16 @@ class OrdersPaginatedTablet extends StatelessWidget {
         ),
         child: PaginatedDataTable2(
           dataRowHeight: 32 * 1.2,
-          minWidth: 700,
+          minWidth: 1000,
           border: TableBorder.all(color: Colors.grey.shade300),
           wrapInCard: false,
           isVerticalScrollBarVisible: true,
           isHorizontalScrollBarVisible: true,
           columnSpacing: 12,
           horizontalMargin: 12,
+          headingTextStyle: theme.textTheme.bodyMedium?.copyWith(
+            fontWeight: FontWeight.w600,
+          ),
           columns: <DataColumn>[
             const DataColumn(label: Text(Constants.productName)),
             const DataColumn(label: Text(Constants.productId)),

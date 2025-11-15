@@ -44,7 +44,7 @@ class _UpdateProductFormState extends State<UpdateProductForm> {
                   Expanded(
                     child: LabeledTextFormField(
                       label: Constants.price,
-                      hintText: Constants.productPrice,
+                      hintText: '\$${Constants.productPrice}',
                       controller: priceController,
                     ),
                   ),

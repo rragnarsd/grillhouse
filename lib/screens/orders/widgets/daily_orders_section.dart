@@ -7,21 +7,22 @@ class DailyOrdersSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return Card(
       margin: EdgeInsets.zero,
       color: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: const Padding(
-        padding: EdgeInsets.all(16.0),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
               Constants.monthlyOrders,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: theme.textTheme.headlineSmall?.copyWith(fontSize: 16),
             ),
-            SizedBox(height: 16),
-            OrdersChartSection(),
+            const SizedBox(height: 16),
+            const OrdersChartSection(),
           ],
         ),
       ),

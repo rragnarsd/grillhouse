@@ -61,20 +61,23 @@ class TrendingMenuHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            const Text(
+            Text(
               Constants.trendingMenu,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: theme.textTheme.headlineSmall?.copyWith(fontSize: 16),
             ),
             const SizedBox(height: 4),
             Text(
               Constants.mostOrderedMenu,
-              style: TextStyle(fontSize: 14, color: Colors.grey.shade600),
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: Colors.grey.shade600,
+              ),
             ),
           ],
         ),

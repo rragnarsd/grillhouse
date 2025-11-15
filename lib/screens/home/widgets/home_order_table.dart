@@ -9,23 +9,25 @@ class HomeOrderTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return SizedBox(
       height: 500,
       child: Card(
         margin: EdgeInsets.zero,
         color: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        child: const Column(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               child: Text(
                 Constants.latestOrders,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                style: theme.textTheme.headlineSmall?.copyWith(fontSize: 16),
               ),
             ),
-            HomePaginatedTable(),
+            const HomePaginatedTable(),
           ],
         ),
       ),
@@ -38,6 +40,7 @@ class HomePaginatedTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return Expanded(
       child: Theme(
         data: Theme.of(context).copyWith(
@@ -55,13 +58,16 @@ class HomePaginatedTable extends StatelessWidget {
         ),
         child: PaginatedDataTable2(
           dataRowHeight: 32 * 1.2,
-          minWidth: 700,
+          minWidth: 1000,
           border: TableBorder.all(color: Colors.grey.shade300),
           wrapInCard: false,
           isVerticalScrollBarVisible: true,
           isHorizontalScrollBarVisible: true,
           columnSpacing: 12,
           horizontalMargin: 12,
+          headingTextStyle: theme.textTheme.bodyMedium?.copyWith(
+            fontWeight: FontWeight.w600,
+          ),
           columns: <DataColumn>[
             const DataColumn(label: Text(Constants.productName)),
             const DataColumn(label: Text(Constants.productId)),

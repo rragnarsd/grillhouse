@@ -6,17 +6,17 @@ extension CategoryName on Category {
   String get displayName {
     switch (this) {
       case Category.appetizers:
-        return 'Appetizers';
+        return Constants.appetizers;
       case Category.breakfast:
-        return 'Breakfast';
+        return Constants.breakfast;
       case Category.lunch:
-        return 'Lunch';
+        return Constants.lunch;
       case Category.dinner:
-        return 'Dinner';
+        return Constants.dinner;
       case Category.dessert:
-        return 'Dessert';
+        return Constants.dessert;
       case Category.drinks:
-        return 'Drinks';
+        return Constants.drinks;
     }
   }
 }

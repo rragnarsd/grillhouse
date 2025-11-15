@@ -54,6 +54,7 @@ class ReservationPaginatedTablet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return Expanded(
       child: Theme(
         data: Theme.of(context).copyWith(
@@ -78,6 +79,9 @@ class ReservationPaginatedTablet extends StatelessWidget {
           isHorizontalScrollBarVisible: true,
           columnSpacing: 12,
           horizontalMargin: 12,
+          headingTextStyle: theme.textTheme.bodyMedium?.copyWith(
+            fontWeight: FontWeight.w600,
+          ),
           columns: <DataColumn>[
             const DataColumn(label: Text('Name')),
             const DataColumn(label: Text('Email')),

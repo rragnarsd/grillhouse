@@ -9,6 +9,7 @@ class MenuList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return Card(
       margin: EdgeInsets.zero,
       color: Colors.white,
@@ -30,11 +31,7 @@ class MenuList extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 12.0),
                   child: Text(
                     category.displayName,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
-                    ),
+                    style: theme.textTheme.headlineMedium,
                   ),
                 ),
                 MenuGridList(
@@ -91,6 +88,7 @@ class MenuGridItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return Card(
       margin: EdgeInsets.zero,
       color: Colors.white,
@@ -121,9 +119,16 @@ class MenuGridItem extends StatelessWidget {
               children: <Widget>[
                 Text(
                   item.name,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
-                Text(item.price, style: const TextStyle(color: Colors.grey)),
+                Text(
+                  item.price,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: Colors.grey,
+                  ),
+                ),
               ],
             ),
           ),

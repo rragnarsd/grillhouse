@@ -41,6 +41,7 @@ class _TrendingOrdersSectionState extends State<TrendingOrdersSection> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return Card(
       margin: EdgeInsets.zero,
       color: Colors.white,
@@ -53,9 +54,9 @@ class _TrendingOrdersSectionState extends State<TrendingOrdersSection> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                const Text(
+                Text(
                   Constants.trendingOrders,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: theme.textTheme.headlineSmall?.copyWith(fontSize: 16),
                 ),
                 Row(
                   children: <Widget>[

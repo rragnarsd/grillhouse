@@ -9,6 +9,7 @@ class MobileTabletListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return Card(
       margin: EdgeInsets.zero,
       color: Colors.white,
@@ -31,29 +32,29 @@ class MobileTabletListItem extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
                   'Crispy Calamari Rings',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: theme.textTheme.headlineSmall,
                 ),
-                Text(
-                  '\$4.99',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
+                Text('\$4.99', style: theme.textTheme.headlineSmall),
               ],
             ),
             const SizedBox(height: 4),
             const MenuStarRating(),
             const SizedBox(height: 16),
-            const Text(
+            Text(
               Constants.description,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              style: theme.textTheme.titleLarge?.copyWith(
+                fontWeight: FontWeight.w600,
+              ),
             ),
             const SizedBox(height: 4),
-            const Text(
+            Text(
               'Lightly battered and perfectly fried golden calamari rings, served with a side of tangy marinara and zesty garlic aioli. Crunchy on the outside, tender on the inside — a classic appetizer that\'s impossible to resist.',
+              style: theme.textTheme.bodyMedium,
             ),
             const SizedBox(height: 24),
             SizedBox(

@@ -1,5 +1,7 @@
 import 'package:dashboard/utils/routes.dart';
 import 'package:dashboard/utils/scroll_configuration.dart';
+import 'package:dashboard/utils/theme/app_colors.dart';
+import 'package:dashboard/utils/theme/text_theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,9 +17,9 @@ class MyApp extends StatelessWidget {
       title: 'Dashboard',
       scrollBehavior: NoScrollBehavior(),
       debugShowCheckedModeBanner: false,
-
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        textTheme: AppTextTheme.textTheme,
+        scaffoldBackgroundColor: AppColors.backgroundColor,
       ),
       routerConfig: router,
     );

@@ -67,6 +67,7 @@ class _NavItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     final Color color = isSelected ? Colors.deepPurple : Colors.black;
     final Color background = isSelected
         ? Colors.deepPurple.shade100
@@ -97,7 +98,7 @@ class _NavItem extends StatelessWidget {
                 const SizedBox(width: 12),
                 Text(
                   item.title,
-                  style: TextStyle(
+                  style: theme.textTheme.bodyMedium?.copyWith(
                     color: color,
                     fontWeight: isSelected
                         ? FontWeight.bold
