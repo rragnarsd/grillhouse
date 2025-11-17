@@ -1,5 +1,6 @@
 import 'package:dashboard/screens/home/data/order_data.dart';
 import 'package:dashboard/utils/constants.dart';
+import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:dashboard/widgets/buttons.dart';
 import 'package:dashboard/widgets/delete_order_modal.dart';
 import 'package:dashboard/widgets/order_table_source.dart';
@@ -15,7 +16,7 @@ class HomeOrderTable extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
 
     return SizedBox(
-      height: 500,
+      height: 480,
       child: Card(
         margin: EdgeInsets.zero,
         color: Colors.white,
@@ -158,9 +159,21 @@ class CustomerSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           spacing: 16,
           children: <Widget>[
-            PrimaryFilledIconButton(onPressed: () {}, icon: Icons.email),
-            PrimaryFilledIconButton(onPressed: () {}, icon: Icons.phone),
-            PrimaryFilledIconButton(onPressed: () {}, icon: Icons.message),
+            PrimaryFilledIconButton(
+              onPressed: () {},
+              icon: Icons.email,
+              backgroundColor: AppColors.secondary,
+            ),
+            PrimaryFilledIconButton(
+              onPressed: () {},
+              icon: Icons.phone,
+              backgroundColor: AppColors.secondary,
+            ),
+            PrimaryFilledIconButton(
+              onPressed: () {},
+              icon: Icons.message,
+              backgroundColor: AppColors.secondary,
+            ),
           ],
         ),
       ],

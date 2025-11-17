@@ -1,5 +1,6 @@
 import 'package:dashboard/screens/home/data/order_data.dart';
 import 'package:dashboard/utils/constants.dart';
+import 'package:dashboard/utils/extensions.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 
@@ -22,10 +23,10 @@ class OrderTableSource extends DataTableSource {
       }),
       decoration: const BoxDecoration(color: Colors.transparent),
       cells: <DataCell>[
-        const DataCell(Text('ID')),
-        const DataCell(Text('Customer')),
+        DataCell(Text(order.productId)),
+        DataCell(Text(order.customerName)),
         DataCell(Text('\$${order.price.toStringAsFixed(0)}')),
-        const DataCell(Text('Date')),
+        DataCell(Text(order.date.toDdMmYy())),
         DataCell(
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
@@ -41,9 +42,7 @@ class OrderTableSource extends DataTableSource {
           PopupMenuButton<String>(
             color: Colors.white,
             icon: const Icon(Icons.more_vert),
-            onSelected: (String value) {
-              print(value);
-            },
+            onSelected: (String value) => print(value),
             itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
               PopupMenuItem<String>(
                 value: Constants.view,

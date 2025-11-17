@@ -215,6 +215,7 @@ class _HeaderUserInfo extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
+
       children: <Widget>[
         Text(
           'John Smith',

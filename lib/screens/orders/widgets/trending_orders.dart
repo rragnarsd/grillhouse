@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dashboard/utils/constants.dart';
+import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class TrendingOrdersSection extends StatefulWidget {
@@ -141,6 +142,7 @@ class TrendingOrderItemCard extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
+                      //TODO - Add theme styles
                       Text('Veg Taco'),
                       SizedBox(height: 4),
                       Text(
@@ -200,7 +202,9 @@ class ScrollArrow extends StatelessWidget {
         duration: const Duration(milliseconds: 200),
         decoration: BoxDecoration(
           color: canScroll
-              ? (isHover ? Colors.blue.withValues(alpha: 0.2) : Colors.black12)
+              ? (isHover
+                    ? AppColors.secondary.withValues(alpha: 0.2)
+                    : Colors.black12)
               : Colors.transparent,
           shape: BoxShape.circle,
         ),
@@ -208,8 +212,8 @@ class ScrollArrow extends StatelessWidget {
           icon: Icon(
             icon,
             color: canScroll
-                ? (isHover ? Colors.blue : Colors.black87)
-                : Colors.grey,
+                ? (isHover ? AppColors.secondary : Colors.black87)
+                : Colors.grey.withValues(alpha: 0.4),
           ),
           onPressed: canScroll ? onPressed : null,
         ),

@@ -1,4 +1,5 @@
 import 'package:dashboard/screens/reservations/data/reservation_data.dart';
+import 'package:dashboard/utils/extensions.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 
@@ -6,12 +7,13 @@ class ReservationTableSource extends DataTableSource {
   @override
   DataRow? getRow(int index) {
     final Reservation reservation = reservations[index];
+
     return DataRow2(
       cells: <DataCell>[
         DataCell(Text(reservation.name)),
         DataCell(Text(reservation.email)),
         DataCell(Text(reservation.numberOfPeople.toString())),
-        const DataCell(Text('Date')),
+        DataCell(Text(reservation.date.toDdMmYy())),
         DataCell(Text(reservation.contactNumber)),
         DataCell(
           InkWell(

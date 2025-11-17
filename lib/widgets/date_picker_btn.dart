@@ -1,5 +1,6 @@
 import 'package:dashboard/utils/extensions.dart';
 import 'package:dashboard/utils/responsive.dart';
+import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:dashboard/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 
@@ -27,6 +28,16 @@ class _DatePickerButtonState extends State<DatePickerButton> {
       initialDate: selectedDate ?? DateTime.now(),
       firstDate: DateTime(2024),
       lastDate: DateTime(2026),
+      builder: (BuildContext context, Widget? child) => Theme(
+        //TODO - Change colors
+        data: Theme.of(context).copyWith(
+          colorScheme: const ColorScheme.light(primary: AppColors.secondary),
+          textButtonTheme: TextButtonThemeData(
+            style: TextButton.styleFrom(foregroundColor: Colors.black),
+          ),
+        ),
+        child: child!,
+      ),
     );
 
     if (picked != null) {
@@ -43,11 +54,14 @@ class _DatePickerButtonState extends State<DatePickerButton> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(6),
             ),
+            backgroundColor: Colors.grey.shade100,
           )
         : PrimaryElevatedIconBtn(
             onPressed: _pickDate,
+            backgroundColor: Colors.grey.shade100,
             icon: Icons.calendar_today_outlined,
             btnLabel: selectedDate.toReadableDate(),
+            textColor: Colors.black,
           );
   }
 }

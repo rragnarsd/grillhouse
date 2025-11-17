@@ -4,6 +4,7 @@ class Reservation {
   final String name;
   final String email;
   final int numberOfPeople;
+  final DateTime date;
   final String contactNumber;
   final ReservationStatus status;
 
@@ -11,6 +12,7 @@ class Reservation {
     required this.name,
     required this.email,
     required this.numberOfPeople,
+    required this.date,
     required this.contactNumber,
     required this.status,
   });
@@ -21,6 +23,7 @@ final List<Reservation> reservations = <Reservation>[
     name: 'Samantha',
     email: 'samantha@example.com',
     numberOfPeople: 2,
+    date: DateTime(2025, 11, 15, 14, 30),
     contactNumber: '1234567890',
     status: ReservationStatus.accept,
   ),
@@ -28,6 +31,7 @@ final List<Reservation> reservations = <Reservation>[
     name: 'Bruce',
     email: 'bruce@example.com',
     numberOfPeople: 4,
+    date: DateTime(2025, 11, 15, 14, 30),
     contactNumber: '9876543210',
     status: ReservationStatus.accept,
   ),
@@ -35,6 +39,7 @@ final List<Reservation> reservations = <Reservation>[
     name: 'Jim Doe',
     email: 'jim.doe@example.com',
     numberOfPeople: 6,
+    date: DateTime(2025, 11, 15, 14, 30),
     contactNumber: '5551234567',
     status: ReservationStatus.cancel,
   ),
@@ -42,6 +47,7 @@ final List<Reservation> reservations = <Reservation>[
     name: 'Alice Smith',
     email: 'alice.smith@example.com',
     numberOfPeople: 3,
+    date: DateTime(2025, 11, 15, 14, 30),
     contactNumber: '4442221111',
     status: ReservationStatus.cancel,
   ),
@@ -49,6 +55,7 @@ final List<Reservation> reservations = <Reservation>[
     name: 'Bob Johnson',
     email: 'bob.johnson@example.com',
     numberOfPeople: 5,
+    date: DateTime(2025, 11, 15, 14, 30),
     contactNumber: '3334445555',
     status: ReservationStatus.accept,
   ),
@@ -56,6 +63,7 @@ final List<Reservation> reservations = <Reservation>[
     name: 'Charlie Brown',
     email: 'charlie.brown@example.com',
     numberOfPeople: 2,
+    date: DateTime(2025, 11, 15, 14, 30),
     contactNumber: '1112223333',
     status: ReservationStatus.accept,
   ),
@@ -63,6 +71,7 @@ final List<Reservation> reservations = <Reservation>[
     name: 'Diana Prince',
     email: 'diana.prince@example.com',
     numberOfPeople: 8,
+    date: DateTime(2025, 11, 15, 14, 30),
     contactNumber: '2223334444',
     status: ReservationStatus.accept,
   ),
@@ -70,6 +79,7 @@ final List<Reservation> reservations = <Reservation>[
     name: 'Ethan Hunt',
     email: 'ethan.hunt@example.com',
     numberOfPeople: 1,
+    date: DateTime(2025, 11, 15, 14, 30),
     contactNumber: '7778889999',
     status: ReservationStatus.cancel,
   ),
@@ -77,6 +87,7 @@ final List<Reservation> reservations = <Reservation>[
     name: 'Fiona Gallagher',
     email: 'fiona@example.com',
     numberOfPeople: 7,
+    date: DateTime(2025, 11, 15, 14, 30),
     contactNumber: '8889990000',
     status: ReservationStatus.accept,
   ),
@@ -84,6 +95,7 @@ final List<Reservation> reservations = <Reservation>[
     name: 'George Miller',
     email: 'george.miller@example.com',
     numberOfPeople: 4,
+    date: DateTime(2025, 11, 15, 14, 30),
     contactNumber: '6667778888',
     status: ReservationStatus.accept,
   ),

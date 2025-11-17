@@ -1,4 +1,5 @@
 import 'package:dashboard/utils/responsive.dart';
+import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:dashboard/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 
@@ -47,7 +48,7 @@ class _HeaderTabsState extends State<HeaderTabs> {
                         style: theme.textTheme.bodyLarge?.copyWith(
                           fontWeight: FontWeight.w600,
                           color: selectedIndex == index
-                              ? Colors.black
+                              ? AppColors.secondary
                               : Colors.grey[600],
                         ),
                       ),
@@ -73,7 +74,7 @@ class _HeaderTabsState extends State<HeaderTabs> {
                                 height: 2,
                                 width: selectedIndex == index ? textWidth : 0,
                                 decoration: BoxDecoration(
-                                  color: Colors.black,
+                                  color: AppColors.secondary,
                                   borderRadius: BorderRadius.circular(12),
                                 ),
                               );
@@ -93,11 +94,14 @@ class _HeaderTabsState extends State<HeaderTabs> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(6),
                   ),
+                  backgroundColor: Colors.grey.shade100,
                 )
               : PrimaryElevatedIconBtn(
                   onPressed: widget.onButtonPressed,
                   icon: widget.buttonIcon,
                   btnLabel: widget.buttonLabel,
+                  backgroundColor: Colors.grey.shade100,
+                  textColor: Colors.black,
                 ),
         ],
       ),

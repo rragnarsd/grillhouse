@@ -1,5 +1,6 @@
 import 'package:dashboard/utils/constants.dart';
 import 'package:dashboard/utils/routes.dart';
+import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:dashboard/widgets/navigation/data/sidebar_data.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -68,10 +69,10 @@ class _NavItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final Color color = isSelected ? Colors.deepPurple : Colors.black;
+    final Color color = isSelected ? AppColors.secondary : Colors.black;
     final Color background = isSelected
-        ? Colors.deepPurple.shade100
-        : Colors.grey.shade200;
+        ? AppColors.secondary.withValues(alpha: 0.1)
+        : Colors.grey.shade100;
 
     return Padding(
       padding: const EdgeInsets.only(top: 8.0),
@@ -98,12 +99,7 @@ class _NavItem extends StatelessWidget {
                 const SizedBox(width: 12),
                 Text(
                   item.title,
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: color,
-                    fontWeight: isSelected
-                        ? FontWeight.bold
-                        : FontWeight.normal,
-                  ),
+                  style: theme.textTheme.bodyMedium?.copyWith(color: color),
                 ),
               ],
             ),

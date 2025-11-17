@@ -4,6 +4,7 @@ import 'package:dashboard/screens/menu/widgets/menu_list.dart';
 import 'package:dashboard/screens/menu/widgets/update_product_form.dart';
 import 'package:dashboard/utils/constants.dart';
 import 'package:dashboard/utils/extensions.dart';
+import 'package:dashboard/utils/responsive.dart';
 import 'package:dashboard/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
@@ -23,7 +24,7 @@ class MenuSection extends StatelessWidget {
         SizedBox(
           height: 700,
           child: Row(
-            spacing: 32,
+            spacing: Responsive.isTablet(context) ? 16 : 32,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Expanded(
@@ -84,10 +85,11 @@ class MenuDetailCard extends StatelessWidget {
               const Spacer(),
               SizedBox(
                 width: double.infinity,
-                child: PrimaryElevatedIconBtn(
-                  onPressed: () => _editProduct(context),
+                child: PrimaryOutlinedIconBtn(
+                  onClick: () => _editProduct(context),
                   icon: Icons.edit,
-                  btnLabel: Constants.editProduct,
+                  label: Constants.editProduct,
+                  color: Colors.black,
                 ),
               ),
             ],

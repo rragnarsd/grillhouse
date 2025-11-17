@@ -8,7 +8,7 @@ class Order {
   final String productName;
   final String customerName;
   final Status status;
-  final String date;
+  final DateTime date;
   final double price;
 
   Order({
@@ -28,76 +28,76 @@ class Order {
   };
 
   Color get statusColor => switch (status) {
-    Status.pending => Colors.orange,
-    Status.delivered => Colors.green,
-    Status.cancelled => Colors.red,
-    Status.processing => Colors.blue,
+    Status.pending => Colors.orange.withValues(alpha: 0.2),
+    Status.delivered => Colors.green.withValues(alpha: 0.2),
+    Status.cancelled => Colors.red.withValues(alpha: 0.2),
+    Status.processing => Colors.blue.withValues(alpha: 0.2),
   };
 }
 
 final List<Order> orders = <Order>[
   Order(
-    productId: '1',
-    productName: 'Product 1',
-    customerName: 'Customer 1',
+    productId: 'PROD-001',
+    productName: 'Margherita Pizza',
+    customerName: 'Sarah Johnson',
     status: Status.pending,
-    date: '11:05 AM',
+    date: DateTime(2025, 11, 15, 14, 30),
     price: 10,
   ),
   Order(
-    productId: '2',
-    productName: 'Product 2',
-    customerName: 'Customer 2',
+    productId: 'PROD-002',
+    productName: 'Caesar Salad',
+    customerName: 'Michael Chen',
     status: Status.delivered,
-    date: '11:05 AM',
+    date: DateTime(2025, 11, 10, 9, 15),
     price: 15,
   ),
   Order(
-    productId: '3',
-    productName: 'Product 3',
-    customerName: 'Customer 3',
+    productId: 'PROD-003',
+    productName: 'Grilled Salmon',
+    customerName: 'Emily Rodriguez',
     status: Status.processing,
-    date: '11:05 AM',
+    date: DateTime(2025, 11, 18, 16, 45),
     price: 25,
   ),
   Order(
-    productId: '4',
-    productName: 'Product 4',
-    customerName: 'Customer 4',
+    productId: 'PROD-004',
+    productName: 'Beef Burger',
+    customerName: 'David Thompson',
     status: Status.pending,
-    date: '11:05 AM',
+    date: DateTime(2025, 11, 20, 11, 20),
     price: 30,
   ),
   Order(
-    productId: '5',
-    productName: 'Product 5',
-    customerName: 'Customer 5',
+    productId: 'PROD-005',
+    productName: 'Chicken Pasta',
+    customerName: 'Jessica Williams',
     status: Status.delivered,
-    date: '11:05 AM',
+    date: DateTime(2025, 11, 8, 13, 10),
     price: 17,
   ),
   Order(
-    productId: '6',
-    productName: 'Product 6',
-    customerName: 'Customer 6',
+    productId: 'PROD-006',
+    productName: 'Garlic Bread',
+    customerName: 'Robert Martinez',
     status: Status.cancelled,
-    date: '11:05 AM',
+    date: DateTime(2025, 11, 12, 10, 5),
     price: 18,
   ),
   Order(
-    productId: '7',
-    productName: 'Product 7',
-    customerName: 'Customer 7',
+    productId: 'PROD-007',
+    productName: 'Chocolate Cake',
+    customerName: 'Amanda Davis',
     status: Status.pending,
-    date: '11:05 AM',
+    date: DateTime(2025, 11, 22, 15, 30),
     price: 19,
   ),
   Order(
-    productId: '8',
-    productName: 'Product 8',
-    customerName: 'Customer 8',
+    productId: 'PROD-008',
+    productName: 'Fish & Chips',
+    customerName: 'James Wilson',
     status: Status.delivered,
-    date: '11:05 AM',
+    date: DateTime(2025, 11, 5, 8, 45),
     price: 16,
   ),
 ];

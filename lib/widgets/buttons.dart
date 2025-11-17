@@ -32,10 +32,9 @@ class PrimaryBtn extends StatelessWidget {
       onPressed: enabled ? onClick : null,
       child: Text(
         label,
-        style: theme.textTheme.headlineSmall?.copyWith(
+        style: theme.textTheme.titleMedium?.copyWith(
           color: textColor,
-          fontSize: 16,
-          fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.w500,
         ),
       ),
     );
@@ -48,11 +47,15 @@ class PrimaryElevatedIconBtn extends StatelessWidget {
     required this.onPressed,
     required this.icon,
     required this.btnLabel,
+    required this.backgroundColor,
+    required this.textColor,
   });
 
   final VoidCallback onPressed;
   final IconData icon;
   final String btnLabel;
+  final Color backgroundColor;
+  final Color textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -60,18 +63,18 @@ class PrimaryElevatedIconBtn extends StatelessWidget {
     return ElevatedButton.icon(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.grey[200],
+        backgroundColor: backgroundColor,
         foregroundColor: Colors.black,
         elevation: 0,
         fixedSize: const Size(double.infinity, 48),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
-      icon: Icon(icon, size: 18),
+      icon: Icon(icon, size: 18, color: textColor),
       label: Text(
         btnLabel,
-        style: theme.textTheme.headlineSmall?.copyWith(
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
+        style: theme.textTheme.titleMedium?.copyWith(
+          color: textColor,
+          fontWeight: FontWeight.w500,
         ),
       ),
     );
@@ -83,13 +86,11 @@ class PrimaryOutlinedBtn extends StatelessWidget {
     super.key,
     required this.onClick,
     required this.label,
-    this.height = 54,
     this.enabled = true,
   });
 
   final VoidCallback onClick;
   final String label;
-  final double height;
   final bool enabled;
 
   @override
@@ -105,9 +106,43 @@ class PrimaryOutlinedBtn extends StatelessWidget {
       onPressed: enabled ? onClick : null,
       child: Text(
         label,
-        style: theme.textTheme.headlineSmall?.copyWith(
-          fontWeight: FontWeight.w600,
-          color: theme.colorScheme.onSurface,
+        style: theme.textTheme.titleMedium?.copyWith(
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+    );
+  }
+}
+
+class PrimaryOutlinedIconBtn extends StatelessWidget {
+  const PrimaryOutlinedIconBtn({
+    super.key,
+    required this.onClick,
+    required this.icon,
+    required this.label,
+    required this.color,
+  });
+
+  final VoidCallback onClick;
+  final IconData icon;
+  final String label;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    return OutlinedButton.icon(
+      onPressed: onClick,
+      style: OutlinedButton.styleFrom(
+        elevation: 0,
+        fixedSize: const Size(double.infinity, 48),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      ),
+      icon: Icon(icon, size: 18, color: color),
+      label: Text(
+        label,
+        style: theme.textTheme.titleMedium?.copyWith(
+          fontWeight: FontWeight.w500,
         ),
       ),
     );
@@ -119,20 +154,21 @@ class PrimaryFilledIconButton extends StatelessWidget {
     super.key,
     required this.onPressed,
     required this.icon,
+    required this.backgroundColor,
     this.shape,
   });
 
   final VoidCallback onPressed;
   final IconData icon;
   final OutlinedBorder? shape;
-
+  final Color backgroundColor;
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     return IconButton.filled(
       style: IconButton.styleFrom(
         padding: EdgeInsets.zero,
-        backgroundColor: Colors.grey[200],
+        backgroundColor: backgroundColor,
         shape: shape,
       ),
       icon: Icon(

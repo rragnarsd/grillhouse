@@ -33,7 +33,8 @@ class StatusCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin: EdgeInsets.zero,
-      color: Colors.white,
+      color: data.color,
+      elevation: 0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -41,6 +42,7 @@ class StatusCard extends StatelessWidget {
           value: data.value,
           title: data.title,
           iconData: data.icon,
+          color: data.color,
         ),
       ),
     );
@@ -53,11 +55,13 @@ class StatusCardItem extends StatelessWidget {
     required this.value,
     required this.title,
     required this.iconData,
+    required this.color,
   });
 
   final String value;
   final String title;
   final IconData iconData;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +70,7 @@ class StatusCardItem extends StatelessWidget {
       children: <Widget>[
         Container(
           decoration: BoxDecoration(
-            border: Border.all(),
+            color: color,
             borderRadius: BorderRadius.circular(6),
           ),
           padding: const EdgeInsets.all(8),

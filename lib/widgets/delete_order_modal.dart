@@ -1,3 +1,4 @@
+import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:dashboard/widgets/action_btn_section.dart';
 import 'package:flutter/material.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
@@ -41,10 +42,8 @@ class DeleteOrderModal {
                           primaryBtnLabel: 'Delete Order',
                           secondaryBtnLabel: 'Keep Order',
                           onPrimaryBtnPressed: () {},
-                          primaryBtnColor: Colors.red,
-                          secondaryBtnColor: Colors.black,
+                          primaryBtnColor: AppColors.error,
                           primaryBtnTextColor: Colors.white,
-                          secondaryBtnTextColor: Colors.white,
                         ),
                       ],
                     ),

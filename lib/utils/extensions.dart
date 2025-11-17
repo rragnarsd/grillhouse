@@ -29,9 +29,20 @@ extension ModalTypeExtension on BuildContext {
       : WoltModalType.sideSheet();
 }
 
-extension DateFormatting on DateTime? {
+extension DateFormattingExtension on DateTime? {
   String toReadableDate({String fallback = 'Select Date'}) {
     if (this == null) return fallback;
     return DateFormat('d MMMM yyyy').format(this!);
+  }
+}
+
+extension DateFormatting on DateTime {
+  String toDdMmYy() {
+    final DateTime localDate = toLocal();
+    final String day = localDate.day.toString().padLeft(2, '0');
+    final String month = localDate.month.toString().padLeft(2, '0');
+    final String year = (localDate.year % 100).toString().padLeft(2, '0');
+
+    return '$day/$month/$year';
   }
 }

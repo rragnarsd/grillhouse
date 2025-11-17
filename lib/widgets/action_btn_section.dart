@@ -9,18 +9,14 @@ class ActionButtonsSection extends StatelessWidget {
     required this.secondaryBtnLabel,
     required this.onPrimaryBtnPressed,
     required this.primaryBtnColor,
-    required this.secondaryBtnColor,
     required this.primaryBtnTextColor,
-    required this.secondaryBtnTextColor,
   });
 
   final String primaryBtnLabel;
   final String secondaryBtnLabel;
   final VoidCallback onPrimaryBtnPressed;
   final Color primaryBtnColor;
-  final Color secondaryBtnColor;
   final Color primaryBtnTextColor;
-  final Color secondaryBtnTextColor;
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +28,8 @@ class ActionButtonsSection extends StatelessWidget {
                 child: PrimaryBtn(
                   onClick: () => Navigator.of(context).pop(),
                   label: secondaryBtnLabel,
-                  bgColor: secondaryBtnColor,
-                  textColor: secondaryBtnTextColor,
+                  bgColor: Colors.grey.shade100,
+                  textColor: Colors.black,
                 ),
               ),
               const SizedBox(height: 12),
@@ -54,8 +50,8 @@ class ActionButtonsSection extends StatelessWidget {
                 child: PrimaryBtn(
                   onClick: () => Navigator.of(context).pop(),
                   label: secondaryBtnLabel,
-                  bgColor: secondaryBtnColor,
-                  textColor: secondaryBtnTextColor,
+                  bgColor: Colors.grey.shade100,
+                  textColor: Colors.black,
                 ),
               ),
               const SizedBox(width: 16),

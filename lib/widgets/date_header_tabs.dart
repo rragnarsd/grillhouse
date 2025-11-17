@@ -1,4 +1,5 @@
 import 'package:dashboard/utils/extensions.dart';
+import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:dashboard/widgets/header_tabs.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,16 @@ class DateHeaderTabs extends StatelessWidget {
       initialDate: selectedDate ?? initialDate,
       firstDate: firstDate,
       lastDate: lastDate,
-      //TODO - Change colors
+      builder: (BuildContext context, Widget? child) => Theme(
+        //TODO - Change colors
+        data: Theme.of(context).copyWith(
+          colorScheme: const ColorScheme.light(primary: AppColors.secondary),
+          textButtonTheme: TextButtonThemeData(
+            style: TextButton.styleFrom(foregroundColor: Colors.black),
+          ),
+        ),
+        child: child!,
+      ),
     );
     onDateSelected(picked);
   }

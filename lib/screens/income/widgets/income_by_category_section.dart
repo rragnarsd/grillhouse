@@ -19,7 +19,7 @@ class IncomeByCategorySection extends StatelessWidget {
               'Income by Category',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 32),
             _IncomeByCategoryChart(),
           ],
         ),

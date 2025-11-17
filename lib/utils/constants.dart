@@ -82,7 +82,7 @@ class Constants {
 
   static const String updateProduct = 'Update Product';
   static const String addProduct = 'Add Product';
-  static const String addNewProduct = 'Add new product';
+  static const String addNewProduct = 'Add New Product';
 
   static const String totalItems = 'Total Items: ';
 
