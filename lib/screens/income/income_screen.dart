@@ -1,3 +1,6 @@
+import 'package:dashboard/screens/income/responsive/income_desktop_screen.dart';
+import 'package:dashboard/screens/income/responsive/income_mobile_screen.dart';
+import 'package:dashboard/screens/income/responsive/income_tablet_screen.dart';
 import 'package:dashboard/utils/responsive.dart';
 import 'package:flutter/material.dart';
 
@@ -7,9 +10,9 @@ class IncomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Responsive.isDesktop(context)
-        ? const Text('Income Desktop')
+        ? const IncomeDesktopScreen()
         : Responsive.isTablet(context)
-        ? const Text('Income Tablet')
-        : const Text('Income Mobile');
+        ? const IncomeTabletScreen()
+        : const IncomeMobileScreen();
   }
 }

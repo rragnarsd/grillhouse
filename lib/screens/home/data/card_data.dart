@@ -32,9 +32,23 @@ final List<StatusCards> monthlyCards = <StatusCards>[
     title: Constants.monthlyCustomers,
     icon: Icons.folder,
   ),
-  //TODO - Monthly Income ÷ Monthly Customers
   StatusCards(
     value: '140',
+    title: Constants.monthlyAvgSpend,
+    icon: Icons.folder,
+  ),
+];
+
+final List<StatusCards> incomeScreenCards = <StatusCards>[
+  StatusCards(value: '120', title: Constants.todaysIncome, icon: Icons.folder),
+  StatusCards(
+    value: '120',
+    title: Constants.weeklyAvgSpend,
+    icon: Icons.folder,
+  ),
+  StatusCards(value: '120', title: Constants.monthlyIncome, icon: Icons.folder),
+  StatusCards(
+    value: '240',
     title: Constants.monthlyAvgSpend,
     icon: Icons.folder,
   ),

@@ -30,6 +30,7 @@ class Constants {
   static const String monthlyIncome = 'Monthly Income';
   static const String monthlyCustomers = 'Monthly Customers';
   static const String monthlyAvgSpend = 'Monthly Avg. Spend';
+  static const String weeklyAvgSpend = 'Weekly Avg. Spend';
 
   static const String jan = 'Jan';
   static const String feb = 'Feb';
