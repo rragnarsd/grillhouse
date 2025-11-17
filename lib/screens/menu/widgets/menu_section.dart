@@ -178,7 +178,10 @@ class MenuStarRating extends StatelessWidget {
         const SizedBox(width: 8),
         Text(
           '(12 Reviews)',
-          style: theme.textTheme.titleMedium?.copyWith(color: Colors.grey),
+          style: theme.textTheme.titleMedium?.copyWith(
+            color: Colors.grey,
+            fontWeight: FontWeight.w500,
+          ),
         ),
       ],
     );

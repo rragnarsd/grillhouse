@@ -1,7 +1,9 @@
 import 'package:dashboard/screens/home/data/order_data.dart';
 import 'package:dashboard/utils/constants.dart';
 import 'package:dashboard/widgets/date_header_tabs.dart';
+import 'package:dashboard/widgets/delete_order_modal.dart';
 import 'package:dashboard/widgets/order_table_source.dart';
+import 'package:dashboard/widgets/view_order_modal.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 
@@ -85,10 +87,10 @@ class OrdersPaginatedTablet extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
           columns: <DataColumn>[
-            const DataColumn(label: Text(Constants.productName)),
-            const DataColumn(label: Text(Constants.productId)),
+            const DataColumn2(size: ColumnSize.S, label: Text('Order Id')),
+            const DataColumn(label: Text('Customer')),
             const DataColumn2(size: ColumnSize.S, label: Text(Constants.price)),
-            const DataColumn(label: Text(Constants.date)),
+            const DataColumn2(size: ColumnSize.S, label: Text(Constants.date)),
             const DataColumn(label: Text(Constants.status)),
             const DataColumn2(
               size: ColumnSize.S,
@@ -96,9 +98,21 @@ class OrdersPaginatedTablet extends StatelessWidget {
             ),
           ],
           rowsPerPage: orders.length.toInt(),
-          source: OrderTableSource(),
+          source: OrderTableSource(
+            onView: (Order order) =>
+                ViewOrderModal.show(context: context, order: order),
+            onEdit: (Order order) => print('Edit: ${order.productId}'),
+            onDelete: (Order order) => onDelete(context, order),
+          ),
         ),
       ),
+    );
+  }
+
+  void onDelete(BuildContext context, Order order) {
+    DeleteOrderModal.show(
+      context: context,
+      onConfirm: () => print('Delete: ${order.productId}'),
     );
   }
 }

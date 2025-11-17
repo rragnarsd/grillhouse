@@ -4,6 +4,15 @@ import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 
 class OrderTableSource extends DataTableSource {
+  final void Function(Order) onView;
+  final void Function(Order) onEdit;
+  final void Function(Order) onDelete;
+
+  OrderTableSource({
+    required this.onView,
+    required this.onEdit,
+    required this.onDelete,
+  });
   @override
   DataRow? getRow(int index) {
     final Order order = orders[index];
@@ -13,8 +22,8 @@ class OrderTableSource extends DataTableSource {
       }),
       decoration: const BoxDecoration(color: Colors.transparent),
       cells: <DataCell>[
-        DataCell(Text(order.productName)),
-        const DataCell(Text('Product ID')),
+        const DataCell(Text('ID')),
+        const DataCell(Text('Customer')),
         DataCell(Text('\$${order.price.toStringAsFixed(0)}')),
         const DataCell(Text('Date')),
         DataCell(
@@ -36,17 +45,20 @@ class OrderTableSource extends DataTableSource {
               print(value);
             },
             itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-              const PopupMenuItem<String>(
+              PopupMenuItem<String>(
                 value: Constants.view,
-                child: Text(Constants.view),
+                child: const Text(Constants.view),
+                onTap: () => onView(order),
               ),
-              const PopupMenuItem<String>(
+              PopupMenuItem<String>(
                 value: Constants.edit,
-                child: Text(Constants.edit),
+                child: const Text(Constants.edit),
+                onTap: () => onEdit(order),
               ),
-              const PopupMenuItem<String>(
+              PopupMenuItem<String>(
                 value: Constants.delete,
-                child: Text(Constants.delete),
+                child: const Text(Constants.delete),
+                onTap: () => onDelete(order),
               ),
             ],
           ),

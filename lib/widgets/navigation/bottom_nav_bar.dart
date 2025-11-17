@@ -35,6 +35,8 @@ class BottomNavBar extends StatelessWidget {
       type: BottomNavigationBarType.fixed,
       selectedItemColor: Colors.deepPurple,
       unselectedItemColor: Colors.grey,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
       items: sidebarItems.map((SidebarItem item) {
         final bool isSelected = currentRoute == item.route;
         return BottomNavigationBarItem(

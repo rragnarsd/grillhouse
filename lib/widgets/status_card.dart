@@ -77,7 +77,12 @@ class StatusCardItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(value, style: theme.textTheme.headlineSmall),
-            Text(title, style: theme.textTheme.titleLarge),
+            Text(
+              title,
+              style: theme.textTheme.titleLarge?.copyWith(
+                fontWeight: FontWeight.w500,
+              ),
+            ),
           ],
         ),
       ],

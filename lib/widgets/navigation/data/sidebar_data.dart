@@ -40,4 +40,10 @@ final List<SidebarItem> sidebarItems = <SidebarItem>[
     activeIcon: Icons.calendar_month,
     route: AppRoute.reservations,
   ),
+  SidebarItem(
+    title: 'Income',
+    icon: Icons.money_outlined,
+    activeIcon: Icons.money,
+    route: AppRoute.income,
+  ),
 ];

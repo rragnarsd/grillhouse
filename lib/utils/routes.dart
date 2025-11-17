@@ -1,4 +1,5 @@
 import 'package:dashboard/screens/home/home_screen.dart';
+import 'package:dashboard/screens/income/income_screen.dart';
 import 'package:dashboard/screens/menu/menu_screen.dart';
 import 'package:dashboard/screens/orders/orders_page.dart';
 import 'package:dashboard/screens/reservations/reservation_screen.dart';
@@ -11,7 +12,8 @@ enum AppRoute {
   home(path: '/', screen: HomeScreen()),
   menu(path: '/menu', screen: MenuScreen()),
   orders(path: '/orders', screen: OrdersScreen()),
-  reservations(path: '/reservations', screen: ReservationsScreen());
+  reservations(path: '/reservations', screen: ReservationsScreen()),
+  income(path: '/income', screen: IncomeScreen());
 
   final String path;
   final Widget screen;
