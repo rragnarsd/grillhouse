@@ -1,4 +1,5 @@
 import 'package:dashboard/utils/routes.dart';
+import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:dashboard/widgets/navigation/data/sidebar_data.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -24,6 +25,7 @@ class BottomNavBar extends StatelessWidget {
     final int selectedIndex = _getSelectedIndex();
 
     return BottomNavigationBar(
+      backgroundColor: Colors.white,
       currentIndex: selectedIndex >= 0 ? selectedIndex : 0,
       onTap: (int index) {
         if (index < sidebarItems.length) {
@@ -33,7 +35,7 @@ class BottomNavBar extends StatelessWidget {
         }
       },
       type: BottomNavigationBarType.fixed,
-      selectedItemColor: Colors.deepPurple,
+      selectedItemColor: AppColors.secondary,
       unselectedItemColor: Colors.grey,
       showSelectedLabels: false,
       showUnselectedLabels: false,

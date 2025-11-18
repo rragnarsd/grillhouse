@@ -1,3 +1,4 @@
+import 'package:dashboard/utils/constants.dart';
 import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -7,21 +8,22 @@ class IncomeByCategorySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return Card(
       margin: EdgeInsets.zero,
       color: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: const Padding(
-        padding: EdgeInsets.all(16.0),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              'Income by Category',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              Constants.incomeByCategory,
+              style: theme.textTheme.headlineSmall?.copyWith(fontSize: 16),
             ),
-            SizedBox(height: 32),
-            _IncomeByCategoryChart(),
+            const SizedBox(height: 32),
+            const _IncomeByCategoryChart(),
           ],
         ),
       ),

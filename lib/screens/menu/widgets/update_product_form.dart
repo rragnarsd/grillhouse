@@ -1,3 +1,4 @@
+import 'package:dashboard/screens/menu/data/menu_data.dart';
 import 'package:dashboard/utils/constants.dart';
 import 'package:dashboard/utils/enums.dart';
 import 'package:dashboard/utils/extensions.dart';
@@ -7,17 +8,34 @@ import 'package:dashboard/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 
 class UpdateProductForm extends StatefulWidget {
-  const UpdateProductForm({super.key});
+  const UpdateProductForm({super.key, this.product});
+
+  final MenuItem? product;
 
   @override
   State<UpdateProductForm> createState() => _UpdateProductFormState();
 }
 
 class _UpdateProductFormState extends State<UpdateProductForm> {
-  final TextEditingController productNameController = TextEditingController();
-  final TextEditingController priceController = TextEditingController();
-  final TextEditingController descriptionController = TextEditingController();
+  late final TextEditingController productNameController;
+  late final TextEditingController priceController;
+  late final TextEditingController descriptionController;
   ServingUnit? selectedUnit;
+
+  @override
+  void initState() {
+    super.initState();
+    productNameController = TextEditingController(
+      text: widget.product?.name ?? '',
+    );
+    priceController = TextEditingController(
+      text: widget.product?.price.toStringAsFixed(2) ?? '',
+    );
+    descriptionController = TextEditingController(
+      text: widget.product?.description ?? '',
+    );
+    selectedUnit = widget.product?.servingUnit;
+  }
 
   @override
   void dispose() {

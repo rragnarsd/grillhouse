@@ -155,6 +155,7 @@ class PrimaryFilledIconButton extends StatelessWidget {
     required this.onPressed,
     required this.icon,
     required this.backgroundColor,
+    this.iconColor,
     this.shape,
   });
 
@@ -162,6 +163,8 @@ class PrimaryFilledIconButton extends StatelessWidget {
   final IconData icon;
   final OutlinedBorder? shape;
   final Color backgroundColor;
+  final Color? iconColor;
+
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
@@ -173,7 +176,7 @@ class PrimaryFilledIconButton extends StatelessWidget {
       ),
       icon: Icon(
         icon,
-        color: theme.colorScheme.onSurface.withValues(alpha: 0.8),
+        color: iconColor ?? theme.colorScheme.onSurface.withValues(alpha: 0.8),
       ),
       onPressed: onPressed,
     );

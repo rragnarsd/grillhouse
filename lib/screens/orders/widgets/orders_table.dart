@@ -21,21 +21,21 @@ class OrdersTable extends StatelessWidget {
         child: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[OrdersHeader(), OrdersPaginatedTablet()],
+          children: <Widget>[_OrdersHeader(), _OrdersPaginatedTablet()],
         ),
       ),
     );
   }
 }
 
-class OrdersHeader extends StatefulWidget {
-  const OrdersHeader({super.key});
+class _OrdersHeader extends StatefulWidget {
+  const _OrdersHeader();
 
   @override
-  State<OrdersHeader> createState() => _OrdersHeaderState();
+  State<_OrdersHeader> createState() => _OrdersHeaderState();
 }
 
-class _OrdersHeaderState extends State<OrdersHeader> {
+class _OrdersHeaderState extends State<_OrdersHeader> {
   DateTime? selectedDate;
 
   @override
@@ -46,15 +46,13 @@ class _OrdersHeaderState extends State<OrdersHeader> {
       initialDate: DateTime.now(),
       firstDate: DateTime(2024),
       lastDate: DateTime(2026),
-      onDateSelected: (DateTime? date) {
-        setState(() => selectedDate = date);
-      },
+      onDateSelected: (DateTime? date) => setState(() => selectedDate = date),
     );
   }
 }
 
-class OrdersPaginatedTablet extends StatelessWidget {
-  const OrdersPaginatedTablet({super.key});
+class _OrdersPaginatedTablet extends StatelessWidget {
+  const _OrdersPaginatedTablet();
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +99,7 @@ class OrdersPaginatedTablet extends StatelessWidget {
           source: OrderTableSource(
             onView: (Order order) =>
                 ViewOrderModal.show(context: context, order: order),
-            onEdit: (Order order) => print('Edit: ${order.productId}'),
+            onEdit: (Order order) => print('Edit: ${order.orderId}'),
             onDelete: (Order order) => onDelete(context, order),
           ),
         ),
@@ -112,7 +110,7 @@ class OrdersPaginatedTablet extends StatelessWidget {
   void onDelete(BuildContext context, Order order) {
     DeleteOrderModal.show(
       context: context,
-      onConfirm: () => print('Delete: ${order.productId}'),
+      onConfirm: () => print('Delete: ${order.orderId}'),
     );
   }
 }

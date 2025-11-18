@@ -15,6 +15,7 @@ class StatusCards {
   });
 }
 
+//Today's
 final List<StatusCards> orderScreenCards = <StatusCards>[
   StatusCards(
     value: '120',
@@ -42,6 +43,7 @@ final List<StatusCards> orderScreenCards = <StatusCards>[
   ),
 ];
 
+//Monthly
 final List<StatusCards> monthlyCards = <StatusCards>[
   StatusCards(
     value: '120',
@@ -69,6 +71,7 @@ final List<StatusCards> monthlyCards = <StatusCards>[
   ),
 ];
 
+//Income
 final List<StatusCards> incomeScreenCards = <StatusCards>[
   StatusCards(
     value: '120',

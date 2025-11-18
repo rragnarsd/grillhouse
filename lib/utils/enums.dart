@@ -1,1 +1,1 @@
-enum ServingUnit { plate, serving, stack, bowl, piece }
+enum ServingUnit { plate, serving, stack, basket, cup, slice, glass }

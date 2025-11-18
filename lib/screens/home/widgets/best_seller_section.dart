@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dashboard/screens/menu/widgets/menu_star_rating.dart';
 import 'package:dashboard/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -25,29 +26,32 @@ class BestSellerSection extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(6),
               child: CachedNetworkImage(
-                imageUrl: Constants.bestSellerImg,
+                imageUrl: Constants.grilledChickenSandwichImg,
                 fit: BoxFit.cover,
                 height: 200,
                 width: double.infinity,
               ),
             ),
             const SizedBox(height: 16),
-            const Row(
+            Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              spacing: 4,
               children: <Widget>[
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      'Name of the product',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      Constants.grilledChickenSandwichName,
+                      style: theme.textTheme.headlineSmall,
                     ),
-                    Text('Orders: 100', style: TextStyle(fontSize: 14)),
+                    Text(
+                      '\$${Constants.grilledChickenSandwichPrice.toStringAsFixed(2)}',
+                      style: theme.textTheme.headlineMedium,
+                    ),
                   ],
                 ),
+                const MenuStarRating(),
               ],
             ),
           ],

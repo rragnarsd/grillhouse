@@ -1,18 +1,37 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dashboard/screens/menu/data/menu_data.dart';
 import 'package:dashboard/screens/menu/widgets/menu_header.dart';
 import 'package:dashboard/screens/menu/widgets/menu_list.dart';
+import 'package:dashboard/screens/menu/widgets/menu_star_rating.dart';
 import 'package:dashboard/screens/menu/widgets/update_product_form.dart';
 import 'package:dashboard/utils/constants.dart';
-import 'package:dashboard/utils/extensions.dart';
 import 'package:dashboard/utils/responsive.dart';
 import 'package:dashboard/widgets/buttons.dart';
+import 'package:dashboard/widgets/edit_order_modal.dart';
 import 'package:flutter/material.dart';
-import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
-class MenuSection extends StatelessWidget {
+class MenuSection extends StatefulWidget {
   const MenuSection({super.key, this.crossAxisCount});
 
   final int? crossAxisCount;
+
+  @override
+  State<MenuSection> createState() => _MenuSectionState();
+}
+
+class _MenuSectionState extends State<MenuSection> {
+  late MenuItem _selectedItem;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _selectedItem = MenuData.items.first;
+  }
+
+  void _onItemSelected(MenuItem item) {
+    setState(() => _selectedItem = item);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +48,12 @@ class MenuSection extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 flex: 2,
-                child: MenuList(crossAxisCount: crossAxisCount),
+                child: MenuList(
+                  crossAxisCount: widget.crossAxisCount,
+                  onItemSelected: _onItemSelected,
+                ),
               ),
-              const MenuDetailCard(),
+              _MenuDetailCard(selectedItem: _selectedItem),
             ],
           ),
         ),
@@ -40,12 +62,15 @@ class MenuSection extends StatelessWidget {
   }
 }
 
-class MenuDetailCard extends StatelessWidget {
-  const MenuDetailCard({super.key});
+class _MenuDetailCard extends StatelessWidget {
+  const _MenuDetailCard({required this.selectedItem});
+
+  final MenuItem selectedItem;
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
+
     return Expanded(
       child: Card(
         margin: EdgeInsets.zero,
@@ -59,29 +84,18 @@ class MenuDetailCard extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(6),
                 child: CachedNetworkImage(
-                  imageUrl: Constants.bestSellerImg,
+                  imageUrl: selectedItem.image,
                   fit: BoxFit.cover,
+                  height: 220,
+                  width: double.infinity,
                 ),
               ),
               const SizedBox(height: 16),
-              const NamePriceRow(
-                name: 'Crispy Calamari Rings',
-                price: '\$4.99',
-              ),
-              const SizedBox(height: 4),
+              _NamePriceRow(name: selectedItem.name, price: selectedItem.price),
+              const SizedBox(height: 6),
               const MenuStarRating(),
-              const SizedBox(height: 16),
-              Text(
-                Constants.description,
-                style: theme.textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'Lightly battered and perfectly fried golden calamari rings, served with a side of tangy marinara and zesty garlic aioli. Crunchy on the outside, tender on the inside — a classic appetizer that’s impossible to resist.',
-                style: theme.textTheme.bodyMedium,
-              ),
+              const SizedBox(height: 12),
+              Text(selectedItem.description, style: theme.textTheme.bodyMedium),
               const Spacer(),
               SizedBox(
                 width: double.infinity,
@@ -100,46 +114,18 @@ class MenuDetailCard extends StatelessWidget {
   }
 
   void _editProduct(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    WoltModalSheet.show(
+    EditProductModal.show(
       context: context,
-      modalTypeBuilder: (BuildContext context) => context.modalType,
-      barrierDismissible: true,
-      pageListBuilder: (BuildContext modalContext) =>
-          <SliverWoltModalSheetPage>[
-            SliverWoltModalSheetPage(
-              backgroundColor: Colors.white,
-              navBarHeight: 20,
-              pageTitle: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      Constants.updateProduct,
-                      style: theme.textTheme.headlineSmall,
-                    ),
-                    IconButton(
-                      onPressed: () => Navigator.of(modalContext).pop(),
-                      icon: const Icon(Icons.close),
-                    ),
-                  ],
-                ),
-              ),
-              mainContentSliversBuilder: (BuildContext context) => <Widget>[
-                const UpdateProductForm(),
-              ],
-            ),
-          ],
+      child: UpdateProductForm(product: selectedItem),
     );
   }
 }
 
-class NamePriceRow extends StatelessWidget {
-  const NamePriceRow({super.key, required this.name, required this.price});
+class _NamePriceRow extends StatelessWidget {
+  const _NamePriceRow({required this.name, required this.price});
 
   final String name;
-  final String price;
+  final double price;
 
   @override
   Widget build(BuildContext context) {
@@ -147,7 +133,7 @@ class NamePriceRow extends StatelessWidget {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         final double width = MediaQuery.sizeOf(context).width;
-        final bool isMediumTablet = width >= 767 && width <= 880;
+        final bool isMediumTablet = width >= 767 && width <= 1200;
 
         if (isMediumTablet) {
           return Column(
@@ -155,7 +141,10 @@ class NamePriceRow extends StatelessWidget {
             children: <Widget>[
               Text(name, style: theme.textTheme.headlineSmall),
               const SizedBox(height: 4),
-              Text(price, style: theme.textTheme.headlineSmall),
+              Text(
+                '\$${price.toStringAsFixed(2)}',
+                style: theme.textTheme.headlineSmall,
+              ),
             ],
           );
         }
@@ -164,36 +153,13 @@ class NamePriceRow extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Text(name, style: theme.textTheme.headlineSmall),
-            Text(price, style: theme.textTheme.headlineSmall),
+            Text(
+              '\$${price.toStringAsFixed(2)}',
+              style: theme.textTheme.headlineSmall,
+            ),
           ],
         );
       },
-    );
-  }
-}
-
-class MenuStarRating extends StatelessWidget {
-  const MenuStarRating({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    return Row(
-      children: <Widget>[
-        const Icon(Icons.star, color: Colors.amber, size: 20),
-        const Icon(Icons.star, color: Colors.amber, size: 20),
-        const Icon(Icons.star, color: Colors.amber, size: 20),
-        const Icon(Icons.star_half, color: Colors.amber, size: 20),
-        const Icon(Icons.star_border, color: Colors.amber, size: 20),
-        const SizedBox(width: 8),
-        Text(
-          '(12 Reviews)',
-          style: theme.textTheme.titleMedium?.copyWith(
-            color: Colors.grey,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ],
     );
   }
 }

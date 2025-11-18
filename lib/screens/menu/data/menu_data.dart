@@ -1,154 +1,189 @@
 import 'package:dashboard/utils/constants.dart';
+import 'package:dashboard/utils/enums.dart';
 
 enum Category { appetizers, breakfast, lunch, dinner, dessert, drinks }
 
 extension CategoryName on Category {
-  String get displayName {
-    switch (this) {
-      case Category.appetizers:
-        return Constants.appetizers;
-      case Category.breakfast:
-        return Constants.breakfast;
-      case Category.lunch:
-        return Constants.lunch;
-      case Category.dinner:
-        return Constants.dinner;
-      case Category.dessert:
-        return Constants.dessert;
-      case Category.drinks:
-        return Constants.drinks;
-    }
-  }
+  String get displayName => switch (this) {
+    Category.appetizers => Constants.appetizers,
+    Category.breakfast => Constants.breakfast,
+    Category.lunch => Constants.lunch,
+    Category.dinner => Constants.dinner,
+    Category.dessert => Constants.dessert,
+    Category.drinks => Constants.drinks,
+  };
 }
 
 class MenuItem {
   final String name;
-  final String price;
+  final double price;
+  final String description;
   final Category category;
   final String image;
+  final ServingUnit servingUnit;
 
   const MenuItem({
     required this.name,
     required this.price,
+    required this.description,
     required this.category,
     required this.image,
+    required this.servingUnit,
   });
 }
 
 class MenuData {
   static const List<MenuItem> items = <MenuItem>[
     MenuItem(
-      name: 'Crispy Calamari Rings',
-      price: '\$6.50 / plate',
+      name: Constants.calamariName,
+      price: Constants.calamariPrice,
+      description: Constants.calamariDesc,
       category: Category.appetizers,
-      image: Constants.bestSellerImg,
+      image: Constants.calamariImg,
+      servingUnit: ServingUnit.plate,
     ),
     MenuItem(
-      name: 'Garlic Bread with Cheese',
-      price: '\$5.99 / serving',
+      name: Constants.garlicBreadName,
+      price: Constants.garlicBreadPrice,
+      description: Constants.garlicBreadDesc,
       category: Category.appetizers,
-      image: Constants.bestSellerImg,
+      image: Constants.garlicBreadImg,
+      servingUnit: ServingUnit.serving,
     ),
     MenuItem(
-      name: 'Garlic Bread with Cheese',
-      price: '\$5.99 / serving',
+      name: Constants.mozzarellaCheeseSticksName,
+      price: Constants.mozzarellaCheeseSticksPrice,
+      description: Constants.mozzarellaCheeseSticksDesc,
       category: Category.appetizers,
-      image: Constants.bestSellerImg,
+      image: Constants.mozzarellaCheeseSticksImg,
+      servingUnit: ServingUnit.basket,
     ),
 
     MenuItem(
-      name: 'Classic Pancakes',
-      price: '\$4.99 / stack',
+      name: Constants.classicPancakesName,
+      price: Constants.classicPancakesPrice,
+      description: Constants.classicPancakesDesc,
       category: Category.breakfast,
-      image: Constants.bestSellerImg,
+      image: Constants.classicPancakesImg,
+      servingUnit: ServingUnit.stack,
     ),
+
     MenuItem(
-      name: 'Avocado Toast',
-      price: '\$6.25 / serving',
+      name: Constants.avocadoToastName,
+      price: Constants.avocadoToastPrice,
+      description: Constants.avocadoToastDesc,
       category: Category.breakfast,
-      image: Constants.bestSellerImg,
+      image: Constants.avocadoToastImg,
+      servingUnit: ServingUnit.serving,
     ),
+
     MenuItem(
-      name: 'Avocado Toast',
-      price: '\$6.25 / serving',
+      name: Constants.breakfastBurritoName,
+      price: Constants.breakfastBurritoPrice,
+      description: Constants.breakfastBurritoDesc,
       category: Category.breakfast,
-      image: Constants.bestSellerImg,
+      image: Constants.breakfastBurritoImg,
+      servingUnit: ServingUnit.serving,
     ),
 
     MenuItem(
-      name: 'Beef Burger',
-      price: '\$11.99 / combo',
+      name: Constants.beefBurgerName,
+      price: Constants.beefBurgerPrice,
+      description: Constants.beefBurgerDesc,
       category: Category.lunch,
-      image: Constants.bestSellerImg,
+      image: Constants.beefBurgerImg,
+      servingUnit: ServingUnit.serving,
     ),
     MenuItem(
-      name: 'Spaghetti Carbonara',
-      price: '\$10.99 / plate',
+      name: Constants.spaghettiCarbonaraName,
+      price: Constants.spaghettiCarbonaraPrice,
+      description: Constants.spaghettiCarbonaraDesc,
       category: Category.lunch,
-      image: Constants.bestSellerImg,
+      image: Constants.spaghettiCarbonaraImg,
+      servingUnit: ServingUnit.plate,
     ),
     MenuItem(
-      name: 'Spaghetti Carbonara',
-      price: '\$10.99 / plate',
+      name: Constants.grilledChickenSandwichName,
+      price: Constants.grilledChickenSandwichPrice,
+      description: Constants.grilledChickenSandwichDesc,
       category: Category.lunch,
-      image: Constants.bestSellerImg,
+      image: Constants.grilledChickenSandwichImg,
+      servingUnit: ServingUnit.serving,
     ),
 
     MenuItem(
-      name: 'Spicy Shrimp Rice',
-      price: '\$8.99 / serving',
+      name: Constants.spicyShrimpRiceName,
+      price: Constants.spicyShrimpRicePrice,
+      description: Constants.spicyShrimpRiceDesc,
       category: Category.dinner,
-      image: Constants.bestSellerImg,
+      image: Constants.spicyShrimpRiceImg,
+      servingUnit: ServingUnit.serving,
     ),
     MenuItem(
-      name: 'Beef Steak',
-      price: '\$8.99 / serving',
+      name: Constants.beefSteakName,
+      price: Constants.beefSteakPrice,
+      description: Constants.beefSteakDesc,
       category: Category.dinner,
-      image: Constants.bestSellerImg,
+      image: Constants.beefSteakImg,
+      servingUnit: ServingUnit.serving,
     ),
     MenuItem(
-      name: 'Garlic Chicken',
-      price: '\$8.99 / serving',
+      name: Constants.garlicChickenName,
+      price: Constants.garlicChickenPrice,
+      description: Constants.garlicChickenDesc,
       category: Category.dinner,
-      image: Constants.bestSellerImg,
+      image: Constants.garlicChickenImg,
+      servingUnit: ServingUnit.serving,
     ),
 
     MenuItem(
-      name: 'Chocolate Lava Cake',
-      price: '\$5.99 / slice',
+      name: Constants.chocolateLavaCakeName,
+      price: Constants.chocolateLavaCakePrice,
+      description: Constants.chocolateLavaCakeDesc,
       category: Category.dessert,
-      image: Constants.bestSellerImg,
+      image: Constants.chocolateLavaCakeImg,
+      servingUnit: ServingUnit.slice,
     ),
     MenuItem(
-      name: 'Vanilla Ice Cream',
-      price: '\$4.75 / cup',
+      name: Constants.vanillaIceCreamName,
+      price: Constants.vanillaIceCreamPrice,
+      description: Constants.vanillaIceCreamDesc,
       category: Category.dessert,
-      image: Constants.bestSellerImg,
+      image: Constants.vanillaIceCreamImg,
+      servingUnit: ServingUnit.cup,
     ),
     MenuItem(
-      name: 'Vanilla Ice Cream',
-      price: '\$4.75 / cup',
+      name: Constants.strawberryCheesecakeName,
+      price: Constants.strawberryCheesecakePrice,
+      description: Constants.strawberryCheesecakeDesc,
       category: Category.dessert,
-      image: Constants.bestSellerImg,
+      image: Constants.strawberryCheesecakeImg,
+      servingUnit: ServingUnit.slice,
     ),
 
     MenuItem(
-      name: 'Iced Latte',
-      price: '\$4.50 / cup',
+      name: Constants.icedLatteName,
+      price: Constants.icedLattePrice,
+      description: Constants.icedLatteDesc,
       category: Category.drinks,
-      image: Constants.bestSellerImg,
+      image: Constants.icedLatteImg,
+      servingUnit: ServingUnit.cup,
     ),
     MenuItem(
-      name: 'Classic Mojito',
-      price: '\$5.99 / glass',
+      name: Constants.mintMojitoName,
+      price: Constants.mintMojitoPrice,
+      description: Constants.mintMojitoDesc,
       category: Category.drinks,
-      image: Constants.bestSellerImg,
+      image: Constants.mintMojitoImg,
+      servingUnit: ServingUnit.glass,
     ),
     MenuItem(
-      name: 'Classic Mojito',
-      price: '\$5.99 / glass',
+      name: Constants.freshLemonadeName,
+      price: Constants.freshLemonadePrice,
+      description: Constants.freshLemonadeDesc,
       category: Category.drinks,
-      image: Constants.bestSellerImg,
+      image: Constants.freshLemonadeImg,
+      servingUnit: ServingUnit.glass,
     ),
   ];
 }

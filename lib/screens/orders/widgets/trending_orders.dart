@@ -1,8 +1,9 @@
 import 'dart:ui';
 
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dashboard/screens/menu/data/trending_menu_data.dart';
 import 'package:dashboard/utils/constants.dart';
 import 'package:dashboard/utils/theme/app_colors.dart';
+import 'package:dashboard/widgets/trending_order_card.dart';
 import 'package:flutter/material.dart';
 
 class TrendingOrdersSection extends StatefulWidget {
@@ -61,7 +62,7 @@ class _TrendingOrdersSectionState extends State<TrendingOrdersSection> {
                 ),
                 Row(
                   children: <Widget>[
-                    ScrollArrow(
+                    _ScrollArrow(
                       icon: Icons.arrow_back,
                       canScroll: _canScrollBack,
                       isHover: _isHoverBack,
@@ -70,7 +71,7 @@ class _TrendingOrdersSectionState extends State<TrendingOrdersSection> {
                           setState(() => _isHoverBack = hover),
                     ),
                     const SizedBox(width: 16),
-                    ScrollArrow(
+                    _ScrollArrow(
                       icon: Icons.arrow_forward,
                       canScroll: _canScrollForward,
                       isHover: _isHoverForward,
@@ -100,7 +101,9 @@ class _TrendingOrdersSectionState extends State<TrendingOrdersSection> {
                   physics: const ClampingScrollPhysics(),
                   itemCount: 5,
                   separatorBuilder: (_, __) => const SizedBox(width: 16),
-                  itemBuilder: (_, __) => const TrendingOrderItemCard(),
+                  itemBuilder: (_, int index) => TrendingOrderItemCard(
+                    item: TrendingMenuDataList.items[index],
+                  ),
                 ),
               ),
             ),
@@ -111,63 +114,8 @@ class _TrendingOrdersSectionState extends State<TrendingOrdersSection> {
   }
 }
 
-class TrendingOrderItemCard extends StatelessWidget {
-  const TrendingOrderItemCard({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    return SizedBox(
-      width: 240,
-      child: Card(
-        margin: const EdgeInsets.only(bottom: 24),
-        color: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            ClipRRect(
-              borderRadius: BorderRadius.circular(6),
-              child: CachedNetworkImage(
-                imageUrl: Constants.bestSellerImg,
-                fit: BoxFit.cover,
-                height: 180,
-              ),
-            ),
-            const SizedBox(height: 12),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text('Veg Taco', style: theme.textTheme.bodyMedium),
-                      const SizedBox(height: 4),
-                      Text('Price: 100', style: theme.textTheme.titleLarge),
-                    ],
-                  ),
-                  Row(
-                    children: <Widget>[
-                      const Icon(Icons.star, color: Colors.yellow),
-                      const SizedBox(width: 4),
-                      Text('4.5', style: theme.textTheme.titleLarge),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class ScrollArrow extends StatelessWidget {
-  const ScrollArrow({
-    super.key,
+class _ScrollArrow extends StatelessWidget {
+  const _ScrollArrow({
     required this.icon,
     required this.canScroll,
     required this.isHover,

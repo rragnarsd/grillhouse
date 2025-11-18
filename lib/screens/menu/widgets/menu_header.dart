@@ -2,6 +2,7 @@ import 'package:dashboard/screens/menu/data/menu_data.dart';
 import 'package:dashboard/utils/constants.dart';
 import 'package:dashboard/utils/enums.dart';
 import 'package:dashboard/utils/extensions.dart';
+import 'package:dashboard/utils/responsive.dart';
 import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:dashboard/widgets/app_textform_field.dart';
 import 'package:dashboard/widgets/buttons.dart';
@@ -21,13 +22,23 @@ class MenuHeader extends StatelessWidget {
           '${Constants.totalItems}${MenuData.items.length}',
           style: theme.textTheme.headlineSmall,
         ),
-        PrimaryElevatedIconBtn(
-          onPressed: () => _addNewProduct(context),
-          icon: Icons.add,
-          btnLabel: Constants.addNewProduct,
-          backgroundColor: AppColors.secondary.withValues(alpha: 0.8),
-          textColor: Colors.white,
-        ),
+        Responsive.isMobile(context)
+            ? PrimaryFilledIconButton(
+                onPressed: () => _addNewProduct(context),
+                icon: Icons.add,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                backgroundColor: AppColors.secondary.withValues(alpha: 0.8),
+                iconColor: Colors.white,
+              )
+            : PrimaryElevatedIconBtn(
+                onPressed: () => _addNewProduct(context),
+                icon: Icons.add,
+                btnLabel: Constants.addNewProduct,
+                backgroundColor: AppColors.secondary.withValues(alpha: 0.8),
+                textColor: Colors.white,
+              ),
       ],
     );
   }

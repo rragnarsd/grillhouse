@@ -17,21 +17,24 @@ class ReservationTable extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         child: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[ReservationHeader(), ReservationPaginatedTablet()],
+          children: <Widget>[
+            _ReservationHeader(),
+            _ReservationPaginatedTablet(),
+          ],
         ),
       ),
     );
   }
 }
 
-class ReservationHeader extends StatefulWidget {
-  const ReservationHeader({super.key});
+class _ReservationHeader extends StatefulWidget {
+  const _ReservationHeader();
 
   @override
-  State<ReservationHeader> createState() => _ReservationHeaderState();
+  State<_ReservationHeader> createState() => _ReservationHeaderState();
 }
 
-class _ReservationHeaderState extends State<ReservationHeader> {
+class _ReservationHeaderState extends State<_ReservationHeader> {
   DateTime? selectedDate;
 
   @override
@@ -49,8 +52,8 @@ class _ReservationHeaderState extends State<ReservationHeader> {
   }
 }
 
-class ReservationPaginatedTablet extends StatelessWidget {
-  const ReservationPaginatedTablet({super.key});
+class _ReservationPaginatedTablet extends StatelessWidget {
+  const _ReservationPaginatedTablet();
 
   @override
   Widget build(BuildContext context) {

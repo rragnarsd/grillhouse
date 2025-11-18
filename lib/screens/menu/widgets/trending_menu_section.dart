@@ -1,8 +1,9 @@
 import 'dart:ui';
 
-import 'package:dashboard/screens/orders/widgets/trending_orders.dart';
+import 'package:dashboard/screens/menu/data/trending_menu_data.dart';
 import 'package:dashboard/utils/constants.dart';
 import 'package:dashboard/widgets/date_picker_btn.dart';
+import 'package:dashboard/widgets/trending_order_card.dart';
 import 'package:flutter/material.dart';
 
 class TrendingMenuSection extends StatelessWidget {
@@ -18,9 +19,9 @@ class TrendingMenuSection extends StatelessWidget {
         padding: EdgeInsets.all(16.0),
         child: Column(
           children: <Widget>[
-            TrendingMenuHeader(),
+            _TrendingMenuHeader(),
             SizedBox(height: 16),
-            TrendingList(),
+            _TrendingList(),
           ],
         ),
       ),
@@ -28,8 +29,8 @@ class TrendingMenuSection extends StatelessWidget {
   }
 }
 
-class TrendingList extends StatelessWidget {
-  const TrendingList({super.key});
+class _TrendingList extends StatelessWidget {
+  const _TrendingList();
 
   @override
   Widget build(BuildContext context) {
@@ -47,17 +48,18 @@ class TrendingList extends StatelessWidget {
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
           physics: const ClampingScrollPhysics(),
-          itemCount: 6,
+          itemCount: TrendingMenuDataList.items.length,
           separatorBuilder: (_, __) => const SizedBox(width: 16),
-          itemBuilder: (_, __) => const TrendingOrderItemCard(),
+          itemBuilder: (_, int index) =>
+              TrendingOrderItemCard(item: TrendingMenuDataList.items[index]),
         ),
       ),
     );
   }
 }
 
-class TrendingMenuHeader extends StatelessWidget {
-  const TrendingMenuHeader({super.key});
+class _TrendingMenuHeader extends StatelessWidget {
+  const _TrendingMenuHeader();
 
   @override
   Widget build(BuildContext context) {

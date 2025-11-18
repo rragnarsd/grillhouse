@@ -23,9 +23,9 @@ class OrderTableSource extends DataTableSource {
       }),
       decoration: const BoxDecoration(color: Colors.transparent),
       cells: <DataCell>[
-        DataCell(Text(order.productId)),
+        DataCell(Text(order.orderId)),
         DataCell(Text(order.customerName)),
-        DataCell(Text('\$${order.price.toStringAsFixed(0)}')),
+        DataCell(Text('\$${order.totalPrice.toStringAsFixed(2)}')),
         DataCell(Text(order.date.toDdMmYy())),
         DataCell(
           Container(

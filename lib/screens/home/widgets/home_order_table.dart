@@ -1,7 +1,5 @@
 import 'package:dashboard/screens/home/data/order_data.dart';
 import 'package:dashboard/utils/constants.dart';
-import 'package:dashboard/utils/theme/app_colors.dart';
-import 'package:dashboard/widgets/buttons.dart';
 import 'package:dashboard/widgets/delete_order_modal.dart';
 import 'package:dashboard/widgets/order_table_source.dart';
 import 'package:dashboard/widgets/view_order_modal.dart';
@@ -31,7 +29,7 @@ class HomeOrderTable extends StatelessWidget {
                 style: theme.textTheme.headlineSmall?.copyWith(fontSize: 16),
               ),
             ),
-            const HomePaginatedTable(),
+            const _HomePaginatedTable(),
           ],
         ),
       ),
@@ -39,8 +37,8 @@ class HomeOrderTable extends StatelessWidget {
   }
 }
 
-class HomePaginatedTable extends StatelessWidget {
-  const HomePaginatedTable({super.key});
+class _HomePaginatedTable extends StatelessWidget {
+  const _HomePaginatedTable();
 
   @override
   Widget build(BuildContext context) {
@@ -73,8 +71,11 @@ class HomePaginatedTable extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
           columns: <DataColumn>[
-            const DataColumn2(size: ColumnSize.S, label: Text('Order Id')),
-            const DataColumn(label: Text('Customer')),
+            const DataColumn2(
+              size: ColumnSize.S,
+              label: Text(Constants.orderId),
+            ),
+            const DataColumn(label: Text(Constants.customer)),
             const DataColumn2(size: ColumnSize.S, label: Text(Constants.price)),
             const DataColumn2(size: ColumnSize.S, label: Text(Constants.date)),
             const DataColumn(label: Text(Constants.status)),
@@ -87,7 +88,7 @@ class HomePaginatedTable extends StatelessWidget {
           source: OrderTableSource(
             onView: (Order order) =>
                 ViewOrderModal.show(context: context, order: order),
-            onEdit: (Order order) => print('Edit: ${order.productId}'),
+            onEdit: (Order order) => print('Edit: ${order.orderId}'),
             onDelete: (Order order) => onDelete(context, order),
           ),
         ),
@@ -98,126 +99,7 @@ class HomePaginatedTable extends StatelessWidget {
   void onDelete(BuildContext context, Order order) {
     DeleteOrderModal.show(
       context: context,
-      onConfirm: () => print('Delete: ${order.productId}'),
-    );
-  }
-}
-
-class OrderHeader extends StatelessWidget {
-  const OrderHeader({super.key, required this.onClose});
-
-  final VoidCallback onClose;
-
-  @override
-  Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Text('Order #390561', style: theme.textTheme.headlineSmall),
-          IconButton(onPressed: onClose, icon: const Icon(Icons.close)),
-        ],
-      ),
-    );
-  }
-}
-
-class DividerSection extends StatelessWidget {
-  const DividerSection({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Divider(color: Colors.grey.shade300);
-  }
-}
-
-class CustomerSection extends StatelessWidget {
-  const CustomerSection({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-
-    return Column(
-      children: <Widget>[
-        CircleAvatar(
-          radius: 42,
-          backgroundColor: Colors.grey.shade300,
-          backgroundImage: const AssetImage('assets/customer_img.jpg'),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          'James Miller',
-          style: theme.textTheme.titleLarge?.copyWith(
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-        const SizedBox(height: 16),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          spacing: 16,
-          children: <Widget>[
-            PrimaryFilledIconButton(
-              onPressed: () {},
-              icon: Icons.email,
-              backgroundColor: Colors.grey.shade200,
-            ),
-            PrimaryFilledIconButton(
-              onPressed: () {},
-              icon: Icons.phone,
-              backgroundColor: Colors.grey.shade200,
-            ),
-            PrimaryFilledIconButton(
-              onPressed: () {},
-              icon: Icons.message,
-              backgroundColor: Colors.grey.shade200,
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-}
-
-class OrderItemsSection extends StatelessWidget {
-  const OrderItemsSection({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text(
-          'Order Items',
-          style: theme.textTheme.headlineSmall?.copyWith(fontSize: 16),
-        ),
-        const SizedBox(height: 16),
-        ListTile(
-          contentPadding: EdgeInsets.zero,
-          title: Text('Garlic Bread', style: theme.textTheme.bodyLarge),
-          subtitle: Text('\$6.50 / plate', style: theme.textTheme.titleLarge),
-          leading: const CircleAvatar(backgroundColor: AppColors.secondary),
-        ),
-      ],
-    );
-  }
-}
-
-class TotalSection extends StatelessWidget {
-  const TotalSection({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        Text('Total', style: theme.textTheme.titleLarge),
-        Text('\$100.00', style: theme.textTheme.headlineSmall),
-      ],
+      onConfirm: () => print('Delete: ${order.orderId}'),
     );
   }
 }

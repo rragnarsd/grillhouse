@@ -1,3 +1,4 @@
+import 'package:dashboard/utils/constants.dart';
 import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:dashboard/widgets/action_btn_section.dart';
 import 'package:flutter/material.dart';
@@ -25,13 +26,13 @@ class DeleteOrderModal {
                         const Icon(Icons.delete, color: Colors.red, size: 64),
                         const SizedBox(height: 24),
                         Text(
-                          'Are you sure you want to delete this order?',
+                          Constants.deleteConfirmation,
                           style: theme.textTheme.titleLarge,
                           textAlign: TextAlign.center,
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          'Once deleted, this order cannot be recovered.',
+                          Constants.deleteConfirmationDescription,
                           style: theme.textTheme.bodyMedium?.copyWith(
                             color: Colors.grey,
                           ),
@@ -39,8 +40,8 @@ class DeleteOrderModal {
                         ),
                         const SizedBox(height: 24),
                         ActionButtonsSection(
-                          primaryBtnLabel: 'Delete Order',
-                          secondaryBtnLabel: 'Keep Order',
+                          primaryBtnLabel: Constants.deleteOrder,
+                          secondaryBtnLabel: Constants.keepOrder,
                           onPrimaryBtnPressed: () {},
                           primaryBtnColor: AppColors.error,
                           primaryBtnTextColor: Colors.white,
