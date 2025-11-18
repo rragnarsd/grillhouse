@@ -29,7 +29,6 @@ class _DatePickerButtonState extends State<DatePickerButton> {
       firstDate: DateTime(2024),
       lastDate: DateTime(2026),
       builder: (BuildContext context, Widget? child) => Theme(
-        //TODO - Change colors
         data: Theme.of(context).copyWith(
           colorScheme: const ColorScheme.light(primary: AppColors.secondary),
           textButtonTheme: TextButtonThemeData(

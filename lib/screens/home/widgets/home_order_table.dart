@@ -143,9 +143,9 @@ class CustomerSection extends StatelessWidget {
     return Column(
       children: <Widget>[
         CircleAvatar(
-          radius: 32,
+          radius: 42,
           backgroundColor: Colors.grey.shade300,
-          child: const Text('J'),
+          backgroundImage: const AssetImage('assets/customer_img.jpg'),
         ),
         const SizedBox(height: 8),
         Text(
@@ -162,17 +162,17 @@ class CustomerSection extends StatelessWidget {
             PrimaryFilledIconButton(
               onPressed: () {},
               icon: Icons.email,
-              backgroundColor: AppColors.secondary,
+              backgroundColor: Colors.grey.shade200,
             ),
             PrimaryFilledIconButton(
               onPressed: () {},
               icon: Icons.phone,
-              backgroundColor: AppColors.secondary,
+              backgroundColor: Colors.grey.shade200,
             ),
             PrimaryFilledIconButton(
               onPressed: () {},
               icon: Icons.message,
-              backgroundColor: AppColors.secondary,
+              backgroundColor: Colors.grey.shade200,
             ),
           ],
         ),
@@ -199,7 +199,7 @@ class OrderItemsSection extends StatelessWidget {
           contentPadding: EdgeInsets.zero,
           title: Text('Garlic Bread', style: theme.textTheme.bodyLarge),
           subtitle: Text('\$6.50 / plate', style: theme.textTheme.titleLarge),
-          leading: const CircleAvatar(),
+          leading: const CircleAvatar(backgroundColor: AppColors.secondary),
         ),
       ],
     );

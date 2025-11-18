@@ -19,7 +19,7 @@ class MenuHeader extends StatelessWidget {
       children: <Widget>[
         Text(
           '${Constants.totalItems}${MenuData.items.length}',
-          style: theme.textTheme.headlineSmall?.copyWith(fontSize: 16),
+          style: theme.textTheme.headlineSmall,
         ),
         PrimaryElevatedIconBtn(
           onPressed: () => _addNewProduct(context),
@@ -45,9 +45,18 @@ class MenuHeader extends StatelessWidget {
               navBarHeight: 20,
               pageTitle: Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  Constants.addNewProduct,
-                  style: theme.textTheme.headlineSmall,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      Constants.addNewProduct,
+                      style: theme.textTheme.headlineSmall,
+                    ),
+                    IconButton(
+                      onPressed: () => Navigator.of(modalContext).pop(),
+                      icon: const Icon(Icons.close),
+                    ),
+                  ],
                 ),
               ),
               mainContentSliversBuilder: (BuildContext context) => <Widget>[
@@ -132,7 +141,7 @@ class _AddProductFormState extends State<AddProductForm> {
                 child: PrimaryBtn(
                   onClick: () {},
                   label: Constants.addProduct,
-                  bgColor: Colors.green,
+                  bgColor: AppColors.secondary,
                   textColor: Colors.white,
                 ),
               ),

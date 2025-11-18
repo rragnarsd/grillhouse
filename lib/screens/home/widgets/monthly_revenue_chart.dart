@@ -1,4 +1,5 @@
 import 'package:dashboard/utils/constants.dart';
+import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -102,7 +103,7 @@ class MonthlyRevenueChart extends StatelessWidget {
                 barRods: <BarChartRodData>[
                   BarChartRodData(
                     toY: _revenues[i],
-                    color: Colors.blue.shade400,
+                    color: AppColors.secondary,
                     width: 16.0,
                     borderRadius: const BorderRadius.vertical(
                       top: Radius.circular(4),

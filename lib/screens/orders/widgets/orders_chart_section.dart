@@ -1,4 +1,5 @@
 import 'package:dashboard/screens/home/data/order_data.dart';
+import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -124,11 +125,11 @@ class _OrdersChartSectionState extends State<OrdersChartSection> {
     );
 
     final List<Color> colors = <Color>[
+      AppColors.secondary.withValues(alpha: 0.8),
+      Colors.amber.shade300,
+      Colors.indigo.shade300,
+      Colors.green.shade300,
       Colors.blue.shade300,
-      Colors.orange.shade300,
-      Colors.purple.shade300,
-      Colors.yellow.shade300,
-      Colors.teal.shade300,
     ];
 
     return <PieChartSectionData>[

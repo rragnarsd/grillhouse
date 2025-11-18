@@ -47,7 +47,7 @@ class TrendingList extends StatelessWidget {
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
           physics: const ClampingScrollPhysics(),
-          itemCount: 5,
+          itemCount: 6,
           separatorBuilder: (_, __) => const SizedBox(width: 16),
           itemBuilder: (_, __) => const TrendingOrderItemCard(),
         ),

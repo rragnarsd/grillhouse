@@ -59,11 +59,11 @@ class MobileTabletListItem extends StatelessWidget {
             const SizedBox(height: 24),
             SizedBox(
               width: double.infinity,
-              child: PrimaryBtn(
+              child: PrimaryOutlinedIconBtn(
                 onClick: () {},
+                icon: Icons.edit,
                 label: Constants.editProduct,
-                bgColor: Colors.grey.shade600,
-                textColor: Colors.white,
+                color: Colors.black,
               ),
             ),
           ],

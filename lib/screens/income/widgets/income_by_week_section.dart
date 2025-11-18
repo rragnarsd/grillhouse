@@ -1,3 +1,4 @@
+import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -146,11 +147,9 @@ class _IncomeByDayChart extends StatelessWidget {
   }
 
   Color _getColorForDay(int index) {
-    // Weekend days get different colors
     if (index >= 5) {
-      // Saturday and Sunday
       return Colors.amber.shade400;
     }
-    return Colors.cyan.shade400;
+    return AppColors.secondary;
   }
 }

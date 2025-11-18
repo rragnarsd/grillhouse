@@ -112,10 +112,18 @@ class MenuDetailCard extends StatelessWidget {
               navBarHeight: 20,
               pageTitle: Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  //TODO - Add the name of the product
-                  'Edit Product',
-                  style: theme.textTheme.headlineSmall,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      Constants.updateProduct,
+                      style: theme.textTheme.headlineSmall,
+                    ),
+                    IconButton(
+                      onPressed: () => Navigator.of(modalContext).pop(),
+                      icon: const Icon(Icons.close),
+                    ),
+                  ],
                 ),
               ),
               mainContentSliversBuilder: (BuildContext context) => <Widget>[

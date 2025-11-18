@@ -1,6 +1,7 @@
 import 'package:dashboard/screens/home/data/order_data.dart';
 import 'package:dashboard/screens/home/widgets/home_order_table.dart';
 import 'package:dashboard/utils/extensions.dart';
+import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:dashboard/widgets/action_btn_section.dart';
 import 'package:flutter/material.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
@@ -43,7 +44,7 @@ class ViewOrderModal {
                       primaryBtnLabel: 'Refund Order',
                       secondaryBtnLabel: 'Track Order',
                       onPrimaryBtnPressed: () {},
-                      primaryBtnColor: Colors.amber,
+                      primaryBtnColor: AppColors.secondary,
                       primaryBtnTextColor: Colors.white,
                     ),
                   ),

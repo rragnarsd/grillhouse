@@ -1,4 +1,5 @@
 import 'package:dashboard/utils/constants.dart';
+import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -145,7 +146,7 @@ class _IncomeLineChart extends StatelessWidget {
                 (int index) => FlSpot(index.toDouble(), _monthlyIncome[index]),
               ),
               isCurved: true,
-              color: Colors.blue.shade400,
+              color: AppColors.secondary.withValues(alpha: 0.4),
               barWidth: 3,
               isStrokeCapRound: true,
               dotData: FlDotData(
@@ -158,12 +159,15 @@ class _IncomeLineChart extends StatelessWidget {
                       int index,
                     ) => FlDotCirclePainter(
                       radius: 4,
-                      color: Colors.blue,
+                      color: AppColors.secondary,
                       strokeWidth: 2,
                       strokeColor: Colors.white,
                     ),
               ),
-              belowBarData: BarAreaData(show: true, color: Colors.blue.shade50),
+              belowBarData: BarAreaData(
+                show: true,
+                color: AppColors.secondary.withValues(alpha: 0.2),
+              ),
             ),
           ],
         ),

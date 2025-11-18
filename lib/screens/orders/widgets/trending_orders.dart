@@ -116,6 +116,7 @@ class TrendingOrderItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return SizedBox(
       width: 240,
       child: Card(
@@ -134,37 +135,24 @@ class TrendingOrderItemCard extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 12),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      //TODO - Add theme styles
-                      Text('Veg Taco'),
-                      SizedBox(height: 4),
-                      Text(
-                        'Price: 100',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      Text('Veg Taco', style: theme.textTheme.bodyMedium),
+                      const SizedBox(height: 4),
+                      Text('Price: 100', style: theme.textTheme.titleLarge),
                     ],
                   ),
                   Row(
                     children: <Widget>[
-                      Icon(Icons.star, color: Colors.yellow),
-                      SizedBox(width: 4),
-                      Text(
-                        '4.5',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      const Icon(Icons.star, color: Colors.yellow),
+                      const SizedBox(width: 4),
+                      Text('4.5', style: theme.textTheme.titleLarge),
                     ],
                   ),
                 ],

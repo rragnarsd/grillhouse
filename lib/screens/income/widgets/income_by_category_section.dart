@@ -1,3 +1,4 @@
+import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -149,14 +150,7 @@ class _IncomeByCategoryChart extends StatelessWidget {
   }
 
   Color _getColorForIndex(int index) {
-    final List<Color> colors = <Color>[
-      Colors.purple.shade400,
-      Colors.blue.shade400,
-      Colors.orange.shade400,
-      Colors.teal.shade400,
-      Colors.pink.shade400,
-      Colors.indigo.shade400,
-    ];
+    final List<Color> colors = <Color>[AppColors.secondary, Colors.amber];
     return colors[index % colors.length];
   }
 }

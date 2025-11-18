@@ -1,3 +1,4 @@
+import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -45,11 +46,11 @@ class _IncomePieChartState extends State<_IncomePieChart> {
     <String, dynamic>{'method': 'Mobile Payment', 'amount': 35000.0},
   ];
 
-  static const List<Color> _colors = <Color>[
-    Color(0xFF4A90E2),
-    Color(0xFF50C878),
-    Color(0xFFFF6B6B),
-    Color(0xFFFFB84D),
+  static final List<Color> _colors = <Color>[
+    Colors.blue.shade300,
+    Colors.green.shade300,
+    AppColors.secondary.withValues(alpha: 0.8),
+    Colors.amber.shade300,
   ];
 
   @override

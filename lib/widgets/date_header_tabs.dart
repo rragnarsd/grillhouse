@@ -30,7 +30,6 @@ class DateHeaderTabs extends StatelessWidget {
       firstDate: firstDate,
       lastDate: lastDate,
       builder: (BuildContext context, Widget? child) => Theme(
-        //TODO - Change colors
         data: Theme.of(context).copyWith(
           colorScheme: const ColorScheme.light(primary: AppColors.secondary),
           textButtonTheme: TextButtonThemeData(
