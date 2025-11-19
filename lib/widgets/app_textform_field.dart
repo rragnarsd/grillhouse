@@ -40,7 +40,7 @@ class AppTextformField extends StatelessWidget {
         hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
           height: 3,
           fontWeight: FontWeight.w400,
-          color: Colors.grey.withValues(alpha: 0.5),
+          color: Colors.grey.withValues(alpha: 0.8),
         ),
         prefix: prefixIcon != null
             ? null
@@ -180,7 +180,7 @@ class _LabeledDropdownFieldState<T> extends State<LabeledDropdownField<T>> {
           hint: Text(
             widget.hintText,
             style: theme.textTheme.bodyMedium?.copyWith(
-              color: Colors.grey.withValues(alpha: 0.5),
+              color: Colors.grey.withValues(alpha: 0.8),
             ),
           ),
           style: theme.textTheme.bodyMedium?.copyWith(

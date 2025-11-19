@@ -183,12 +183,28 @@ class Constants {
   static const String deleteOrder = 'Delete Order';
   static const String keepOrder = 'Keep Order';
 
+  static const String refundOrder = 'Refund Order';
+  static const String trackOrder = 'Track Order';
+
   //Income
   static const String totalIncome = 'Total Income';
   static const String incomeByCategory = 'Income by Category';
   static const String incomeByMonth = 'Income by Month';
   static const String incomeByPayment = 'Income by Payment Method';
   static const String dailyIncomeByDayOfWeek = 'Daily Income by Day of Week';
+
+  static const String creditCard = 'Credit Card';
+  static const String debitCard = 'Debit Card';
+  static const String cash = 'Cash';
+  static const String mobilePayment = 'Mobile Payment';
+
+  static const String mon = 'Mon';
+  static const String tue = 'Tue';
+  static const String wed = 'Wed';
+  static const String thu = 'Thu';
+  static const String fri = 'Fri';
+  static const String sat = 'Sat';
+  static const String sun = 'Sun';
 
   //Assets
   static const String bestSellerImg =

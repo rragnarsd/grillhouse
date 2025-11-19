@@ -1,4 +1,3 @@
-import 'package:dashboard/utils/constants.dart';
 import 'package:dashboard/utils/routes.dart';
 import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:dashboard/widgets/navigation/data/sidebar_data.dart';
@@ -18,9 +17,9 @@ class SideBar extends StatelessWidget {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.backgroundDefault,
           border: Border(
-            right: BorderSide(color: Colors.grey.shade200, width: 1),
+            right: BorderSide(color: Colors.grey.shade200, width: 0.6),
           ),
         ),
         child: ListView(
@@ -28,25 +27,21 @@ class SideBar extends StatelessWidget {
           children: <Widget>[
             const SizedBox(height: 24),
             Center(
-              child: SizedBox(
+              child: Image.asset(
+                'assets/favicon.png',
+                fit: BoxFit.cover,
                 height: 100,
-                width: 100,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(160),
-                  child: Image.asset(Constants.profileImg, fit: BoxFit.cover),
-                ),
+                width: 160,
               ),
             ),
             const SizedBox(height: 24),
-            ...sidebarItems.map((SidebarItem item) {
-              final bool isSelected = currentRoute == item.route;
-              return _NavItem(
-                key: ValueKey<AppRoute>(item.route),
+            ...sidebarItems.map(
+              (SidebarItem item) => _NavItem(
                 item: item,
-                isSelected: isSelected,
+                isSelected: currentRoute == item.route,
                 onRouteChanged: onRouteChanged,
-              );
-            }),
+              ),
+            ),
           ],
         ),
       ),
@@ -69,15 +64,18 @@ class _NavItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final Color color = isSelected ? AppColors.secondary : Colors.black;
-    final Color background = isSelected
-        ? AppColors.secondary.withValues(alpha: 0.1)
-        : Colors.grey.shade100;
+
+    final Color textColor = isSelected
+        ? AppColors.textPrimary
+        : AppColors.textSecondary;
+    final Color backgroundColor = isSelected
+        ? AppColors.backgroundSelected
+        : AppColors.backgroundUnselected.withValues(alpha: 0.1);
 
     return Padding(
       padding: const EdgeInsets.only(top: 8.0),
       child: Material(
-        color: background,
+        color: backgroundColor,
         borderRadius: BorderRadius.circular(6.0),
         child: InkWell(
           borderRadius: BorderRadius.circular(6.0),
@@ -94,12 +92,12 @@ class _NavItem extends StatelessWidget {
               children: <Widget>[
                 Icon(
                   isSelected ? item.activeIcon ?? item.icon : item.icon,
-                  color: color,
+                  color: textColor,
                 ),
                 const SizedBox(width: 12),
                 Text(
                   item.title,
-                  style: theme.textTheme.bodyMedium?.copyWith(color: color),
+                  style: theme.textTheme.bodyMedium?.copyWith(color: textColor),
                 ),
               ],
             ),

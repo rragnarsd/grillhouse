@@ -53,8 +53,8 @@ class ViewOrderModal {
                   padding: const EdgeInsets.all(16),
                   sliver: SliverToBoxAdapter(
                     child: ActionButtonsSection(
-                      primaryBtnLabel: 'Refund Order',
-                      secondaryBtnLabel: 'Track Order',
+                      primaryBtnLabel: Constants.refundOrder,
+                      secondaryBtnLabel: Constants.trackOrder,
                       onPrimaryBtnPressed: () {},
                       primaryBtnColor: AppColors.secondary,
                       primaryBtnTextColor: Colors.white,

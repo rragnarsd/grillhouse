@@ -3,8 +3,11 @@ import 'package:dashboard/utils/scroll_configuration.dart';
 import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:dashboard/utils/theme/text_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setPathUrlStrategy();
   runApp(const MyApp());
 }
 
@@ -14,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Dashboard',
+      title: 'Grill House',
       scrollBehavior: NoScrollBehavior(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

@@ -6,7 +6,13 @@ class AppColors {
   static const Color tertiary = Color(0xffF2BB05);
   static const Color neutral = Color(0xffF0F0C9);
   static const Color error = Color(0xffFF5449);
-  static const Color background = Color(0xFFFAF9F6);
-  static const Color xx = Color(0xff124E78);
   static const Color backgroundColor = Color(0xffF5F5F5);
+
+  //Sidebar Colors
+  static const Color textPrimary = Colors.white;
+  static const Color textSecondary = Color(0xFFB0B0B0);
+
+  static const Color backgroundSelected = Color(0xFF3A3A3A);
+  static const Color backgroundUnselected = Color(0xFF1E1E1E);
+  static const Color backgroundDefault = Color(0xFF181818);
 }

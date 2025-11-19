@@ -38,7 +38,7 @@ class StatusCard extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: StatusCardItem(
+        child: _StatusCardItem(
           value: data.value,
           title: data.title,
           iconData: data.icon,
@@ -49,9 +49,8 @@ class StatusCard extends StatelessWidget {
   }
 }
 
-class StatusCardItem extends StatelessWidget {
-  const StatusCardItem({
-    super.key,
+class _StatusCardItem extends StatelessWidget {
+  const _StatusCardItem({
     required this.value,
     required this.title,
     required this.iconData,

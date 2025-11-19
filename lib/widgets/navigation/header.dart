@@ -106,13 +106,19 @@ class _HeaderSearchButton extends StatelessWidget {
   }
 }
 
-//TODO - Add notification dropdown
 class _HeaderNotificationButton extends StatelessWidget {
   const _HeaderNotificationButton();
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(onPressed: () {}, icon: const Icon(Icons.notifications));
+    return Badge(
+      label: const Text('4'),
+      offset: const Offset(0, 2),
+      child: IconButton(
+        onPressed: () {},
+        icon: const Icon(Icons.notifications),
+      ),
+    );
   }
 }
 

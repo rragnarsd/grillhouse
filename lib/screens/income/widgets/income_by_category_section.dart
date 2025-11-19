@@ -36,24 +36,28 @@ class _IncomeByCategoryChart extends StatelessWidget {
 
   static const List<Map<String, dynamic>> _categoryData =
       <Map<String, dynamic>>[
-        <String, dynamic>{'category': 'Dinner', 'amount': 28000.0},
-        <String, dynamic>{'category': 'Lunch', 'amount': 22000.0},
-        <String, dynamic>{'category': 'Breakfast', 'amount': 15000.0},
-        <String, dynamic>{'category': 'Drinks', 'amount': 12000.0},
-        <String, dynamic>{'category': 'Dessert', 'amount': 8000.0},
-        <String, dynamic>{'category': 'Appetizers', 'amount': 5000.0},
+        <String, dynamic>{'category': Constants.dinner, 'amount': 28000.0},
+        <String, dynamic>{'category': Constants.lunch, 'amount': 22000.0},
+        <String, dynamic>{'category': Constants.breakfast, 'amount': 15000.0},
+        <String, dynamic>{'category': Constants.drinks, 'amount': 12000.0},
+        <String, dynamic>{'category': Constants.dessert, 'amount': 8000.0},
+        <String, dynamic>{'category': Constants.appetizers, 'amount': 5000.0},
       ];
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
+    const double maxY = 30000.0;
+    const double interval = 5000.0;
+
+    final List<Color> colors = <Color>[AppColors.secondary, Colors.amber];
 
     return SizedBox(
       height: 280,
       child: BarChart(
         BarChartData(
           alignment: BarChartAlignment.spaceAround,
-          maxY: 30000,
+          maxY: maxY,
           minY: 0,
           barTouchData: BarTouchData(
             enabled: true,
@@ -62,7 +66,6 @@ class _IncomeByCategoryChart extends StatelessWidget {
             ),
           ),
           titlesData: FlTitlesData(
-            show: true,
             bottomTitles: AxisTitles(
               sideTitles: SideTitles(
                 showTitles: true,
@@ -93,9 +96,9 @@ class _IncomeByCategoryChart extends StatelessWidget {
               sideTitles: SideTitles(
                 showTitles: true,
                 reservedSize: 40,
-                interval: 5000,
+                interval: interval,
                 getTitlesWidget: (double value, TitleMeta meta) {
-                  if (value % 5000 != 0) return const SizedBox.shrink();
+                  if (value % interval != 0) return const SizedBox.shrink();
                   return Text(
                     '\$${(value / 1000).toStringAsFixed(0)}k',
                     style: theme.textTheme.bodySmall?.copyWith(
@@ -123,36 +126,32 @@ class _IncomeByCategoryChart extends StatelessWidget {
           gridData: FlGridData(
             show: true,
             drawVerticalLine: false,
-            horizontalInterval: 5000,
-            getDrawingHorizontalLine: (double value) {
-              return FlLine(color: Colors.grey.shade200, strokeWidth: 1);
-            },
+            horizontalInterval: interval,
+            getDrawingHorizontalLine: (double value) =>
+                FlLine(color: Colors.grey.shade200, strokeWidth: 1),
           ),
-          barGroups: <BarChartGroupData>[
-            for (int i = 0; i < _categoryData.length; i++)
-              BarChartGroupData(
-                x: i,
-                barRods: <BarChartRodData>[
-                  BarChartRodData(
-                    toY: _categoryData[i]['amount'] as double,
-                    color: _getColorForIndex(i),
-                    width: 24.0,
-                    borderRadius: const BorderRadius.vertical(
-                      top: Radius.circular(4),
-                    ),
+          barGroups: List<BarChartGroupData>.generate(_categoryData.length, (
+            int index,
+          ) {
+            final double amount = _categoryData[index]['amount'] as double;
+            return BarChartGroupData(
+              x: index,
+              barRods: <BarChartRodData>[
+                BarChartRodData(
+                  toY: amount,
+                  color: colors[index % colors.length],
+                  width: 24.0,
+                  borderRadius: const BorderRadius.vertical(
+                    top: Radius.circular(4),
                   ),
-                ],
-              ),
-          ],
+                ),
+              ],
+            );
+          }),
         ),
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeOutCubic,
       ),
     );
-  }
-
-  Color _getColorForIndex(int index) {
-    final List<Color> colors = <Color>[AppColors.secondary, Colors.amber];
-    return colors[index % colors.length];
   }
 }

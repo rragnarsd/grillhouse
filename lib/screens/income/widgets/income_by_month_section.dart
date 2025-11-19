@@ -53,6 +53,11 @@ class _IncomeLineChart extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
+    final List<FlSpot> spots = List<FlSpot>.generate(
+      _monthlyIncome.length,
+      (int index) => FlSpot(index.toDouble(), _monthlyIncome[index]),
+    );
+
     return SizedBox(
       height: 280,
       child: LineChart(
@@ -142,10 +147,7 @@ class _IncomeLineChart extends StatelessWidget {
           ),
           lineBarsData: <LineChartBarData>[
             LineChartBarData(
-              spots: List<FlSpot>.generate(
-                _monthlyIncome.length,
-                (int index) => FlSpot(index.toDouble(), _monthlyIncome[index]),
-              ),
+              spots: spots,
               isCurved: true,
               color: AppColors.secondary.withValues(alpha: 0.4),
               barWidth: 3,

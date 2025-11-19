@@ -35,13 +35,13 @@ class _IncomeByDayChart extends StatelessWidget {
   const _IncomeByDayChart();
 
   static const List<Map<String, dynamic>> _dayData = <Map<String, dynamic>>[
-    <String, dynamic>{'day': 'Mon', 'amount': 3500.0},
-    <String, dynamic>{'day': 'Tue', 'amount': 4200.0},
-    <String, dynamic>{'day': 'Wed', 'amount': 3800.0},
-    <String, dynamic>{'day': 'Thu', 'amount': 4500.0},
-    <String, dynamic>{'day': 'Fri', 'amount': 6800.0},
-    <String, dynamic>{'day': 'Sat', 'amount': 8200.0},
-    <String, dynamic>{'day': 'Sun', 'amount': 7200.0},
+    <String, dynamic>{'day': Constants.mon, 'amount': 3500.0},
+    <String, dynamic>{'day': Constants.tue, 'amount': 4200.0},
+    <String, dynamic>{'day': Constants.wed, 'amount': 3800.0},
+    <String, dynamic>{'day': Constants.thu, 'amount': 4500.0},
+    <String, dynamic>{'day': Constants.fri, 'amount': 6800.0},
+    <String, dynamic>{'day': Constants.sat, 'amount': 8200.0},
+    <String, dynamic>{'day': Constants.sun, 'amount': 7200.0},
   ];
 
   @override

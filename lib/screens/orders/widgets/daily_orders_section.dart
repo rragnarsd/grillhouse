@@ -40,13 +40,23 @@ class _OrdersChartSection extends StatefulWidget {
 }
 
 class _OrdersChartSectionState extends State<_OrdersChartSection> {
-  int? _touchedIndex;
+  final ValueNotifier<int?> _touchedIndexNotifier = ValueNotifier<int?>(null);
   late List<String> _topProducts;
 
   @override
-  Widget build(BuildContext context) {
-    final List<PieChartSectionData> sections = _buildChartSections();
+  void initState() {
+    super.initState();
+    _initializeTopProducts();
+  }
 
+  @override
+  void dispose() {
+    _touchedIndexNotifier.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -56,84 +66,53 @@ class _OrdersChartSectionState extends State<_OrdersChartSection> {
             duration: const Duration(milliseconds: 300),
             child: SizedBox(
               height: 200,
-              child: PieChart(
-                PieChartData(
-                  sections: sections,
-                  centerSpaceRadius: 32,
-                  sectionsSpace: 2,
-                  pieTouchData: PieTouchData(
-                    touchCallback:
-                        (FlTouchEvent event, PieTouchResponse? response) {
-                          if (!event.isInterestedForInteractions ||
-                              response?.touchedSection == null) {
-                            setState(() => _touchedIndex = null);
-                            return;
-                          }
-                          setState(() {
-                            _touchedIndex =
-                                response!.touchedSection!.touchedSectionIndex;
-                          });
-                        },
-                  ),
-                ),
-                duration: const Duration(milliseconds: 500),
-                curve: Curves.easeOutCubic,
+              child: ValueListenableBuilder<int?>(
+                valueListenable: _touchedIndexNotifier,
+                builder: (BuildContext context, int? touchedIndex, Widget? _) {
+                  final List<PieChartSectionData> sections =
+                      _buildChartSections(touchedIndex);
+
+                  return PieChart(
+                    PieChartData(
+                      sections: sections,
+                      centerSpaceRadius: 32,
+                      sectionsSpace: 2,
+                      pieTouchData: PieTouchData(
+                        touchCallback:
+                            (FlTouchEvent event, PieTouchResponse? response) {
+                              if (!event.isInterestedForInteractions ||
+                                  response?.touchedSection == null) {
+                                _touchedIndexNotifier.value = null;
+                                return;
+                              }
+                              _touchedIndexNotifier.value =
+                                  response!.touchedSection!.touchedSectionIndex;
+                            },
+                      ),
+                    ),
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeOutCubic,
+                  );
+                },
               ),
             ),
           ),
           const SizedBox(height: 32),
-          _buildProductLabels(sections),
+          ValueListenableBuilder<int?>(
+            valueListenable: _touchedIndexNotifier,
+            builder: (BuildContext context, int? touchedIndex, Widget? child) {
+              final List<PieChartSectionData> sections = _buildChartSections(
+                touchedIndex,
+              );
+              return _buildProductLabels(sections, touchedIndex);
+            },
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildProductLabels(List<PieChartSectionData> sections) {
-    final ThemeData theme = Theme.of(context);
-    return Wrap(
-      alignment: WrapAlignment.center,
-      spacing: 24,
-      runSpacing: 12,
-      children: <Widget>[
-        for (int i = 0; i < _topProducts.length; i++)
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              AnimatedContainer(
-                duration: const Duration(milliseconds: 300),
-                width: _touchedIndex == i ? 14 : 12,
-                height: _touchedIndex == i ? 14 : 12,
-                decoration: BoxDecoration(
-                  color: sections[i].color,
-                  shape: BoxShape.circle,
-                  boxShadow: _touchedIndex == i
-                      ? <BoxShadow>[
-                          BoxShadow(
-                            color: sections[i].color.withValues(alpha: 0.5),
-                            blurRadius: 8,
-                          ),
-                        ]
-                      : null,
-                ),
-              ),
-              const SizedBox(width: 8),
-              Text(
-                _topProducts[i],
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  fontSize: _touchedIndex == i ? 15 : 14,
-                  color: Colors.black87,
-                  fontWeight: _touchedIndex == i
-                      ? FontWeight.bold
-                      : FontWeight.normal,
-                ),
-              ),
-            ],
-          ),
-      ],
-    );
-  }
-
-  List<PieChartSectionData> _buildChartSections() {
+  void _initializeTopProducts() {
     final Map<String, int> productCounts = <String, int>{};
     for (final Order order in orders) {
       for (final OrderItem item in order.items) {
@@ -147,10 +126,67 @@ class _OrdersChartSectionState extends State<_OrdersChartSection> {
         (String a, String b) =>
             (productCounts[b] ?? 0).compareTo(productCounts[a] ?? 0),
       );
-    final List<String> topProducts = sortedProducts.take(5).toList();
-    _topProducts = topProducts;
+    _topProducts = sortedProducts.take(5).toList();
+  }
 
-    final int totalTopOrders = topProducts.fold<int>(
+  Widget _buildProductLabels(
+    List<PieChartSectionData> sections,
+    int? touchedIndex,
+  ) {
+    final ThemeData theme = Theme.of(context);
+    return Wrap(
+      alignment: WrapAlignment.center,
+      spacing: 24,
+      runSpacing: 12,
+      children: <Widget>[
+        for (int i = 0; i < _topProducts.length; i++)
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
+                width: touchedIndex == i ? 14 : 12,
+                height: touchedIndex == i ? 14 : 12,
+                decoration: BoxDecoration(
+                  color: sections[i].color,
+                  shape: BoxShape.circle,
+                  boxShadow: touchedIndex == i
+                      ? <BoxShadow>[
+                          BoxShadow(
+                            color: sections[i].color.withValues(alpha: 0.5),
+                            blurRadius: 8,
+                          ),
+                        ]
+                      : null,
+                ),
+              ),
+              const SizedBox(width: 8),
+              Text(
+                _topProducts[i],
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  fontSize: touchedIndex == i ? 15 : 14,
+                  color: Colors.black87,
+                  fontWeight: touchedIndex == i
+                      ? FontWeight.bold
+                      : FontWeight.normal,
+                ),
+              ),
+            ],
+          ),
+      ],
+    );
+  }
+
+  List<PieChartSectionData> _buildChartSections(int? touchedIndex) {
+    final Map<String, int> productCounts = <String, int>{};
+    for (final Order order in orders) {
+      for (final OrderItem item in order.items) {
+        productCounts[item.productName] =
+            (productCounts[item.productName] ?? 0) + 1;
+      }
+    }
+
+    final int totalTopOrders = _topProducts.fold<int>(
       0,
       (int sum, String product) => sum + (productCounts[product] ?? 0),
     );
@@ -164,18 +200,18 @@ class _OrdersChartSectionState extends State<_OrdersChartSection> {
     ];
 
     return <PieChartSectionData>[
-      for (int i = 0; i < topProducts.length; i++)
+      for (int i = 0; i < _topProducts.length; i++)
         PieChartSectionData(
-          value: (productCounts[topProducts[i]] ?? 0).toDouble(),
+          value: (productCounts[_topProducts[i]] ?? 0).toDouble(),
           title: totalTopOrders > 0
-              ? '${((productCounts[topProducts[i]] ?? 0) / totalTopOrders * 100).toStringAsFixed(0)}%'
+              ? '${((productCounts[_topProducts[i]] ?? 0) / totalTopOrders * 100).toStringAsFixed(0)}%'
               : '',
           color: colors[i % colors.length],
-          radius: i == _touchedIndex ? 95 : 80,
+          radius: i == touchedIndex ? 95 : 80,
           titleStyle: TextStyle(
             color: Colors.black87,
             fontWeight: FontWeight.bold,
-            fontSize: i == _touchedIndex ? 16 : 14,
+            fontSize: i == touchedIndex ? 16 : 14,
           ),
         ),
     ];

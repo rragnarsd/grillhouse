@@ -39,13 +39,13 @@ class _IncomePieChart extends StatefulWidget {
 }
 
 class _IncomePieChartState extends State<_IncomePieChart> {
-  int? _touchedIndex;
+  final ValueNotifier<int?> _touchedIndexNotifier = ValueNotifier<int?>(null);
 
   static const List<Map<String, dynamic>> _incomeData = <Map<String, dynamic>>[
-    <String, dynamic>{'method': 'Credit Card', 'amount': 12000.0},
-    <String, dynamic>{'method': 'Debit Card', 'amount': 25000.0},
-    <String, dynamic>{'method': 'Cash', 'amount': 18000.0},
-    <String, dynamic>{'method': 'Mobile Payment', 'amount': 35000.0},
+    <String, dynamic>{'method': Constants.creditCard, 'amount': 12000.0},
+    <String, dynamic>{'method': Constants.debitCard, 'amount': 25000.0},
+    <String, dynamic>{'method': Constants.cash, 'amount': 18000.0},
+    <String, dynamic>{'method': Constants.mobilePayment, 'amount': 35000.0},
   ];
 
   static final List<Color> _colors = <Color>[
@@ -56,9 +56,14 @@ class _IncomePieChartState extends State<_IncomePieChart> {
   ];
 
   @override
+  void dispose() {
+    _touchedIndexNotifier.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final List<PieChartSectionData> sections = _buildChartSections();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -68,38 +73,57 @@ class _IncomePieChartState extends State<_IncomePieChart> {
           child: SizedBox(
             key: const ValueKey<int>(0),
             height: 240,
-            child: PieChart(
-              PieChartData(
-                sections: sections,
-                centerSpaceRadius: 32,
-                sectionsSpace: 2,
-                pieTouchData: PieTouchData(
-                  touchCallback:
-                      (FlTouchEvent event, PieTouchResponse? response) {
-                        if (!event.isInterestedForInteractions ||
-                            response?.touchedSection == null) {
-                          setState(() => _touchedIndex = null);
-                          return;
-                        }
-                        setState(() {
-                          _touchedIndex =
-                              response!.touchedSection!.touchedSectionIndex;
-                        });
-                      },
-                ),
-              ),
-              duration: const Duration(milliseconds: 500),
-              curve: Curves.easeOutCubic,
+            child: ValueListenableBuilder<int?>(
+              valueListenable: _touchedIndexNotifier,
+              builder:
+                  (BuildContext context, int? touchedIndex, Widget? child) {
+                    final List<PieChartSectionData> sections =
+                        _buildChartSections(touchedIndex);
+                    return PieChart(
+                      PieChartData(
+                        sections: sections,
+                        centerSpaceRadius: 32,
+                        sectionsSpace: 2,
+                        pieTouchData: PieTouchData(
+                          touchCallback:
+                              (FlTouchEvent event, PieTouchResponse? response) {
+                                if (!event.isInterestedForInteractions ||
+                                    response?.touchedSection == null) {
+                                  _touchedIndexNotifier.value = null;
+                                  return;
+                                }
+                                _touchedIndexNotifier.value = response!
+                                    .touchedSection!
+                                    .touchedSectionIndex;
+                              },
+                        ),
+                      ),
+                      duration: const Duration(milliseconds: 500),
+                      curve: Curves.easeOutCubic,
+                    );
+                  },
             ),
           ),
         ),
         const SizedBox(height: 32),
-        _buildLabels(sections, theme),
+        ValueListenableBuilder<int?>(
+          valueListenable: _touchedIndexNotifier,
+          builder: (BuildContext context, int? touchedIndex, Widget? child) {
+            final List<PieChartSectionData> sections = _buildChartSections(
+              touchedIndex,
+            );
+            return _buildLabels(sections, theme, touchedIndex);
+          },
+        ),
       ],
     );
   }
 
-  Widget _buildLabels(List<PieChartSectionData> sections, ThemeData theme) {
+  Widget _buildLabels(
+    List<PieChartSectionData> sections,
+    ThemeData theme,
+    int? touchedIndex,
+  ) {
     return Wrap(
       alignment: WrapAlignment.center,
       spacing: 24,
@@ -111,12 +135,12 @@ class _IncomePieChartState extends State<_IncomePieChart> {
             children: <Widget>[
               AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
-                width: _touchedIndex == i ? 14 : 12,
-                height: _touchedIndex == i ? 14 : 12,
+                width: touchedIndex == i ? 14 : 12,
+                height: touchedIndex == i ? 14 : 12,
                 decoration: BoxDecoration(
                   color: sections[i].color,
                   shape: BoxShape.circle,
-                  boxShadow: _touchedIndex == i
+                  boxShadow: touchedIndex == i
                       ? <BoxShadow>[
                           BoxShadow(
                             color: sections[i].color.withValues(alpha: 0.5),
@@ -130,9 +154,9 @@ class _IncomePieChartState extends State<_IncomePieChart> {
               Text(
                 _incomeData[i]['method'] as String,
                 style: theme.textTheme.bodyMedium?.copyWith(
-                  fontSize: _touchedIndex == i ? 15 : 14,
+                  fontSize: touchedIndex == i ? 15 : 14,
                   color: Colors.black87,
-                  fontWeight: _touchedIndex == i
+                  fontWeight: touchedIndex == i
                       ? FontWeight.bold
                       : FontWeight.normal,
                 ),
@@ -143,7 +167,7 @@ class _IncomePieChartState extends State<_IncomePieChart> {
     );
   }
 
-  List<PieChartSectionData> _buildChartSections() {
+  List<PieChartSectionData> _buildChartSections(int? touchedIndex) {
     final double totalIncome = _incomeData.fold<double>(
       0,
       (double sum, Map<String, dynamic> item) =>
@@ -158,11 +182,11 @@ class _IncomePieChartState extends State<_IncomePieChart> {
               ? '${((_incomeData[i]['amount'] as double) / totalIncome * 100).toStringAsFixed(0)}%'
               : '',
           color: _colors[i % _colors.length],
-          radius: i == _touchedIndex ? 95 : 80,
+          radius: i == touchedIndex ? 95 : 80,
           titleStyle: TextStyle(
             color: Colors.black87,
             fontWeight: FontWeight.bold,
-            fontSize: i == _touchedIndex ? 16 : 14,
+            fontSize: i == touchedIndex ? 16 : 14,
           ),
         ),
     ];

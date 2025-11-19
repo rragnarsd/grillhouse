@@ -17,37 +17,37 @@ class TrendingMenuData {
 class TrendingMenuDataList {
   static List<TrendingMenuData> items = <TrendingMenuData>[
     TrendingMenuData(
-      name: 'Crispy Calamari Rings',
+      name: Constants.calamariName,
       price: '\$6.50',
       rating: 4.5,
       image: Constants.calamariImg,
     ),
     TrendingMenuData(
-      name: 'Classic Pancakes',
+      name: Constants.classicPancakesName,
       price: '\$4.99',
       rating: 4.3,
       image: Constants.classicPancakesImg,
     ),
     TrendingMenuData(
-      name: 'Breakfast Burrito',
+      name: Constants.breakfastBurritoName,
       price: '\$6.99',
       rating: 4.2,
       image: Constants.breakfastBurritoImg,
     ),
     TrendingMenuData(
-      name: 'Beef Burger',
+      name: Constants.beefBurgerName,
       price: '\$11.99',
       rating: 4.8,
       image: Constants.beefBurgerImg,
     ),
     TrendingMenuData(
-      name: 'Spaghetti Carbonara',
+      name: Constants.spaghettiCarbonaraName,
       price: '\$10.99',
       rating: 4.7,
       image: Constants.spaghettiCarbonaraImg,
     ),
     TrendingMenuData(
-      name: 'Chicken Sandwich',
+      name: Constants.grilledChickenSandwichName,
       price: '\$9.99',
       rating: 4.6,
       image: Constants.grilledChickenSandwichImg,
