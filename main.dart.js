@@ -353,7 +353,7 @@ aSW(a){var s,r,q=a.graphemeLayoutBounds,p=B.b.eY(q,t.i)
 q=p.a
 s=J.bb(q)
 r=p.$ti.y[1]
-return new A.ro(new A.r(r.a(s.i(q,0)),r.a(s.i(q,1)),r.a(s.i(q,2)),r.a(s.i(q,3))),new A.ch(J.al(a.graphemeClusterTextRange.start),J.al(a.graphemeClusterTextRange.end)),B.lM[J.al(a.dir.value)])},
+return new A.ro(new A.r(r.a(s.i(q,0)),r.a(s.i(q,1)),r.a(s.i(q,2)),r.a(s.i(q,3))),new A.ch(J.al(a.graphemeClusterTextRange.start),J.al(a.graphemeClusterTextRange.end)),B.lL[J.al(a.dir.value)])},
 aSY(a,b){var s=a.getGlyphInfoAt(b)
 return s==null?null:A.aSW(s)},
 bb_(a){var s,r="chromium/canvaskit.js"
@@ -8720,7 +8720,7 @@ this.b=b},
 aw9:function aw9(a){this.a=a},
 NF(a,b,c,d,e,f,g,h,i,j,k,a0,a1,a2,a3){var s=c==null?B.NY:c,r=j==null?16:j,q=a1==null?B.B8:a1,p=h==null?B.q7:h,o=k==null?0/0:k,n=a0==null?0/0:a0,m=e==null?0:e,l=b==null?B.p:b
 return new A.jX(s,r,a,d,g,i,a3,q,0,1,0,n,o,m,B.on,l,p,a2,f)},
-NG(a,b,c,d,e){var s=a==null?B.O5:a,r=b==null?2:b,q=d==null?B.lN:d
+NG(a,b,c,d,e){var s=a==null?B.O5:a,r=b==null?2:b,q=d==null?B.lM:d
 return new A.dF(e,c===!0,s,r,q)},
 aZQ(a,b,c){var s=a.a
 s=B.c.az(s+(b.a-s)*c)
@@ -19424,7 +19424,7 @@ _.dx=$},
 K7:function K7(){},
 a2b:function a2b(){},
 aSt(a,b){var s,r,q,p,o,n,m,l,k,j,i,h,g,f
-if(a==null)a=B.lR
+if(a==null)a=B.lQ
 s=J.bb(a)
 r=s.gG(a)-1
 q=A.b9(0,null,!1,t.Ei)
@@ -19597,7 +19597,7 @@ r.gCL()
 q.sCL(r.gCL())
 r.gCK()
 q.sCK(r.gCK())
-s.jU(B.lR,q)
+s.jU(B.lQ,q)
 s.sbb(b.gbb())
 s.sbQ(b.gbQ())
 s.dy=b.gaBR()
@@ -33428,7 +33428,7 @@ NN(a){var s,r,q,p,o,n,m,l=A.b([],t.Lx)
 for(s=a.a,r=J.bb(s),q=a.$ti.y[1],p=0;p<r.gG(s);++p){o=q.a(r.i(s,p))
 n=o.rect
 m=J.al(o.dir.value)
-l.push(new A.fP(n[0],n[1],n[2],n[3],B.lM[m]))}return l},
+l.push(new A.fP(n[0],n[1],n[2],n[3],B.lL[m]))}return l},
 hR(a){var s,r,q
 switch(a.b.a){case 0:s=a.a-1
 break
@@ -38891,7 +38891,7 @@ m=A.hB(s.i(0,"fontWeightIndex"))
 l=m!=null?A.baY(m):"normal"
 r=A.aMY(s.i(0,"fontSize"))
 if(r==null)r=null
-p=new A.atp(new A.acS(r,l,A.d5(s.i(0,"fontFamily")),B.MY[o],B.lM[n]))
+p=new A.atp(new A.acS(r,l,A.d5(s.i(0,"fontFamily")),B.MY[o],B.lL[n]))
 break
 case"TextInput.clearClient":p=B.FT
 break
@@ -43532,7 +43532,7 @@ if(s==null||s.length<a)s=this.c=new Uint8Array(a)
 return J.jS(B.Q.gcp(s),s.byteOffset,a)}}
 A.awa.prototype={
 F(a,b){this.FG(b,0,b.length,!1)},
-aX(){this.FG(B.lN,0,0,!0)}}
+aX(){this.FG(B.lM,0,0,!0)}}
 A.avK.prototype={
 FG(a,b,c,d){var s=this.b.ZL(a,b,c,d)
 if(s!=null)this.a.F(0,A.tT(s,0,null))
@@ -56025,7 +56025,7 @@ p=q.ax
 if(p!=null)p.ad()
 q.d3()}this.aC()},
 acA(a,b){var s,r=null,q=A.b([],t.p)
-for(s=0;q.length<7;s=(s+1)%7)q.push(new A.j8(!0,new A.oo(B.a0,r,r,A.au(B.lS[s],r,r,r,a,r,r,r),r),r))
+for(s=0;q.length<7;s=(s+1)%7)q.push(new A.j8(!0,new A.oo(B.a0,r,r,A.au(B.lR[s],r,r,r,a,r,r,r),r),r))
 return q},
 v(a3){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a,a0=this,a1=null,a2=A.ce(a3,B.a_,t.v)
 a2.toString
@@ -76538,7 +76538,7 @@ q.aM=b.ah
 q.aV=b.aI
 q.p=b.bK
 q.CW=b.c
-q.an6(a==null?B.lR:a)
+q.an6(a==null?B.lQ:a)
 if(s!==r)q.WB()},
 a2F(a){return this.jU(null,a)},
 a3B(){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a,a0,a1,a2,a3,a4,a5,a6=this,a7={}
@@ -79258,7 +79258,7 @@ this.i3()}}
 A.pU.prototype={
 k(a){return"Entry#"+A.aX(this)+"("+this.d.k(0)+")"}}
 A.Ax.prototype={
-a4(){return new A.HG(A.ax(t.mf),B.lP,null,null)},
+a4(){return new A.HG(A.ax(t.mf),B.lO,null,null)},
 aAS(a,b){return this.w.$2(a,b)},
 axJ(a,b){return this.x.$2(a,b)}}
 A.HG.prototype={
@@ -92314,7 +92314,7 @@ gw1(){return A.bbZ()},
 ai0(){if(this.x)return
 this.Aj()},
 a3A(){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c=this,b=null,a=c.c
-if(a===-1||c.d===-1||c.b.length===0)return new A.pq(b,b,B.d9,B.lQ,c.b.length!==0)
+if(a===-1||c.d===-1||c.b.length===0)return new A.pq(b,b,B.d9,B.lP,c.b.length!==0)
 if(!c.as){a=c.Pa(c.d,a)
 c.d=a
 c.c=c.Pa(c.c,a)}s=c.b[c.d].gm()
@@ -93638,8 +93638,8 @@ g=n.c
 e=g.length
 d=A.b(new Array(e),m)
 for(c=0;c<e;++c)d[c]=new A.zP(c,i)
-k.push(new A.ib(h,b.a2A(f,g,q,d)))}for(;l.u();)b.DT(p.gM().b,B.lP,q)
-for(s=r.$ti.h("bl<2>"),p=new A.bl(r,s).ga3(0),s=new A.fT(p,new A.aFH(j),s.h("fT<C.E>"));s.u();)b.DT(p.gM(),B.lP,q)
+k.push(new A.ib(h,b.a2A(f,g,q,d)))}for(;l.u();)b.DT(p.gM().b,B.lO,q)
+for(s=r.$ti.h("bl<2>"),p=new A.bl(r,s).ga3(0),s=new A.fT(p,new A.aFH(j),s.h("fT<C.E>"));s.u();)b.DT(p.gM(),B.lO,q)
 b.p1=k
 b.WY()
 q.R(0)
@@ -96679,8 +96679,8 @@ avd(a){return this.BO(a,null)},
 aeM(a,b){var s,r,q,p,o
 for(s=this.a.a.a,r=this.b,q=0;q<1;++q){p=s[q]
 o=A.aLX("","",b,a.gcz(),p,r,a).i(0,null)
-if(o==null)o=B.lO
-if(J.ig(o))return o}return B.lO},
+if(o==null)o=B.lN
+if(J.ig(o))return o}return B.lN},
 a1J(a,b,c){var s=new A.apa(this,c,a).$1(b)
 return s},
 are(a,b,c){var s,r,q,p,o,n=b.c,m=new A.ap9(this,n.k(0),b,c)
@@ -97629,7 +97629,7 @@ l.push(B.aA)
 return A.f1(l,o,o,!1)}}
 A.NQ.prototype={
 v(a){var s=null,r=A.B(a),q=A.bu(12),p=r.ok,o=p.f,n=t.p
-return A.fh(new A.aM(B.ac,A.bG(A.b([A.au("Monthly best seller",s,s,s,o==null?s:o.jq(16),s,s,s),B.a3,A.qP(A.bu(6),A.B5(B.cR,200,u.E,1/0),B.b5),B.a3,A.bG(A.b([A.bM(A.b([A.au("Grilled Chicken Sandwich",s,s,s,o,s,s,s),A.au("$"+B.c.a6(9.99,2),s,s,s,p.e,s,s,s)],n),B.r,B.b_,B.o,0,s),B.mb],n),B.r,B.b_,B.o,4)],n),B.D,B.n,B.o,0),s),B.j,s,B.X,!0,new A.bA(q,B.k))}}
+return A.fh(new A.aM(B.ac,A.bG(A.b([A.au("Monthly best seller",s,s,s,o==null?s:o.jq(16),s,s,s),B.a3,A.qP(A.bu(6),A.B5(B.cR,200,u.E,1/0),B.b5),B.a3,A.bG(A.b([A.bM(A.b([A.au("Chicken Sandwich",s,s,s,o,s,s,s),A.au("$"+B.c.a6(9.99,2),s,s,s,p.e,s,s,s)],n),B.r,B.b_,B.o,0,s),B.mb],n),B.r,B.b_,B.o,4)],n),B.D,B.n,B.o,0),s),B.j,s,B.X,!0,new A.bA(q,B.k))}}
 A.QD.prototype={
 v(a){var s=null,r=A.B(a),q=A.bu(12),p=r.ok.f
 return new A.aQ(s,480,A.fh(A.bG(A.b([new A.aM(B.ac,A.au("Latest Orders",s,s,s,p==null?s:p.jq(16),s,s,s),s),B.a2v],t.p),B.D,B.n,B.o,0),B.j,s,B.X,!0,new A.bA(q,B.k)),s)}}
@@ -97747,7 +97747,7 @@ v(a){var s,r,q,p=null,o=A.B(a),n=J.iz(12,t.fw)
 for(s=0;s<12;++s)n[s]=new A.cW(s,B.r9[s],p,p)
 r=A.ra(new A.cQ(B.k,B.k,new A.aE(B.bn,1,B.u,-1),new A.aE(B.bn,1,B.u,-1)),!0)
 q=B.aS.bM(0.4)
-return new A.aQ(p,280,new A.Du(A.aLu(p,p,p,B.Of,r,B.on,B.q7,new A.mG(!0,!0,2000,new A.aAS(),A.o5(),!1,p,A.A8(),A.o5()),A.b([A.aLt(p,3,A.aKl(!1,B.aS.bM(0.2),0,p,!0,B.o0),q,0.35,p,new A.rb(!0,A.aNI(),new A.aAT()),B.K6,p,B.M0,!0,!1,!0,!1,B.M2,!1,10,B.Vd,!0,B.lN,n)],t.HS),new A.wt(new A.Dx(new A.aAU(),new A.aAV()),A.aW6(),10,A.aW3(),!0,A.aW5(),A.aW4(),!0,p,p,p),p,1e4,p,0,B.B8,0,B.Og,new A.mI(!0,new A.h_(16,p,new A.hl(!0,new A.aAW(o),40,p,!0,!0),!0,B.c4),B.cP,B.cP,new A.h_(16,p,new A.hl(!0,new A.aAX(o),30,1,!0,!0),!0,B.c4))),B.ef,B.bY,p,p),p)}}
+return new A.aQ(p,280,new A.Du(A.aLu(p,p,p,B.Of,r,B.on,B.q7,new A.mG(!0,!0,2000,new A.aAS(),A.o5(),!1,p,A.A8(),A.o5()),A.b([A.aLt(p,3,A.aKl(!1,B.aS.bM(0.2),0,p,!0,B.o0),q,0.35,p,new A.rb(!0,A.aNI(),new A.aAT()),B.K6,p,B.M0,!0,!1,!0,!1,B.M2,!1,10,B.Vd,!0,B.lM,n)],t.HS),new A.wt(new A.Dx(new A.aAU(),new A.aAV()),A.aW6(),10,A.aW3(),!0,A.aW5(),A.aW4(),!0,p,p,p),p,1e4,p,0,B.B8,0,B.Og,new A.mI(!0,new A.h_(16,p,new A.hl(!0,new A.aAW(o),40,p,!0,!0),!0,B.c4),B.cP,B.cP,new A.h_(16,p,new A.hl(!0,new A.aAX(o),30,1,!0,!0),!0,B.c4))),B.ef,B.bY,p,p),p)}}
 A.aAV.prototype={
 $1(a){return B.bO},
 $S:192}
@@ -97874,7 +97874,7 @@ A.DU.prototype={
 a4(){return new A.Jr()}}
 A.Jr.prototype={
 ao(){this.aJ()
-this.d=B.b.gag(B.lL)},
+this.d=B.b.gag(B.lT)},
 akb(a){this.ac(new A.aCh(this,a))},
 v(a){var s=null,r=A.aA(a,B.aa,t.w).w,q=this.d
 q===$&&A.a()
@@ -97959,7 +97959,7 @@ v(a){var s=null,r=A.B(a),q=A.bu(12),p=t.v7
 p=A.a_(new A.Z(B.MQ,new A.akK(this,r),p),p.h("as.E"))
 return A.fh(new A.aM(B.ac,A.f1(p,s,s,!1),s),B.j,s,B.X,!0,new A.bA(q,B.k))}}
 A.akK.prototype={
-$1(a){var s=null,r=t.MO,q=A.a_(new A.aN(B.lL,new A.akJ(a),r),r.h("C.E"))
+$1(a){var s=null,r=t.MO,q=A.a_(new A.aN(B.lT,new A.akJ(a),r),r.h("C.E"))
 r=this.a
 return A.bG(A.b([new A.aM(B.JB,A.au(A.b_d(a),s,s,s,this.b.ok.e,s,s,s),s),new A.a0f(q,r.c,r.d,s),B.aA],t.p),B.D,B.n,B.o,0)},
 $S:685}
@@ -97989,7 +97989,7 @@ A.wJ.prototype={
 a4(){return new A.Js()}}
 A.Js.prototype={
 ao(){this.aJ()
-this.d=B.b.gag(B.lL)},
+this.d=B.b.gag(B.lT)},
 al4(a){this.ac(new A.aCi(this,a))},
 v(a){var s,r=null,q=A.lB(a)?16:32,p=A.dM(new A.DT(this.a.c,this.gal3(),r),2),o=this.d
 o===$&&A.a()
@@ -105860,32 +105860,6 @@ B.N2=s([B.ke,B.kf],A.a7("t<AJ>"))
 B.N4=s(["BC","AD"],t.s)
 B.qU=s(["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],t.s)
 B.N6=s(["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],t.s)
-B.mJ=new A.eN(0,"plate")
-B.R3=new A.dr("Crispy Calamari Rings",6.5,"Lightly battered and perfectly fried golden calamari rings, served with a side of tangy marinara and zesty garlic aioli. Crunchy on the outside, tender on the inside \u2014 a classic appetizer that\u2019s impossible to resist.",B.hF,u.K,B.mJ)
-B.cG=new A.eN(1,"serving")
-B.R0=new A.dr("Garlic Bread with Cheese",5.99,"Warm, oven-toasted bread topped with a generous layer of melted mozzarella and brushed with garlic herb butter. Crispy on the edges, soft in the center \u2014 the perfect start to any meal.",B.hF,u.y,B.cG)
-B.BK=new A.eN(3,"basket")
-B.Ra=new A.dr("Mozzarella Cheese Sticks",6.25,"Golden, crunchy breaded mozzarella sticks served piping hot with rich marinara dipping sauce. Gooey, stretchy cheese wrapped in a satisfying crispy shell \u2014 a favorite for all ages.",B.hF,u.F,B.BK)
-B.BJ=new A.eN(2,"stack")
-B.R6=new A.dr("Classic Pancakes",4.99,"Fluffy, golden pancakes stacked high and served with warm maple syrup and a pat of creamy butter. Light, airy, and made fresh \u2014 a comforting breakfast classic everyone loves.",B.hG,u.c,B.BJ)
-B.R9=new A.dr("Avocado Toast",6.25,"Toasted artisan bread topped with creamy smashed avocado, a drizzle of olive oil, and a sprinkle of chili flakes. Simple, fresh, and packed with flavor \u2014 a modern breakfast favorite.",B.hG,u.H,B.cG)
-B.Rd=new A.dr("Breakfast Burrito",6.99,"A warm flour tortilla stuffed with scrambled eggs, melted cheese, crispy hash browns, and your choice of bacon or veggies. Wrapped tight and served hot \u2014 a hearty start to your day.",B.hG,u.w,B.cG)
-B.R_=new A.dr("Beef Burger",11.99,"A juicy grilled beef patty stacked with fresh lettuce, ripe tomatoes, onions, and melted cheddar, all tucked inside a toasted brioche bun. Served with crispy golden fries for the perfect classic combo.",B.hH,u.a,B.cG)
-B.Re=new A.dr("Spaghetti Carbonara",10.99,"Creamy spaghetti tossed with crispy pancetta, parmesan cheese, and a silky egg-based sauce. Rich, comforting, and cooked to perfection \u2014 an Italian favorite that never disappoints.",B.hH,u.J,B.mJ)
-B.R4=new A.dr("Grilled Chicken Sandwich",9.99,"Tender marinated chicken breast grilled to perfection and served on a soft bun with lettuce, tomatoes, and a zesty house sauce. Comes with a side of crunchy fries for a satisfying midday meal.",B.hH,u.E,B.cG)
-B.Rc=new A.dr("Spicy Shrimp Rice",8.99,"Juicy shrimp saut\xe9ed in a bold, spicy seasoning and served over fragrant garlic butter rice. A flavorful dish with the perfect balance of heat and savory richness.",B.hI,u.A,B.cG)
-B.R5=new A.dr("Beef Steak",8.99,"Tender, perfectly seasoned beef steak grilled to your preferred doneness and served with steamed vegetables and buttery mashed potatoes. A hearty, satisfying dinner classic.",B.hI,"https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",B.cG)
-B.Rb=new A.dr("Garlic Chicken",8.99,"Succulent chicken cooked in a rich garlic butter sauce, paired with herbed rice and saut\xe9ed vegetables. Comforting, aromatic, and packed with savory flavor.",B.hI,"https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",B.cG)
-B.mL=new A.eN(5,"slice")
-B.Rf=new A.dr("Chocolate Lava Cake",5.99,"A warm, decadent chocolate cake with a molten, gooey center that flows with rich chocolate goodness. Served with a dusting of powdered sugar \u2014 pure indulgence in every bite.",B.hJ,u.u,B.mL)
-B.mK=new A.eN(4,"cup")
-B.R7=new A.dr("Vanilla Ice Cream",4.75,"Creamy, smooth vanilla ice cream made with real vanilla beans. Light, refreshing, and perfect on its own or paired with any dessert.",B.hJ,"https://images.unsplash.com/photo-1646318754907-dc7c0d236a97?q=80&w=928&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",B.mK)
-B.R8=new A.dr("Strawberry Cheesecake",5.5,"A velvety cheesecake layered on a buttery graham crust, topped with sweet strawberry compote. Rich, fruity, and beautifully balanced.",B.hJ,u.P,B.mL)
-B.R1=new A.dr("Iced Latte",4.5,"A smooth blend of freshly brewed espresso poured over chilled milk and ice. Refreshing, lightly sweet, and perfect for a cool caffeine kick any time of day.",B.hK,u.W,B.mK)
-B.mM=new A.eN(6,"glass")
-B.R2=new A.dr("Classic Mojito",5.99,"A crisp, refreshing mix of fresh mint leaves, lime juice, sugar, and sparkling soda. Served over ice for a bright, zesty drink that\u2019s wonderfully uplifting.",B.hK,u.q,B.mM)
-B.Rg=new A.dr("Fresh Lemonade",3.99,"Freshly squeezed lemons blended with cool water and just the right touch of sweetness. Bright, tangy, and revitalizing \u2014 the perfect drink to quench your thirst.",B.hK,"https://images.unsplash.com/photo-1623084918757-56d74eb2c650?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",B.mM)
-B.lL=s([B.R3,B.R0,B.Ra,B.R6,B.R9,B.Rd,B.R_,B.Re,B.R4,B.Rc,B.R5,B.Rb,B.Rf,B.R7,B.R8,B.R1,B.R2,B.Rg],A.a7("t<dr>"))
 B.aU=new A.fa(0,"icon")
 B.bd=new A.fa(1,"input")
 B.ad=new A.fa(2,"label")
@@ -105920,7 +105894,7 @@ B.aB=new A.GH(0,"upstream")
 B.Nw=s([B.aB,B.m],A.a7("t<GH>"))
 B.ap=new A.GL(0,"rtl")
 B.Z=new A.GL(1,"ltr")
-B.lM=s([B.ap,B.Z],A.a7("t<GL>"))
+B.lL=s([B.ap,B.Z],A.a7("t<GL>"))
 B.NC=s(["file","directory","link","unixDomainSock","pipe","notFound"],t.s)
 B.ND=s(["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],t.s)
 B.Gj=new A.qK(0,"auto")
@@ -105954,6 +105928,13 @@ B.TF=new A.ah(0.66416338,0.0734653)
 B.TC=new A.ah(0.68675338,0.06974996)
 B.TS=new A.ah(0.70678034,0.06529512)
 B.qY=s([B.TW,B.TV,B.TI,B.TL,B.TU,B.TB,B.TG,B.TJ,B.TE,B.TR,B.TZ,B.TF,B.TC,B.TS],A.a7("t<+(w,w)>"))
+B.mJ=new A.eN(0,"plate")
+B.cG=new A.eN(1,"serving")
+B.BJ=new A.eN(2,"stack")
+B.BK=new A.eN(3,"basket")
+B.mK=new A.eN(4,"cup")
+B.mL=new A.eN(5,"slice")
+B.mM=new A.eN(6,"glass")
 B.qZ=s([B.mJ,B.cG,B.BJ,B.BK,B.mK,B.mL,B.mM],A.a7("t<eN>"))
 B.NN=s(["click","scroll"],t.s)
 B.EW=new A.ob()
@@ -105980,25 +105961,25 @@ B.iF=s([],t.jl)
 B.O4=s([],t.wi)
 B.O2=s([],A.a7("t<fK<@>>"))
 B.NX=s([],t.Mr)
-B.lQ=s([],t.AO)
+B.lP=s([],t.AO)
 B.NT=s([],t.yo)
 B.az=s([],t.i3)
-B.lO=s([],t.K1)
+B.lN=s([],t.K1)
 B.O1=s([],t.D1)
-B.lR=s([],t.QF)
+B.lQ=s([],t.QF)
 B.Og=s([],t.Xv)
 B.a4k=s([],t.nk)
 B.Oe=s([],t.Lx)
 B.NS=s([],t.fm)
-B.lP=s([],t.p)
+B.lO=s([],t.p)
 B.NQ=s([],A.a7("t<hw>"))
 B.O_=s([],t.lD)
 B.r2=s([],t.n)
-B.lN=s([],t.t)
+B.lM=s([],t.t)
 B.r0=s([],t.ee)
 B.NZ=s([],t.iG)
 B.Oh=s([],t.XS)
-B.lS=s(["S","M","T","W","T","F","S"],t.s)
+B.lR=s(["S","M","T","W","T","F","S"],t.s)
 B.r3=s(["J","F","M","A","M","J","J","A","S","O","N","D"],t.s)
 B.On=s([B.df,B.fa,B.nY,B.hA],A.a7("t<kO>"))
 B.fW=new A.f(0,2)
@@ -106030,7 +106011,7 @@ B.mf=new A.iC(7,"functionModifier")
 B.xh=new A.iC(8,"symbolModifier")
 B.r6=s([B.ey,B.ez,B.eA,B.eB,B.mc,B.md,B.me,B.mf,B.xh],A.a7("t<iC>"))
 B.OC=s(["1st quarter","2nd quarter","3rd quarter","4th quarter"],t.s)
-B.lT=s([!0,!1],t.HZ)
+B.lS=s([!0,!1],t.HZ)
 B.dM={day:0,amount:1}
 B.QD=new A.bn(B.dM,["Mon",3500],t.R)
 B.Qx=new A.bn(B.dM,["Tue",4200],t.R)
@@ -106042,6 +106023,25 @@ B.QC=new A.bn(B.dM,["Sun",7200],t.R)
 B.r7=s([B.QD,B.Qx,B.Qy,B.Qz,B.QB,B.QA,B.QC],t.H7)
 B.OE=s(["pointerdown","pointermove","pointerleave","pointerup","pointercancel","touchstart","touchend","touchmove","touchcancel","mousedown","mousemove","mouseleave","mouseup","wheel"],t.s)
 B.OF=s(["Before Christ","Anno Domini"],t.s)
+B.R4=new A.dr("Crispy Calamari Rings",6.5,"Lightly battered and perfectly fried golden calamari rings, served with a side of tangy marinara and zesty garlic aioli. Crunchy on the outside, tender on the inside \u2014 a classic appetizer that\u2019s impossible to resist.",B.hF,u.K,B.mJ)
+B.R0=new A.dr("Garlic Bread with Cheese",5.99,"Warm, oven-toasted bread topped with a generous layer of melted mozzarella and brushed with garlic herb butter. Crispy on the edges, soft in the center \u2014 the perfect start to any meal.",B.hF,u.y,B.cG)
+B.Ra=new A.dr("Mozzarella Cheese Sticks",6.25,"Golden, crunchy breaded mozzarella sticks served piping hot with rich marinara dipping sauce. Gooey, stretchy cheese wrapped in a satisfying crispy shell \u2014 a favorite for all ages.",B.hF,u.F,B.BK)
+B.R6=new A.dr("Classic Pancakes",4.99,"Fluffy, golden pancakes stacked high and served with warm maple syrup and a pat of creamy butter. Light, airy, and made fresh \u2014 a comforting breakfast classic everyone loves.",B.hG,u.c,B.BJ)
+B.R9=new A.dr("Avocado Toast",6.25,"Toasted artisan bread topped with creamy smashed avocado, a drizzle of olive oil, and a sprinkle of chili flakes. Simple, fresh, and packed with flavor \u2014 a modern breakfast favorite.",B.hG,u.H,B.cG)
+B.Rd=new A.dr("Breakfast Burrito",6.99,"A warm flour tortilla stuffed with scrambled eggs, melted cheese, crispy hash browns, and your choice of bacon or veggies. Wrapped tight and served hot \u2014 a hearty start to your day.",B.hG,u.w,B.cG)
+B.R_=new A.dr("Beef Burger",11.99,"A juicy grilled beef patty stacked with fresh lettuce, ripe tomatoes, onions, and melted cheddar, all tucked inside a toasted brioche bun. Served with crispy golden fries for the perfect classic combo.",B.hH,u.a,B.cG)
+B.Re=new A.dr("Spaghetti Carbonara",10.99,"Creamy spaghetti tossed with crispy pancetta, parmesan cheese, and a silky egg-based sauce. Rich, comforting, and cooked to perfection \u2014 an Italian favorite that never disappoints.",B.hH,u.J,B.mJ)
+B.R3=new A.dr("Chicken Sandwich",9.99,"Tender marinated chicken breast grilled to perfection and served on a soft bun with lettuce, tomatoes, and a zesty house sauce. Comes with a side of crunchy fries for a satisfying midday meal.",B.hH,u.E,B.cG)
+B.Rc=new A.dr("Spicy Shrimp Rice",8.99,"Juicy shrimp saut\xe9ed in a bold, spicy seasoning and served over fragrant garlic butter rice. A flavorful dish with the perfect balance of heat and savory richness.",B.hI,u.A,B.cG)
+B.R5=new A.dr("Beef Steak",8.99,"Tender, perfectly seasoned beef steak grilled to your preferred doneness and served with steamed vegetables and buttery mashed potatoes. A hearty, satisfying dinner classic.",B.hI,"https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",B.cG)
+B.Rb=new A.dr("Garlic Chicken",8.99,"Succulent chicken cooked in a rich garlic butter sauce, paired with herbed rice and saut\xe9ed vegetables. Comforting, aromatic, and packed with savory flavor.",B.hI,"https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",B.cG)
+B.Rf=new A.dr("Chocolate Lava Cake",5.99,"A warm, decadent chocolate cake with a molten, gooey center that flows with rich chocolate goodness. Served with a dusting of powdered sugar \u2014 pure indulgence in every bite.",B.hJ,u.u,B.mL)
+B.R7=new A.dr("Vanilla Ice Cream",4.75,"Creamy, smooth vanilla ice cream made with real vanilla beans. Light, refreshing, and perfect on its own or paired with any dessert.",B.hJ,"https://images.unsplash.com/photo-1646318754907-dc7c0d236a97?q=80&w=928&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",B.mK)
+B.R8=new A.dr("Strawberry Cheesecake",5.5,"A velvety cheesecake layered on a buttery graham crust, topped with sweet strawberry compote. Rich, fruity, and beautifully balanced.",B.hJ,u.P,B.mL)
+B.R1=new A.dr("Iced Latte",4.5,"A smooth blend of freshly brewed espresso poured over chilled milk and ice. Refreshing, lightly sweet, and perfect for a cool caffeine kick any time of day.",B.hK,u.W,B.mK)
+B.R2=new A.dr("Classic Mojito",5.99,"A crisp, refreshing mix of fresh mint leaves, lime juice, sugar, and sparkling soda. Served over ice for a bright, zesty drink that\u2019s wonderfully uplifting.",B.hK,u.q,B.mM)
+B.Rg=new A.dr("Fresh Lemonade",3.99,"Freshly squeezed lemons blended with cool water and just the right touch of sweetness. Bright, tangy, and revitalizing \u2014 the perfect drink to quench your thirst.",B.hK,"https://images.unsplash.com/photo-1623084918757-56d74eb2c650?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",B.mM)
+B.lT=s([B.R4,B.R0,B.Ra,B.R6,B.R9,B.Rd,B.R_,B.Re,B.R3,B.Rc,B.R5,B.Rb,B.Rf,B.R7,B.R8,B.R1,B.R2,B.Rg],A.a7("t<dr>"))
 B.r8=s([31,-1,31,30,31,30,31,31,30,31,30,31],t.t)
 B.r9=s([3200,4500,3800,5200,6100,7500,6800,8200,7900,9100,8800,9600],t.n)
 B.a2r=new A.a_0(null)
@@ -107277,8 +107277,8 @@ B.mA=new A.xD(1,"nextLine")
 B.jb=new A.xD(2,"forward")
 B.jc=new A.xD(3,"backward")
 B.d9=new A.FO(2,"none")
-B.Bt=new A.pq(null,null,B.d9,B.lQ,!0)
-B.Bu=new A.pq(null,null,B.d9,B.lQ,!1)
+B.Bt=new A.pq(null,null,B.d9,B.lP,!0)
+B.Bu=new A.pq(null,null,B.d9,B.lP,!1)
 B.I=new A.pr(0,"next")
 B.T=new A.pr(1,"previous")
 B.Y=new A.pr(2,"end")
@@ -108572,7 +108572,7 @@ return q})
 r($,"bf1","aXO",()=>{var q=A.a7("~(bc<b4>)")
 return A.aq([B.a0I,A.aQ0(!0),B.a0y,A.aQ0(!1),B.a15,new A.TN(A.Ee(q)),B.CY,new A.Sg(A.Ee(q)),B.CZ,new A.SU(A.Ee(q)),B.nf,new A.BQ(!1,A.Ee(q)),B.nj,A.b4j(),B.a1_,new A.SX(A.Ee(q)),B.a1m,new A.W6(A.Ee(q))],t.u,t.od)})
 s($,"bcS","aJO",()=>{var q,p,o,n=t.J,m=A.x(t.Vz,n)
-for(q=A.a7("ak"),p=0;p<2;++p){o=B.lT[p]
+for(q=A.a7("ak"),p=0;p<2;++p){o=B.lS[p]
 m.S(0,A.aq([A.eO(B.bf,!1,!1,!1,o),B.kL,A.eO(B.bf,!1,!0,!1,o),B.kO,A.eO(B.bf,!0,!1,!1,o),B.kM,A.eO(B.b8,!1,!1,!1,o),B.fu,A.eO(B.b8,!1,!0,!1,o),B.fv,A.eO(B.b8,!0,!1,!1,o),B.kN],q,n))}m.n(0,B.he,B.el)
 m.n(0,B.hf,B.em)
 m.n(0,B.eO,B.ep)
@@ -108632,7 +108632,7 @@ q.n(0,B.mR,B.ig)
 q.n(0,B.mS,B.ih)
 return q})
 s($,"bcY","aO2",()=>{var q,p,o,n=t.J,m=A.x(t.Vz,n)
-for(q=A.a7("ak"),p=0;p<2;++p){o=B.lT[p]
+for(q=A.a7("ak"),p=0;p<2;++p){o=B.lS[p]
 m.S(0,A.aq([A.eO(B.bf,!1,!1,!1,o),B.kL,A.eO(B.bf,!0,!1,!1,o),B.kO,A.eO(B.bf,!1,!1,!0,o),B.kM,A.eO(B.b8,!1,!1,!1,o),B.fu,A.eO(B.b8,!0,!1,!1,o),B.fv,A.eO(B.b8,!1,!1,!0,o),B.kN],q,n))}m.n(0,B.he,B.el)
 m.n(0,B.hf,B.em)
 m.n(0,B.eO,B.ep)
@@ -108695,7 +108695,7 @@ q.n(0,B.mR,B.ig)
 q.n(0,B.mS,B.ih)
 return q})
 s($,"bcZ","aO3",()=>{var q,p,o,n=t.J,m=A.x(t.Vz,n)
-for(q=A.a7("ak"),p=0;p<2;++p){o=B.lT[p]
+for(q=A.a7("ak"),p=0;p<2;++p){o=B.lS[p]
 m.S(0,A.aq([A.eO(B.bf,!1,!1,!1,o),B.w,A.eO(B.b8,!1,!1,!1,o),B.w,A.eO(B.bf,!0,!1,!1,o),B.w,A.eO(B.b8,!0,!1,!1,o),B.w,A.eO(B.bf,!1,!0,!1,o),B.w,A.eO(B.b8,!1,!0,!1,o),B.w,A.eO(B.bf,!1,!1,!0,o),B.w,A.eO(B.b8,!1,!1,!0,o),B.w],q,n))}m.S(0,B.x5)
 m.n(0,B.BQ,B.w)
 m.n(0,B.BN,B.w)
@@ -108756,15 +108756,15 @@ return o})
 r($,"bh6","a7e",()=>new A.a8U())
 s($,"bdc","aJP",()=>A.b43(null,A.dI("")))
 r($,"ber","MX",()=>{var q=null
-return A.b46(q,q,B.lO,B.bG,A.a5g(q,q,q))})
+return A.b46(q,q,B.lN,B.bG,A.a5g(q,q,q))})
 s($,"bgv","aOk",()=>A.er(":(\\w+)(\\((?:\\\\.|[^\\\\()])+\\))?",!0,!1))
 s($,"bhr","a7g",()=>A.b([A.ku(B.iR.bM(0.2),B.lE,"Today's Orders","120"),A.ku(B.ex.bM(0.2),B.d2,"Today's Income","120"),A.ku(B.cB.bM(0.2),B.qr,"Today's Customers","240"),A.ku(B.iS.bM(0.2),B.KK,"Cancelled Orders","140")],A.a7("t<tR>")))
 s($,"bho","aK4",()=>A.b([A.ku(B.iR.bM(0.2),B.lE,"Monthly Orders","120"),A.ku(B.ex.bM(0.2),B.d2,"Monthly Income","120"),A.ku(B.cB.bM(0.2),B.qr,"Monthly Customers","240"),A.ku(B.dK.bM(0.2),B.d2,"Monthly Avg. Spend","140")],A.a7("t<tR>")))
 s($,"bhh","aOs",()=>A.b([A.ku(B.iR.bM(0.2),B.d2,"Today's Income","120"),A.ku(B.cB.bM(0.2),B.d2,"Weekly Avg. Spend","120"),A.ku(B.ex.bM(0.2),B.d2,"Monthly Income","120"),A.ku(B.dK.bM(0.2),B.d2,"Monthly Avg. Spend","240")],A.a7("t<tR>")))
-s($,"bhs","Al",()=>{var q=2025,p="Garlic Bread with Cheese",o=u.y,n="Strawberry Cheesecake",m=u.P,l="Grilled Chicken Sandwich",k=u.E,j=u.a,i="Spaghetti Carbonara",h=u.J,g=t.N,f=t.z,e=t.H7
+s($,"bhs","Al",()=>{var q=2025,p="Garlic Bread with Cheese",o=u.y,n="Strawberry Cheesecake",m=u.P,l="Chicken Sandwich",k=u.E,j=u.a,i="Spaghetti Carbonara",h=u.J,g=t.N,f=t.z,e=t.H7
 return A.b([A.uK("https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=922&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","Sarah Johnson",A.bi(q,11,15,14,30,0,0),"Order-001",A.b([A.aq(["id","PROD-001","name","Crispy Calamari Rings","price",6.5,"image",u.K],g,f),A.aq(["id","PROD-002","name",p,"price",5.99,"image",o],g,f),A.aq(["id","PROD-015","name",n,"price",5.5,"image",m],g,f)],e),B.n5),A.uK("https://images.unsplash.com/photo-1522556189639-b150ed9c4330?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","Michael Chen",A.bi(q,11,10,9,15,0,0),"Order-002",A.b([A.aq(["id","PROD-003","name","Mozzarella Cheese Sticks","price",6.25,"image",u.F],g,f),A.aq(["id","PROD-010","name","Spicy Shrimp Rice","price",8.99,"image",u.A],g,f)],e),B.n6),A.uK("https://plus.unsplash.com/premium_photo-1690587673708-d6ba8a1579a5?q=80&w=758&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","Emily Rodriguez",A.bi(q,11,18,16,45,0,0),"Order-003",A.b([A.aq(["id","PROD-004","name","Classic Pancakes","price",4.99,"image",u.c],g,f),A.aq(["id","PROD-015","name",n,"price",5.5,"image",m],g,f),A.aq(["id","PROD-009","name",l,"price",9.99,"image",k],g,f)],e),B.WL),A.uK("https://plus.unsplash.com/premium_photo-1722859288966-b00ef70df64b?q=80&w=1606&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","David Thompson",A.bi(q,11,20,11,20,0,0),"Order-004",A.b([A.aq(["id","PROD-007","name","Beef Burger","price",11.99,"image",j],g,f),A.aq(["id","PROD-005","name","Avocado Toast","price",6.25,"image",u.H],g,f)],e),B.n5),A.uK("https://plus.unsplash.com/premium_photo-1664541336896-b3d5f7dec9a3?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","Jessica Williams",A.bi(q,11,8,13,10,0,0),"Order-005",A.b([A.aq(["id","PROD-009","name",l,"price",9.99,"image",k],g,f),A.aq(["id","PROD-008","name",i,"price",10.99,"image",h],g,f),A.aq(["id","PROD-007","name","Beef Burger","price",11.99,"image",j],g,f)],e),B.n6),A.uK("https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","Robert Martinez",A.bi(q,11,12,10,5,0,0),"Order-006",A.b([A.aq(["id","PROD-002","name",p,"price",5.99,"image",o],g,f),A.aq(["id","PROD-007","name","Beef Burger","price",11.99,"image",j],g,f),A.aq(["id","PROD-008","name",i,"price",10.99,"image",h],g,f)],e),B.WK),A.uK("https://images.unsplash.com/photo-1618835962148-cf177563c6c0?q=80&w=930&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","Amanda Davis",A.bi(q,11,22,15,30,0,0),"Order-007",A.b([A.aq(["id","PROD-013","name","Chocolate Lava Cake","price",5.99,"image",u.u],g,f),A.aq(["id","PROD-006","name","Breakfast Burrito","price",6.99,"image",u.w],g,f)],e),B.n5),A.uK("https://images.unsplash.com/photo-1527082395-e939b847da0d?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","James Wilson",A.bi(q,11,5,8,45,0,0),"Order-008",A.b([A.aq(["id","PROD-016","name","Iced Latte","price",4.5,"image",u.W],g,f),A.aq(["id","PROD-017","name","Classic Mojito","price",5.99,"image",u.q],g,f)],e),B.n6)],A.a7("t<wS>"))})
 s($,"bfl","aY2",()=>A.b([B.cB.gEz(),B.ex.gEz(),B.aS.bM(0.8),B.dK.gEz()],t.t_))
-r($,"beK","aJW",()=>A.b([A.Hc(u.K,"Crispy Calamari Rings","$6.50",4.5),A.Hc(u.c,"Classic Pancakes","$4.99",4.3),A.Hc(u.w,"Breakfast Burrito","$6.99",4.2),A.Hc(u.a,"Beef Burger","$11.99",4.8),A.Hc(u.J,"Spaghetti Carbonara","$10.99",4.7),A.Hc(u.E,"Grilled Chicken Sandwich","$9.99",4.6)],A.a7("t<VQ>")))
+r($,"beK","aJW",()=>A.b([A.Hc(u.K,"Crispy Calamari Rings","$6.50",4.5),A.Hc(u.c,"Classic Pancakes","$4.99",4.3),A.Hc(u.w,"Breakfast Burrito","$6.99",4.2),A.Hc(u.a,"Beef Burger","$11.99",4.8),A.Hc(u.J,"Spaghetti Carbonara","$10.99",4.7),A.Hc(u.E,"Chicken Sandwich","$9.99",4.6)],A.a7("t<VQ>")))
 s($,"bhv","aK6",()=>{var q=2025
 return A.b([A.nm("1234567890",A.bi(q,11,15,14,30,0,0),"samantha@example.com","Samantha",2,B.dT),A.nm("9876543210",A.bi(q,11,15,14,30,0,0),"bruce@example.com","Bruce",4,B.dT),A.nm("5551234567",A.bi(q,11,15,14,30,0,0),"jim.doe@example.com","Jim Doe",6,B.mr),A.nm("4442221111",A.bi(q,11,15,14,30,0,0),"alice.smith@example.com","Alice Smith",3,B.mr),A.nm("3334445555",A.bi(q,11,15,14,30,0,0),"bob.johnson@example.com","Bob Johnson",5,B.dT),A.nm("1112223333",A.bi(q,11,15,14,30,0,0),"charlie.brown@example.com","Charlie Brown",2,B.dT),A.nm("2223334444",A.bi(q,11,15,14,30,0,0),"diana.prince@example.com","Diana Prince",8,B.dT),A.nm("7778889999",A.bi(q,11,15,14,30,0,0),"ethan.hunt@example.com","Ethan Hunt",1,B.mr),A.nm("8889990000",A.bi(q,11,15,14,30,0,0),"fiona@example.com","Fiona Gallagher",7,B.dT),A.nm("6667778888",A.bi(q,11,15,14,30,0,0),"george.miller@example.com","George Miller",4,B.dT)],A.a7("t<TP>"))})
 s($,"bhx","aZk",()=>{var q=null,p=B.b.fK(B.iD,new A.aJy(),t.TK).dD(0),o=A.b1x(q,A.a7("xS"))
@@ -108772,7 +108772,7 @@ p=A.b([new A.pA(q,new A.aJz(),q,A.bbT(),p,o,q,A.b4U(p),q)],t.yo)
 return A.b1A(!1,q,q,q,q,"/",q,q,q,!1,q,!0,q,!1,new A.XQ(new A.app(p,A.bbU(),5,q)))})
 s($,"bhz","a7i",()=>A.b([A.UQ(B.Ky,B.KM,B.nR,"Home"),A.UQ(B.KF,B.lE,B.nV,"Menu"),A.UQ(B.Kx,B.KL,B.nT,"Orders"),A.UQ(B.KQ,B.KP,B.nS,"Reservations"),A.UQ(B.d2,B.KI,B.nU,"Income")],A.a7("t<lI>")))
 s($,"bcB","aWw",()=>A.er("^[\\w!#%&'*+\\-.^`|~]+$",!0,!1))
-s($,"bhf","aZg",()=>new A.P3("en_US",B.N4,B.OF,B.r3,B.r3,B.iC,B.iC,B.fI,B.fI,B.qT,B.qT,B.qU,B.qU,B.lS,B.lS,B.Np,B.OC,B.N0))
+s($,"bhf","aZg",()=>new A.P3("en_US",B.N4,B.OF,B.r3,B.r3,B.iC,B.iC,B.fI,B.fI,B.qT,B.qT,B.qU,B.qU,B.lR,B.lR,B.Np,B.OC,B.N0))
 r($,"bfT","aJY",()=>A.aTv("initializeDateFormatting(<locale>)",$.aZg(),A.a7("P3")))
 r($,"bhc","aOr",()=>A.aTv("initializeDateFormatting(<locale>)",B.Qs,t.GU))
 s($,"bh_","aZe",()=>48)
