@@ -1,8 +1,8 @@
-import 'package:dashboard/utils/routes.dart';
-import 'package:dashboard/utils/scroll_configuration.dart';
-import 'package:dashboard/utils/theme/app_colors.dart';
-import 'package:dashboard/utils/theme/text_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/utils/routes.dart';
+import 'package:grill_house/utils/scroll_configuration.dart';
+import 'package:grill_house/utils/theme/app_colors.dart';
+import 'package:grill_house/utils/theme/text_theme.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 void main() {

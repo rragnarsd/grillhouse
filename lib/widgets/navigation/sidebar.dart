@@ -1,8 +1,8 @@
-import 'package:dashboard/utils/routes.dart';
-import 'package:dashboard/utils/theme/app_colors.dart';
-import 'package:dashboard/widgets/navigation/data/sidebar_data.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:grill_house/utils/routes.dart';
+import 'package:grill_house/utils/theme/app_colors.dart';
+import 'package:grill_house/widgets/navigation/data/sidebar_data.dart';
 
 class SideBar extends StatelessWidget {
   const SideBar({super.key, required this.onRouteChanged, this.currentRoute});

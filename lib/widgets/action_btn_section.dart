@@ -1,6 +1,6 @@
-import 'package:dashboard/utils/responsive.dart';
-import 'package:dashboard/widgets/buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/utils/responsive.dart';
+import 'package:grill_house/widgets/buttons.dart';
 
 class ActionButtonsSection extends StatelessWidget {
   const ActionButtonsSection({

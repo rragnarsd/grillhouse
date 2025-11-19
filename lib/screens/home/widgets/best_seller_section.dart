@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:dashboard/screens/menu/widgets/menu_star_rating.dart';
-import 'package:dashboard/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/screens/menu/widgets/menu_star_rating.dart';
+import 'package:grill_house/utils/constants.dart';
 
 class BestSellerSection extends StatelessWidget {
   const BestSellerSection({super.key});

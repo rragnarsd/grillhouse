@@ -1,10 +1,10 @@
 import 'dart:ui';
 
-import 'package:dashboard/screens/menu/data/trending_menu_data.dart';
-import 'package:dashboard/utils/constants.dart';
-import 'package:dashboard/widgets/date_picker_btn.dart';
-import 'package:dashboard/widgets/trending_order_card.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/screens/menu/data/trending_menu_data.dart';
+import 'package:grill_house/utils/constants.dart';
+import 'package:grill_house/widgets/date_picker_btn.dart';
+import 'package:grill_house/widgets/trending_order_card.dart';
 
 class TrendingMenuSection extends StatelessWidget {
   const TrendingMenuSection({super.key});

@@ -1,5 +1,5 @@
-import 'package:dashboard/utils/constants.dart';
-import 'package:dashboard/utils/enums.dart';
+import 'package:grill_house/utils/constants.dart';
+import 'package:grill_house/utils/enums.dart';
 
 enum Category { appetizers, breakfast, lunch, dinner, dessert, drinks }
 

@@ -1,6 +1,6 @@
-import 'package:dashboard/utils/constants.dart';
-import 'package:dashboard/utils/responsive.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/utils/constants.dart';
+import 'package:grill_house/utils/responsive.dart';
 
 class AppHeader extends StatelessWidget implements PreferredSizeWidget {
   const AppHeader({super.key, this.scaffoldKey});

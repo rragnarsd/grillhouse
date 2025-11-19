@@ -1,8 +1,8 @@
-import 'package:dashboard/screens/home/data/order_data.dart';
-import 'package:dashboard/utils/constants.dart';
-import 'package:dashboard/utils/extensions.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/screens/home/data/order_data.dart';
+import 'package:grill_house/utils/constants.dart';
+import 'package:grill_house/utils/extensions.dart';
 
 class OrderTableSource extends DataTableSource {
   final void Function(Order) onView;

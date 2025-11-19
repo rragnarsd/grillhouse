@@ -1,6 +1,6 @@
-import 'package:dashboard/utils/constants.dart';
-import 'package:dashboard/utils/extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/utils/constants.dart';
+import 'package:grill_house/utils/extensions.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
 class EditProductModal {

@@ -1,7 +1,7 @@
-import 'package:dashboard/utils/responsive.dart';
-import 'package:dashboard/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:grill_house/utils/responsive.dart';
+import 'package:grill_house/utils/routes.dart';
 
 class DashboardShell extends StatelessWidget {
   const DashboardShell({

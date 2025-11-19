@@ -1,7 +1,7 @@
-import 'package:dashboard/utils/constants.dart';
-import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/utils/constants.dart';
+import 'package:grill_house/utils/theme/app_colors.dart';
 
 class IncomeByWeekSection extends StatelessWidget {
   const IncomeByWeekSection({super.key});

@@ -1,9 +1,9 @@
-import 'package:dashboard/screens/home/data/card_data.dart';
-import 'package:dashboard/screens/home/widgets/best_seller_section.dart';
-import 'package:dashboard/screens/home/widgets/home_order_table.dart';
-import 'package:dashboard/screens/home/widgets/revenue_chart_section.dart';
-import 'package:dashboard/widgets/status_card.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/screens/home/data/card_data.dart';
+import 'package:grill_house/screens/home/widgets/best_seller_section.dart';
+import 'package:grill_house/screens/home/widgets/home_order_table.dart';
+import 'package:grill_house/screens/home/widgets/revenue_chart_section.dart';
+import 'package:grill_house/widgets/status_card.dart';
 
 class HomeDesktopScreen extends StatelessWidget {
   const HomeDesktopScreen({super.key});

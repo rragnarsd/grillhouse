@@ -1,7 +1,7 @@
-import 'package:dashboard/utils/constants.dart';
-import 'package:dashboard/utils/theme/app_colors.dart';
-import 'package:dashboard/widgets/action_btn_section.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/utils/constants.dart';
+import 'package:grill_house/utils/theme/app_colors.dart';
+import 'package:grill_house/widgets/action_btn_section.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
 class DeleteOrderModal {

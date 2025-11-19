@@ -1,5 +1,5 @@
-import 'package:dashboard/utils/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/utils/routes.dart';
 
 class SidebarItem {
   final String title;

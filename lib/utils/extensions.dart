@@ -1,6 +1,6 @@
-import 'package:dashboard/utils/enums.dart';
-import 'package:dashboard/utils/responsive.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/utils/enums.dart';
+import 'package:grill_house/utils/responsive.dart';
 import 'package:intl/intl.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 

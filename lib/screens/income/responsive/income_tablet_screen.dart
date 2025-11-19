@@ -1,11 +1,11 @@
-import 'package:dashboard/screens/home/data/card_data.dart';
-import 'package:dashboard/screens/income/widgets/income_by_category_section.dart';
-import 'package:dashboard/screens/income/widgets/income_by_month_section.dart';
-import 'package:dashboard/screens/income/widgets/income_by_payment_section.dart';
-import 'package:dashboard/screens/income/widgets/income_by_week_section.dart';
-import 'package:dashboard/utils/extensions.dart';
-import 'package:dashboard/widgets/status_card.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/screens/home/data/card_data.dart';
+import 'package:grill_house/screens/income/widgets/income_by_category_section.dart';
+import 'package:grill_house/screens/income/widgets/income_by_month_section.dart';
+import 'package:grill_house/screens/income/widgets/income_by_payment_section.dart';
+import 'package:grill_house/screens/income/widgets/income_by_week_section.dart';
+import 'package:grill_house/utils/extensions.dart';
+import 'package:grill_house/widgets/status_card.dart';
 
 class IncomeTabletScreen extends StatelessWidget {
   const IncomeTabletScreen({super.key});

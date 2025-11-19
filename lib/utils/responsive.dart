@@ -1,10 +1,10 @@
-import 'package:dashboard/utils/routes.dart';
-import 'package:dashboard/widgets/navigation/bottom_nav_bar.dart';
-import 'package:dashboard/widgets/navigation/header.dart';
-import 'package:dashboard/widgets/responsive/desktop_layout.dart';
-import 'package:dashboard/widgets/responsive/tablet_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:grill_house/utils/routes.dart';
+import 'package:grill_house/widgets/navigation/bottom_nav_bar.dart';
+import 'package:grill_house/widgets/navigation/header.dart';
+import 'package:grill_house/widgets/responsive/desktop_layout.dart';
+import 'package:grill_house/widgets/responsive/tablet_layout.dart';
 
 enum ScreenType { mobile, tablet, desktop }
 

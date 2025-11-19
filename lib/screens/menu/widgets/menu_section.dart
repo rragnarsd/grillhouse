@@ -1,14 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:dashboard/screens/menu/data/menu_data.dart';
-import 'package:dashboard/screens/menu/widgets/menu_header.dart';
-import 'package:dashboard/screens/menu/widgets/menu_list.dart';
-import 'package:dashboard/screens/menu/widgets/menu_star_rating.dart';
-import 'package:dashboard/screens/menu/widgets/update_product_form.dart';
-import 'package:dashboard/utils/constants.dart';
-import 'package:dashboard/utils/responsive.dart';
-import 'package:dashboard/widgets/buttons.dart';
-import 'package:dashboard/widgets/edit_order_modal.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/screens/menu/data/menu_data.dart';
+import 'package:grill_house/screens/menu/widgets/menu_header.dart';
+import 'package:grill_house/screens/menu/widgets/menu_list.dart';
+import 'package:grill_house/screens/menu/widgets/menu_star_rating.dart';
+import 'package:grill_house/screens/menu/widgets/update_product_form.dart';
+import 'package:grill_house/utils/constants.dart';
+import 'package:grill_house/utils/responsive.dart';
+import 'package:grill_house/widgets/buttons.dart';
+import 'package:grill_house/widgets/edit_order_modal.dart';
 
 class MenuSection extends StatefulWidget {
   const MenuSection({super.key, this.crossAxisCount});

@@ -1,10 +1,10 @@
-import 'package:dashboard/screens/home/data/order_data.dart';
-import 'package:dashboard/utils/constants.dart';
-import 'package:dashboard/widgets/delete_order_modal.dart';
-import 'package:dashboard/widgets/order_table_source.dart';
-import 'package:dashboard/widgets/view_order_modal.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/screens/home/data/order_data.dart';
+import 'package:grill_house/utils/constants.dart';
+import 'package:grill_house/widgets/delete_order_modal.dart';
+import 'package:grill_house/widgets/order_table_source.dart';
+import 'package:grill_house/widgets/view_order_modal.dart';
 
 class HomeOrderTable extends StatelessWidget {
   const HomeOrderTable({super.key});

@@ -1,7 +1,7 @@
-import 'package:dashboard/utils/extensions.dart';
-import 'package:dashboard/utils/theme/app_colors.dart';
-import 'package:dashboard/widgets/header_tabs.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/utils/extensions.dart';
+import 'package:grill_house/utils/theme/app_colors.dart';
+import 'package:grill_house/widgets/header_tabs.dart';
 
 class DateHeaderTabs extends StatelessWidget {
   const DateHeaderTabs({

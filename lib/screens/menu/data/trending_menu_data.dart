@@ -1,4 +1,4 @@
-import 'package:dashboard/utils/constants.dart';
+import 'package:grill_house/utils/constants.dart';
 
 class TrendingMenuData {
   final String name;

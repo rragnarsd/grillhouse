@@ -1,12 +1,12 @@
-import 'package:dashboard/screens/home/home_screen.dart';
-import 'package:dashboard/screens/income/income_screen.dart';
-import 'package:dashboard/screens/menu/menu_screen.dart';
-import 'package:dashboard/screens/orders/orders_page.dart';
-import 'package:dashboard/screens/reservations/reservation_screen.dart';
-import 'package:dashboard/utils/responsive.dart';
-import 'package:dashboard/widgets/dashboard_shell.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:grill_house/screens/home/home_screen.dart';
+import 'package:grill_house/screens/income/income_screen.dart';
+import 'package:grill_house/screens/menu/menu_screen.dart';
+import 'package:grill_house/screens/orders/orders_page.dart';
+import 'package:grill_house/screens/reservations/reservation_screen.dart';
+import 'package:grill_house/utils/responsive.dart';
+import 'package:grill_house/widgets/dashboard_shell.dart';
 
 enum AppRoute {
   home(path: '/', screen: HomeScreen()),

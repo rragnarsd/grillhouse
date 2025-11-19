@@ -1,9 +1,9 @@
 import 'dart:ui';
 
-import 'package:dashboard/utils/responsive.dart';
-import 'package:dashboard/utils/theme/app_colors.dart';
-import 'package:dashboard/widgets/buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/utils/responsive.dart';
+import 'package:grill_house/utils/theme/app_colors.dart';
+import 'package:grill_house/widgets/buttons.dart';
 
 class HeaderTabs extends StatefulWidget {
   const HeaderTabs({

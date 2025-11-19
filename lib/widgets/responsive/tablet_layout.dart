@@ -1,7 +1,7 @@
-import 'package:dashboard/utils/routes.dart';
-import 'package:dashboard/widgets/navigation/header.dart';
-import 'package:dashboard/widgets/navigation/sidebar.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/utils/routes.dart';
+import 'package:grill_house/widgets/navigation/header.dart';
+import 'package:grill_house/widgets/navigation/sidebar.dart';
 
 class TabletLayout extends StatefulWidget {
   const TabletLayout({

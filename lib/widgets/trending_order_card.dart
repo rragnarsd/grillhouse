@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:dashboard/screens/menu/data/trending_menu_data.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/screens/menu/data/trending_menu_data.dart';
 
 class TrendingOrderItemCard extends StatelessWidget {
   const TrendingOrderItemCard({super.key, required this.item});

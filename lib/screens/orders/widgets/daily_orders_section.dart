@@ -1,8 +1,8 @@
-import 'package:dashboard/screens/home/data/order_data.dart';
-import 'package:dashboard/utils/constants.dart';
-import 'package:dashboard/utils/theme/app_colors.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/screens/home/data/order_data.dart';
+import 'package:grill_house/utils/constants.dart';
+import 'package:grill_house/utils/theme/app_colors.dart';
 
 class DailyOrdersSection extends StatelessWidget {
   const DailyOrdersSection({super.key});

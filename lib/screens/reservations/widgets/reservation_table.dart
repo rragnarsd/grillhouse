@@ -1,8 +1,8 @@
-import 'package:dashboard/screens/reservations/data/reservation_data.dart';
-import 'package:dashboard/screens/reservations/widgets/reservation_table_source.dart';
-import 'package:dashboard/widgets/date_header_tabs.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/screens/reservations/data/reservation_data.dart';
+import 'package:grill_house/screens/reservations/widgets/reservation_table_source.dart';
+import 'package:grill_house/widgets/date_header_tabs.dart';
 
 class ReservationTable extends StatelessWidget {
   const ReservationTable({super.key});

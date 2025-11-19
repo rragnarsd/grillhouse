@@ -1,8 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:dashboard/screens/menu/data/menu_data.dart';
-import 'package:dashboard/utils/extensions.dart';
-import 'package:dashboard/utils/responsive.dart';
 import 'package:flutter/material.dart';
+import 'package:grill_house/screens/menu/data/menu_data.dart';
+import 'package:grill_house/utils/responsive.dart';
 
 class MenuList extends StatelessWidget {
   const MenuList({super.key, this.crossAxisCount, this.onItemSelected});
@@ -138,7 +137,7 @@ class _MenuGridItem extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '\$${item.price.toStringAsFixed(2)} / ${item.servingUnit.label}',
+                    '\$${item.price.toStringAsFixed(2)} / ${item.servingUnit.name}',
                     style: theme.textTheme.bodyMedium?.copyWith(
                       color: Colors.grey,
                     ),
