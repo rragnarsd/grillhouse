@@ -96,7 +96,7 @@ class Constants {
   static const String classicPancakesName = 'Classic Pancakes';
   static const String avocadoToastName = 'Avocado Toast';
   static const String breakfastBurritoName = 'Breakfast Burrito';
-  static const String grilledChickenSandwichName = 'Grilled Chicken Sandwich';
+  static const String grilledChickenSandwichName = 'Chicken Sandwich';
   static const String spaghettiCarbonaraName = 'Spaghetti Carbonara';
   static const String beefBurgerName = 'Beef Burger';
   static const String spicyShrimpRiceName = 'Spicy Shrimp Rice';
