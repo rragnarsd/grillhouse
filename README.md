@@ -14,5 +14,10 @@ A modern Flutter Web Admin Panel.
 - Intl - https://pub.dev/packages/intl
 - WoltModalSheet - https://pub.dev/packages/wolt_modal_sheet
 
+##  :art: Design
+- Fully custom design showcasing my visual and UI/UX skills
+- Font Family: **Montserrat** & **Poppins**
+- Logo crafted in **Canva**
+
 ## :link: Link to Page
 https://rragnarsd.github.io/grillhouse/
