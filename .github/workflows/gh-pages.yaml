@@ -18,7 +18,7 @@ jobs:
           cache: true
 
       - run: flutter pub get
-      - run: flutter build web --release
+      - run: flutter build web --release --base-href "/grill_house/"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
