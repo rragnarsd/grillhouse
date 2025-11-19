@@ -51,7 +51,6 @@ class SideBar extends StatelessWidget {
 
 class _NavItem extends StatelessWidget {
   const _NavItem({
-    super.key,
     required this.item,
     required this.isSelected,
     required this.onRouteChanged,
